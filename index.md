@@ -7,7 +7,7 @@ Instead go to a fast link:
 <a href="https://luizfilipidesousamoura.blogspot.com/">| Blogspot |</a>
 <a href="mailto:filipi_lfsm@hotmail.com">| Send mailto |</a>
 <a href="https://t.me/filipi_lfsm">| Telegram |</a>
-<a href="https://discordapp.com/users/856275973032640523>| Discord |</a>
+<a href="https://discordapp.com/users/856275973032640523">| Discord |</a>
 <img src="24.jpg" alt="Jumping">
 <meta http-equiv = "refresh" content = "15; url = https://sites.google.com/view/luizfilipidesousamoura" />
 <a href="javascript:history.back()">Cancel and go Back...</a>
