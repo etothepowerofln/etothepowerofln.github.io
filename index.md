@@ -2,4 +2,4 @@
 
 ![jumping](24.jpg)
 
-<meta http-equiv = "refresh" content = "3; url = https://sites.google.com/view/luizfilipidesousamoura" />
+<meta http-equiv = "refresh" content = "10; url = https://sites.google.com/view/luizfilipidesousamoura" />
