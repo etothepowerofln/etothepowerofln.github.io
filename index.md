@@ -9,6 +9,6 @@ Instead go to a fast link:
 <a href="https://t.me/filipi_lfsm">| Telegram </a>
 <a href="https://discordapp.com/users/856275973032640523">| Discord |</a>
 <!--<img src="24.jpg" alt="Jumping">-->
-<meta http-equiv = "refresh" content = "1; url = https://sites.google.com/view/luizfilipidesousamoura" />
+<meta http-equiv = "refresh" content = "3; url = https://sites.google.com/view/luizfilipidesousamoura" />
 <br>
 <a href="javascript:history.back()">Cancel and go Back...</a>
