@@ -103,13 +103,13 @@
   </div> 
   <script>
     function load_cv() {
-      fetch("https://etothepowerofln.github.io/cv.html")
+      fetch("./cv.html")
       .then((response) => response.text())
       .then((html) => { document.getElementById("content").innerHTML = html; })
       .catch((error) => { console.warn(error); });
     }
     function load_gamercv() {
-      fetch("https://etothepowerofln.github.io/gamercv.html")
+      fetch("./gamercv.html")
       .then((response) => response.text())
       .then((html) => { document.getElementById("content").innerHTML = html; })
       .catch((error) => { console.warn(error); });
