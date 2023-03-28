@@ -87,22 +87,22 @@
       <p style="margin: 25px;">Physicist and Computer Scientist. I work on Quantum Computing, Security, and Algorithms.</p>
       <hr>
     </div>
-    <a href="cv.html" target="content-frame">CV</a>
+    <a onclick="addCode('cv.html')">CV</a>
     <a href="http://lattes.cnpq.br/9736593152697583" target="_blank">Lattes CV</a>
-    <a href="gamercv.html" target="_blank">Gamer CV</a>
+    <a onclick="addCode('gamercv.html')">Gamer CV</a>
     <a href="https://www.etothepowerofln.tumblr.com" target="_blank">Blog</a>
     <a href="https://br.pinterest.com/filipilfsm/" target="_blank">Pinterest</a>
     <a href="https://www.github.com/etothepowerofln" target="_blank">GitHub</a>
   </div>
 
   <!-- Page content -->
-  <div class="content">
-    <iframe src="cv.md" style="background-color: aliceblue; width: 100%; height: 100%; max-width: 1024px; max-height: 768px;" name="content-frame">
-      Navegador não suporta iframes
-    </iframe>
+  <div id="content" class="content">
+    
   </div> 
   <script>
-
+    function addCode(doc) {
+      document.getElementById("content").innerHTML = doc;
+    }
   </script>
 </body>
 </html>
