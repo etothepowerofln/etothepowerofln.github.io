@@ -1,5 +1,5 @@
 <style>
-red { color: red }
+dcyan { color: darkcyan }
 yellow { color: yellow }
 green { color: green }
 </style>
@@ -31,9 +31,9 @@ green { color: green }
 ---
 
 
-|      Language       | Listening |   Speaking   |
-| :-----------------: | :-------: | :----------: |
-| English, Portuguese | <green>Advanced</green>  |   <green>Advanced</green>   | 
+|      Language       |        Listening         |           Speaking            |
+| :-----------------: | :----------------------: | :---------------------------: |
+| English, Portuguese | <green>Advanced</green>  |    <green>Advanced</green>    | 
 | Spanish, Italian    | <green>Advanced</green>  | <yellow>Intermediate</yellow> |
 
 <br>
@@ -54,101 +54,55 @@ green { color: green }
 
 ---
 
-## University Courses:
+## University Extensions:
 
-2022 | 180h | University Extension in Projects Management
+2022 | 180h | Projects Management @ Venda Nova do Imigrante Faculty (FAVENI)
 
-- Institution: Venda Nova do Imigrante Faculty (FAVENI)
+2022 | Python Programming @ University of Naples Federico II
 
-2022 | University Extension in Python Programming
+2021 | 80h | Materials Engineering @ Northern Paraná University (UNOPAR)
 
-- Institution: University of Naples Federico II
+2021 | 80h | Industrial Engineering 4.0 @ Northern Paraná University (UNOPAR)
 
-2021 | 80h | University Extension in Materials Engineering
+2021 | 30h | Industry 4.0: Technological Revolution @ Santa Catarina Federal University (UFSC)
 
-- Institution: Northern Paraná University (UNOPAR)
+2021 | 30h | Writing and Publishing Scientific Paper @ Santa Catarina Federal University (UFSC)
 
-2021 | 80h | University Extension in Industrial Engineering 4.0
+2021 | 80h | Hermeneutics @ Araras University Centre (UNAR)
 
-- Institution: Northern Paraná University (UNOPAR)
+2021 | 40h | Electricity @ International University Centre (UNINTER)
 
-2021 | 30h | University Extension in Industry 4.0: Technological Revolution
+2021 | 40h | Metrology @ International University Centre (UNINTER)
 
-- Institution: Santa Catarina Federal University (UFSC)
+2021 | 40h | International Conflicts @ International University Centre (UNINTER)
 
-2021 | 30h | University Extension in Writing and Publishing Scientific Paper
+2021 | 30h | Systems Automation @ Rio Grande do Sul Federal Institute (IFRS)
 
-- Institution: Santa Catarina Federal University (UFSC)
+2021 | 20h | HTML: Introduction to Webpages Development @ Rio Grande do Sul Federal Institute (IFRS)
 
-2021 | 80h | University Extension in Hermeneutics
+2021 | 20h | HTML: Tables and Forms @ Rio Grande do Sul Federal Institute (IFRS)
 
-- Institution: Araras University Centre (UNAR)
+2021 | 20h | Circular Economy @ National Service for Industrial Learning (SENAI)
 
-2021 | 40h | University Extension in Electricity
+2021 | 10h | III Jayme Tiomno School for Theoretical Physics — Nonlinear Phenomena in Biology @ São Paulo University (USP)
 
-- Institution: International University Centre (UNINTER)
+2021 | 10h | III Jayme Tiomno School for Theoretical Physics — Introduction to Solid State Physics @ São Paulo University (USP)
 
-2021 | 40h | University Extension in Metrology
+2021 | 4h | Data Science and Artificial Intelligence @ Santa Cruz do Sul University (UNISC)
 
-- Institution: International University Centre (UNINTER)
-
-2021 | 40h | University Extension in International Conflicts
-
-- Institution: International University Centre (UNINTER)
-
-2021 | 30h | University Extension in Systems Automation
-
-- Institution: Rio Grande do Sul Federal Institute (IFRS)
-
-2021 | 20h | University Extension in HTML: Introduction to Webpages Development
-
-- Institution: Rio Grande do Sul Federal Institute (IFRS)
-
-2021 | 20h | University Extension in HTML: Tables and Forms
-
-- Institution: Rio Grande do Sul Federal Institute (IFRS)
-
-2021 | 20h | University Extension in Circular Economy
-
-- Institution: National Service for Industrial Learning (SENAI)
-
-2021 | 10h | University Extension in III Jayme Tiomno School for Theoretical Physics — Nonlinear Phenomena in Biology
-
-- Institution: São Paulo University (USP)
-
-2021 | 10h | University Extension in III Jayme Tiomno School for Theoretical Physics — Introduction to Solid State Physics
-
-
-- Institution: São Paulo University (USP)
-
-2021 | 4h | University Extension in Data Science and Artificial Intelligence
-
-
-- Institution: Santa Cruz do Sul University (UNISC)
-
-2021 | 4h | University Extension in Certification in Leadership, Learnability and Resilience
-
-- Institution: Pontifical Catholic University of Rio Grande do Sul (PUCRS)
+2021 | 4h | Certification in Leadership, Learnability and Resilience @ Pontifical Catholic University of Rio Grande do Sul (PUCRS)
 
 ## Bootcamps:
 
-2021 | 17h | Bootcamp Become Remote
-
-- Institution: Impulso and Digital Innovation One
+2021 | 17h | Become Remote @ Impulso and Digital Innovation One
 
 ## Other Courses:
 
-2023 | Quantum Computing in Python using Qiskit
+2023 | Quantum Computing in Python using Qiskit @ Udemy
 
-- Institution: Udemy
+2022| 16h | Java Programming Language — Advanced && | 5h | Java Programming Language — Basic @ Bradesco Foundation
 
-2022| 16h | Java Programming Language — Advanced && | 5h | Java Programming Language — Basic 
-
-- Institution: Bradesco Foundation
-
-2021 | Python Skills for Handling Biological Data
-
-- Institution: Stepik
+2021 | Python Skills for Handling Biological Data @ Stepik
 
 <br>
 
