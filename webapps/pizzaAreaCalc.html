@@ -1,0 +1,37 @@
+<html lang="en">
+<head>    
+</head>  
+<body>   
+<div class="formstyle">  
+<form name="form1">  
+  Enter radius in cm:
+  
+  <input id="calc" name="radius" size="2" type="text" />
+  <br /><br />
+  <input onclick="form1.r1.value +=  3.1415 * form1.radius.value ** 2 ; form1.l1.value = form1.radius.value; form1.radius.value = '' " type="button" value="Save as value 1" />    
+  
+  <input onclick="form1.r2.value +=  3.1415 * form1.radius.value ** 2 ; form1.l2.value = form1.radius.value; form1.radius.value = '' " type="button" value="Save as value 2" />  
+  
+  <input onclick="form1.r3.value +=  3.1415 * form1.radius.value ** 2 ; form1.l3.value = form1.radius.value; form1.radius.value = '' " type="button" value="Save as value 3" />  
+
+  <br /><br />
+  
+  <input id="calc" name="l1" readonly="" size="2" type="text" />
+  cm -&gt; 
+  <input id="calc" name="r1" readonly="" type="text" /> 
+  cm²
+  <br />
+  <input id="calc" name="l2" readonly="" size="2" type="text" />
+  cm -&gt; 
+  <input id="calc" name="r2" readonly="" type="text" /> 
+  cm²
+  <br /> 
+  <input id="calc" name="l3" readonly="" size="2" type="text" /> 
+  cm -&gt; 
+  <input id="calc" name="r3" readonly="" type="text" /> 
+  cm²
+  
+</form>  
+</div>  
+</body>  
+</html> 

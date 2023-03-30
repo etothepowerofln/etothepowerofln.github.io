@@ -1,0 +1,58 @@
+<html lang = "en">  
+<head>    
+</head>  
+<body>   
+<div class= "formstyle">  
+<form name = "form1">  
+  
+  <strong>Get screen size:</strong>
+  <p>Enter the diagonal size of the rectangle in inches and the proportion (w:h). The result is the total width and height of the rectangle in centimeters.</p>
+  Diagonal in inches = <input id = "text" type ="text" size = "10" name = "diag">
+  Proportion = <input id = "text" type ="text" size = "3" name = "p1"> : <input id = "text" type ="text" size = "3" name = "p2">
+  <input type = "button" value = "Get screen size" onclick = "form1.scrSize.value =  
+  'Width of ' + form1.p1.value * (form1.diag.value * 2.54) / Math.sqrt(form1.p1.value ** 2 + form1.p2.value ** 2) + 
+  'cm X Height of ' + form1.p2.value * (form1.diag.value * 2.54) / Math.sqrt(form1.p1.value ** 2 + form1.p2.value ** 2) + 'cm'">
+  <br><br>
+  <input id = "text" type ="text" size = "70" name = "scrSize" readonly>
+  
+  <br><hr><br>
+  
+  <strong>Get proportion of a resolution:</strong>
+  <p>Enter a resolution. The result is the fraction simplification.</p>
+  Resolution = <input id = "text" type ="text" size = "6" name = "r1"> : <input id = "text" type ="text" size = "6" name = "r2">
+  <input type = "button" value = "Get simplification" onclick = "
+	let lim = 1;
+	let sim = 1;
+	let val1 = form1.r1.value;
+	let val2 = form1.r2.value;
+	if (form1.r1.value < form1.r2.value){
+		lim = Math.floor(form1.r1.value /2);
+	} else{
+		lim = Math.floor(form1.r2.value /2);
+	}
+	form1.prop.value = 'Common prime factors: ';
+	while (val1 % 2 == 0 && val2 % 2 == 0){
+		sim *= 2;
+		form1.prop.value += '2, ';
+		val1 /= 2; val2 /= 2;
+	}
+	for (var i = 3; i <= lim; i += 2){
+		while (val1 % i == 0 && val2 % i == 0){
+			sim *= i;
+			form1.prop.value += i + ', ';
+			val1 /= i; val2 /= i;
+		}
+	}
+	if (sim == 1){
+    	form1.prop.value = 'Cannot simplify more';
+    } else{
+        form1.prop.value += 'resulting in the simplification: ' + form1.r1.value / sim + ':' + form1.r2.value / sim;
+    }
+  ">
+  <br><br>
+  <input id = "text" type ="text" size = "70" name = "prop" readonly>
+  
+</form>  
+</div>  
+</body>  
+</html> 

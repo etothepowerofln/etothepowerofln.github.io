@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>e^ln</title>
-  <link rel="icon" type="image/x-icon" href="Eu-Grego.jpg">
+  <!--<link rel="icon" type="image/x-icon" href="ass/Eu-Grego.jpg">-->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,21 +23,24 @@
   .sidebar {
     margin: 0;
     padding: 0;
-    width: 300px;
+    float: left;
+    width: 15%;
+    height: 100%;
     background-color: #206080;
     top: 0;
     left: 0;
     position: fixed;
-    height: 100%;
     overflow: auto;
     text-align: center;
+    z-index: 2;
   }
 
   /* Sidebar links */
   .sidebar a {
     display: block;
     color: black;
-    padding: 16px;
+    padding: 0px;
+    margin: 8px;
     text-decoration: none;
   }
 
@@ -48,16 +51,26 @@
   }
 
   /* Links on mouse-over */
-  .sidebar a:hover:not(.active) {
-    background-color: #555;
-    color: white;
+  .sidebar a:hover {
+    background-color: #247296;
   }
   
+  .sidebar a:hover:not(.chk) {
+    background-color: #555;
+    color: white;
+    font-size: 18px;
+  }
+
   /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
   div.content {
-    margin-left: 300px;
-    padding: 1px 16px;
-    height: 1000px;
+    padding: 0px;
+    margin-left: 15%;
+    float: right;
+    height: 100%;
+    width: 85%;
+    position: fixed;
+    z-index: 1;
+    background-color: #04AA6D;
   }
 
   /* On screens that are less than 700px wide, make the sidebar into a topbar */
@@ -78,41 +91,42 @@
       float: none;
     }
   } 
+
   </style>
 </head>
 <body>
   <!-- The sidebar -->
   <div class="sidebar">
     <div class="profile">
-      <img style="display: block; width: 100%;" src="23-menor2.jpg" alt="profile_picture">
-      <h2 style="margin: 20px;">Luiz Filipi Anderson de Sousa Moura</h2>
-      <p style="margin: 25px;">Physicist and Computer Scientist. I work on Quantum Computing, Security, and Algorithms.</p>
+      <div class="profile-img">
+        <a href="win.html" target="frame" onclick="
+        document.getElementById('chk-cv').style.color = 'black'; document.getElementById('chk-gamercv').style.color = 'black'">
+          <img style="display: block; width: 100%;" src="ass/23-menor2.jpg">
+        </a>
+      </div>
+      <div class="profile-name"><h2 style="margin: 20px;">Luiz Filipi Anderson de Sousa Moura</h2></div>
+      <div class="profile-p"><p style="margin: 25px;">Physicist and Computer Scientist. I work on Quantum Computing, Security, and Algorithms.</p></div>
       <hr>
     </div>
-    <a href="" onclick="load_cv()">CV</a>
+    <a class="chk" id="chk-cv" href="cv.html" target="frame" onclick="
+    document.getElementById('chk-gamercv').style.color = 'black'; document.getElementById('chk-cv').style.color = 'white'">CV</a>
+    <a class="chk" id="chk-gamercv" href="gamercv.html" target="frame" onclick="
+    document.getElementById('chk-cv').style.color = 'black'; document.getElementById('chk-gamercv').style.color = 'white'">Gamer CV</a>
+    <hr>
     <a href="http://lattes.cnpq.br/9736593152697583" target="_blank">Lattes CV</a>
-    <a href="" onclick="load_gamercv()">Gamer CV</a>
-    <a href="https://www.etothepowerofln.tumblr.com" target="_blank">Blog</a>
+    <!--<a href="https://www.etothepowerofln.tumblr.com" target="_blank">Blog</a>-->
     <a href="https://br.pinterest.com/filipilfsm/" target="_blank">Pinterest</a>
     <a href="https://www.github.com/etothepowerofln" target="_blank">GitHub</a>
   </div>
 
   <!-- Page content -->
   <div id="content" class="content">
-    
+    <iframe name="frame" src="win.html" style="top: 0; left: 300px; width: 100%; height: 100%; background-color: #f2f6f8;">
+      Not able to load the frame.
+    </iframe>
   </div> 
   <script>
-    function load_cv() {
-      fetch("./cv.html")
-      .then((response) => response.text())
-      .then((html) => { document.getElementById("content").innerHTML = html; })
-      .catch((error) => { console.warn(error); });
-    }
-    function load_gamercv() {
-      fetch("./gamercv.html")
-      .then((html) => { document.getElementById("content").innerHTML = html; })
-      .catch((error) => { console.warn(error); });
-    }
+      
   </script>
 </body>
 </html>

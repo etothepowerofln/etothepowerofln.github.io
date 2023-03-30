@@ -1,0 +1,495 @@
+<head>
+
+</head>
+<body id="body">
+    <style>
+        body {
+        background-color: teal;
+        font-family: fixedsys, consolas, monospace;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        }
+
+        .window {
+        background: #fff;
+        height: 100%;
+        width: 100%;
+        position: relative;
+        border: 1px solid #000;
+        z-index: 9999;
+        }
+
+        .window .title {
+        background: #000099;
+        color: #fff;
+        text-align: center;
+        line-height: 24px;
+        height: 26px;
+        font-weight: 500;
+        border-bottom: solid 1px #000;
+        }
+
+        .window .title .button {
+        background: #c0c0c0;
+        color: #000;
+        display: inline-block;
+        margin: 0px;
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+        float: right;
+        border: outset 3px;
+        line-height: 20px;
+        z-index: 5555;
+        }
+
+        .window .title .button:active {
+        border: inset 3px;
+        }
+
+        .window .title .close {
+        float: left;
+        color: #fff;
+        font-weight: 800;
+        font-size: 21px;
+        line-height: 16px;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        }
+
+        .menubar {
+        height: 24px;
+        border-bottom: solid 1px #191919;
+        }
+
+        .menubar .menuitem {
+        line-height: 24px;
+        padding: 0px 7px;
+        display: inline-block;
+        text-decoration: none;
+        }
+
+        .menubar .menuitem a {
+        color: black;
+        text-decoration: none;
+        }
+
+        .menubar .menuitem:active {
+        background: #000099;
+        color: #fff;
+        }
+
+        .icons {
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+        padding: 15px 5px;
+        background: #fff;
+        z-index: 5;
+        }
+
+        .icons .icon {
+        display: inline-block;
+        margin: 8px 8px;
+        width: 80px;
+        font-size: 12px;
+        text-align: center;
+        text-decoration: none;
+        }
+
+        .icons .icon a {
+        color: black;
+        text-decoration: none;
+        }
+
+        .icon:active > .text {
+        background: #000099;
+        color: #fff;
+        }
+
+        .window-border {
+        background: #cdcdcd;
+        position: absolute;
+        padding: 2px 4px 4px 2px;
+        border: 1px solid #000;  
+        width: 40%;
+        height: 40%;
+        top: 12%;
+        left: 40%;
+        }
+
+        .handle {
+        position:absolute;
+        height: 29px;
+        width: 29px;
+        border:solid 1px #000;
+        }
+
+        .topright {
+        top: -1px;
+        right: -1px;
+        cursor:ne-resize;
+        }
+
+        .bottomright {
+        bottom: -1px;
+        right: -1px;
+        cursor:nw-resize;
+        }
+
+        .topleft {
+        top: -1px;
+        left: -1px;
+        cursor:nw-resize;
+        }
+
+        .bottomleft {
+        bottom: -1px;
+        left: -1px;
+        cursor:ne-resize;
+        }
+
+        .drop-file {
+        position: absolute;
+        top: 52px;
+        left: 1px;
+        width: 220px;
+        background-color: white;
+        border: 1px solid #000;
+        display: none;
+        z-index: 9999;
+        }
+
+        .drop-opt {
+        position: absolute;
+        top: 52px;
+        left: 61px;
+        width: 220px;
+        background-color: white;
+        border: 1px solid #000;
+        display: none;
+        z-index: 9999;
+        }
+
+        .drop-win {
+        position: absolute;
+        top: 52px;
+        left: 153px;
+        width: 120px;
+        background-color: white;
+        border: 1px solid #000;
+        display: none;
+        z-index: 9999;
+        }
+
+        .item-drop a {
+        display: block;
+        color: black;
+        padding: 4px;
+        text-decoration: none;
+        }
+
+        .item-drop a:hover {
+        background-color: #000099 ;
+        color: white;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            document.getElementById("wav-tada").play();
+        }
+
+        function keyPress(){
+        if(window.event.keyCode == 87){
+            document.getElementById("prog-manager").style.left = 10 + 'px';
+        }
+        if(window.event.keyCode == 83){
+            document.getElementById("prog-manager").style.left = 50 + 'px';
+        }
+        if(window.event.keyCode == 65){
+            document.getElementById("prog-manager").style.left = 100 + 'px';
+        }
+        if(window.event.keyCode == 68){
+            document.getElementById("prog-manager").style.left = 150 + 'px';
+        }
+        }
+    </script>
+    <audio id="wav-tada" src="ass/TADA.WAV" type="audio/wav"></audio>
+    <audio id="wav-xylophon" src="ass/XYLOPHON.wav" type="audio/wav"></audio>
+    <audio id="ogg-almonds" src="ass/ALMONDS.ogg" type="audio/ogg"></audio>
+    <audio id="ogg-canyon" src="ass/CANYON.ogg" type="audio/ogg"></audio>
+    <audio id="ogg-dreamy" src="ass/DREAMY.ogg" type="audio/ogg"></audio>
+    <audio id="ogg-metblast" src="ass/METBLAST.ogg" type="audio/ogg"></audio>
+    <audio id="ogg-passport" src="ass/PASSPORT.ogg" type="audio/ogg"></audio>
+    <audio id="ogg-seasons" src="ass/SEASONS.ogg" type="audio/ogg"></audio>
+    <audio id="ogg-someband" src="ass/SOMEBAND.ogg" type="audio/ogg"></audio>
+    <audio id="ogg-stomp" src="ass/STOMP.ogg" type="audio/ogg"></audio>
+
+    <div id="prog-manager" class="window-border ">
+        <div class="window">
+            <div id="title" class="title" onclick="
+            document.getElementById('drop-file').style.display = 'none'; 
+            document.getElementById('drop-win').style.display = 'none'; 
+            document.getElementById('drop-opt').style.display = 'none';">
+                <div class="button close" id="window" onclick="document.getElementById('wav-xylophon').play(); document.getElementById('prog-manager').style.display = 'none';">
+                    &#8212;
+                </div>
+                Program Manager
+                <div class="button" id="max" onclick="
+                    document.getElementById('prog-manager').style.top = '.0'; 
+                    document.getElementById('prog-manager').style.left = '.0'; 
+                    document.getElementById('prog-manager').style.right = '0';
+                    document.getElementById('prog-manager').style.bottom = '0'; 
+                    document.getElementById('prog-manager').style.width = 'auto';
+                    document.getElementById('prog-manager').style.height = 'auto';">
+                    &#9650;
+                </div>
+                <div class="button" id="min" onclick="
+                    document.getElementById('prog-manager').style.top = '12%'; 
+                    document.getElementById('prog-manager').style.left = '40%'; 
+                    document.getElementById('prog-manager').style.width = '40%';
+                    document.getElementById('prog-manager').style.height = '40%';">
+                    &#9660;
+                </div>
+            </div>
+
+            <!--MENUBAR-->
+            <div class="menubar">
+                <div class="menuitem" onclick="
+                document.getElementById('drop-opt').style.display = 'none';
+                document.getElementById('drop-win').style.display = 'none';
+                document.getElementById('drop-file').style.display == 'inline-block' ? 
+                document.getElementById('drop-file').style.display = 'none' : document.getElementById('drop-file').style.display = 'inline-block';">
+                    <span style="text-decoration:underline;">F</span>ile
+                </div>
+                <div class="menuitem" onclick="
+                document.getElementById('drop-file').style.display = 'none';
+                document.getElementById('drop-win').style.display = 'none';
+                document.getElementById('drop-opt').style.display == 'inline-block' ? 
+                document.getElementById('drop-opt').style.display = 'none' : document.getElementById('drop-opt').style.display = 'inline-block';">
+                    <span style="text-decoration:underline;">O</span>ptions
+                </div>
+                <div class="menuitem" onclick="
+                document.getElementById('drop-file').style.display = 'none';
+                document.getElementById('drop-opt').style.display = 'none';
+                document.getElementById('drop-win').style.display == 'inline-block' ? 
+                document.getElementById('drop-win').style.display = 'none' : document.getElementById('drop-win').style.display = 'inline-block';">
+                    <span style="text-decoration:underline;">W</span>indows
+                </div>
+                <div class="menuitem">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fcomputer-quiz.jsdos?anonymous=1" target="frame"><span style="text-decoration:underline;">H</span>elp</a>
+                </div>
+            </div>
+
+            <!--DROPDOWN-->
+            <div id="drop-file" class="drop-file">
+                <div class="item-drop"><a href="webapps/pizzaAreaCalc.html" target="frame">Pizza Area Calculator</a></div>
+                <div class="item-drop"><a href="webapps/exprCalc.html" target="frame">Expr Calculator</a></div>
+                <div class="item-drop"><a href="webapps/BASHCustomizer.html" target="frame">BASH Customizer</a></div>
+                <div class="item-drop"><a href="webapps/screenCalc.html" target="frame">Screen Calculator</a></div>
+            </div>
+            <div id="drop-opt" class="drop-opt">
+                <div class="item-drop"><a href="javascript:void(0)" onclick="document.body.style.backgroundColor = 'white';">Background Blank</a></div>
+                <div class="item-drop"><a href="javascript:void(0)" onclick="document.body.style.backgroundColor = 'black';">Background Black</a></div>
+                <div class="item-drop"><a href="javascript:void(0)" onclick="document.body.style.backgroundColor = 'teal';">Background Teal</a></div>
+                <div class="item-drop"><a href="javascript:void(0)" onclick="document.body.style.backgroundColor = 'cadetblue';">Background Cadet Blue</a></div>
+                <div class="item-drop"><a href="javascript:void(0)" onclick="document.body.style.backgroundColor = 'antiquewhite';">Background Antique White</a></div>
+                <!--<div class="item-drop"><a href="javascript:void(0)" onclick="document.body.style.background = 'linear-gradient(to right, green, white, red)';">Background IT</a></div>-->
+                <div class="item-drop"><a href="javascript:void(0)" onclick="document.getElementById('title').style.backgroundColor = 'maroon';">Title Bar Maroon</a></div>
+                <div class="item-drop"><a href="javascript:void(0)" onclick="document.getElementById('title').style.backgroundColor = 'darksalmon';">Title Bar Salmon</a></div>
+                <div class="item-drop"><a href="javascript:void(0)" onclick="document.getElementById('title').style.backgroundColor = '#000099';">Title Bar Blue</a></div>
+                <div class="item-drop"><a href="javascript:void(0)" onclick="document.getElementById('title').style.backgroundColor = 'darkslateblue';">Title Bar Slate Blue</a></div>
+                <div class="item-drop"><a href="javascript:void(0)" onclick="document.getElementById('title').style.backgroundColor = 'darkslategrey';">Title Bar Slate Grey</a></div>
+                <div class="item-drop"><a href="javascript:void(0)" onclick="document.getElementById('title').style.backgroundColor = 'darkgoldenrod';">Title Bar Golden</a></div>
+                <!--<div class="item-drop"><a href="javascript:void(0)" onclick="document.getElementById('title').style.background = 'linear-gradient(0deg, yellow, red, black)';">Title Bar GR</a></div>-->
+                <div class="item-drop"><a href="javascript:void(0)" onclick="
+                    document.querySelectorAll('audio').forEach(el => el.pause());
+                    document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
+                    document.getElementById('ogg-almonds').play();">Play ALMONDS</a></div>
+                <div class="item-drop"><a href="javascript:void(0)" onclick="
+                    document.querySelectorAll('audio').forEach(el => el.pause());
+                    document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
+                    document.getElementById('ogg-canyon').play();">Play CANYON</a></div>
+                <div class="item-drop"><a href="javascript:void(0)" onclick="
+                    document.querySelectorAll('audio').forEach(el => el.pause());
+                    document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
+                    document.getElementById('ogg-dreamy').play();">Play DREAMY</a></div>
+                <div class="item-drop"><a href="javascript:void(0)" onclick="
+                    document.querySelectorAll('audio').forEach(el => el.pause());
+                    document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
+                    document.getElementById('ogg-metblast').play();">Play METBLAST</a></div>
+                <div class="item-drop"><a href="javascript:void(0)" onclick="
+                    document.querySelectorAll('audio').forEach(el => el.pause());
+                    document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
+                    document.getElementById('ogg-passport').play();">Play PASSPORT</a></div>
+                <div class="item-drop"><a href="javascript:void(0)" onclick="
+                    document.querySelectorAll('audio').forEach(el => el.pause());
+                    document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
+                    document.getElementById('ogg-seasons').play();">Play SEASONS</a></div>
+                <div class="item-drop"><a href="javascript:void(0)" onclick="
+                    document.querySelectorAll('audio').forEach(el => el.pause());
+                    document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
+                    document.getElementById('ogg-someband').play();">Play SOMEBAND</a></div>
+                <div class="item-drop"><a href="javascript:void(0)" onclick="
+                    document.querySelectorAll('audio').forEach(el => el.pause());
+                    document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
+                    document.getElementById('ogg-stomp').play();">Play STOMP</a></div>
+            </div>
+            <div id="drop-win" class="drop-win">
+                <div class="item-drop"><a href="https://98.js.org" target="frame">Windows 98</a></div>
+                <div class="item-drop"><a href="https://www.windows93.net" target="frame">Windows 93?</a></div>
+                <div class="item-drop"><a href="https://webamp.org/" target="frame">Winamp</a></div>
+            </div>
+
+            <!--ICONS-->
+            <div class="icons">
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fdoom.jsdos?anonymous=1" target="frame">
+                    <img src="ass/doom.png" />
+                    <div class="text">DOOM</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fultimate-doom.jsdos?anonymous=1" target="frame">
+                    <img src="ass/doom.png" />
+                    <div class="text">UDOOM</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F4%2F49ea7e89c84d01ae630772b4d90e37927955522a.jsdos?anonymous=1" target="frame">
+                    <img src="ass/doom.png" />
+                    <div class="text">FDOOM</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fdoom2.jsdos?anonymous=1" target="frame">
+                    <img src="ass/doom.png" />
+                    <div class="text">DOOM2</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2Fa%2Fac888d1660aa253f0ed53bd6c962c894125aaa19.jsdos?anonymous=1" target="frame">
+                    <img src="ass/wolf3d.png" />
+                    <div class="text">WOLF3D</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fblood-lowres.jsdos?anonymous=1" target="frame">
+                    <img src="ass/blood.png"/>
+                    <div class="text">BLOOD</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fheretic.jsdos?anonymous=1" target="frame">
+                    <img src="ass/heretic.png"/>
+                    <div class="text">HERETIC</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fduke3d_320.jsdos?anonymous=1" target="frame">
+                    <img src="ass/duke.png" />
+                    <div class="text">DUKE3D</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fnfs.jsdos?anonymous=1" target="frame">
+                    <img src="ass/nfs.png" />
+                    <div class="text">NFS</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fwar2.jsdos?anonymous=1" target="frame">
+                    <img src="ass/war.png"/>
+                    <div class="text">WAR2</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F7%2F744842062905f72648a4d492ccc2526d039b3702.jsdos?anonymous=1" target="frame">
+                    <img src="ass/simcity.png"/>
+                    <div class="text">SIMCITY</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2Fb%2Fb1ed3b93829bdff0c9062c5642767825dd52baf1.jsdos?anonymous=1" target="frame">
+                    <img src="ass/sc2000.png"/>
+                    <div class="text">SC2000</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fbattle-chess.jsdos?anonymous=1" target="frame">
+                    <img src="ass/bchess.png"/>
+                    <div class="text">BCHESS</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Ffidelity-chessmaster-2100.jsdos?anonymous=1" target="frame">
+                    <img src="ass/cm2100.png"/>
+                    <div class="text">CM2100</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fmasque-solitaire-antics.jsdos?anonymous=1" target="frame">
+                    <img src="ass/solitaire.png"/>
+                    <div class="text">CARDS</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Ftetris-classic.jsdos?anonymous=1" target="frame">
+                    <img src="ass/tetris.png"/>
+                    <div class="text">TETRIS</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F5%2F5cdcffbf268b3be0555025902b52a8d21ad595b9.jsdos?anonymous=1" target="frame">
+                    <img src="ass/pacman.png"/>
+                    <div class="text">PACMAN</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Frobotron-2084_.jsdos?anonymous=1" target="frame">
+                    <img src="ass/robotron.png"/>
+                    <div class="text">ROBOTRON</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fspace-invaders______.jsdos?anonymous=1" target="frame">
+                    <img src="ass/invaders.png"/>
+                    <div class="text">INVADERS</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Ftyrian-2000.jsdos?anonymous=1" target="frame">
+                    <img src="ass/tyrian.png"/>
+                    <div class="text">TYRIAN</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://play.webrcade.com/" target="frame">
+                    <img src="ass/folder.png"/>
+                    <div class="text">RCADE</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://app.kosmi.io/" target="frame">
+                    <img src="ass/folder.png"/>
+                    <div class="text">PARTY</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://app.classcalc.com/prod/embed/?linkId=XXZ1n2BX2AurnUkD8#/scientific" target="frame">
+                    <img src="ass/calc.png"/>
+                    <div class="text">CALC</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="bottomright handle"></div>
+        <div class="topright handle"></div>
+        <div class="topleft handle"></div>
+        <div class="bottomleft handle"></div>
+    </div>
+</body>

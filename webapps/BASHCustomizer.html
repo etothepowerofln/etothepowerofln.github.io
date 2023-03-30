@@ -1,0 +1,79 @@
+<!DOCTYPE html>  
+<html lang = "en">  
+<head>    
+</head>  
+<body>   
+<div class= "formstyle">  
+<form name = "form1">  
+  PS#="<input id = "text" type ="text" size = "50" name = "text">"
+  <br><br>
+  Colour:<br>
+  <input type = "button" value = "Return to original style and colour" onclick = "form1.text.value +=  '\\e[0m'"> 
+  <br><br>
+  1.<br>
+  <input type = "button" value = "Start default font-style with..." onclick = "form1.text.value +=  '\\e[0;'">
+  <input type = "button" value = "Start bold font-style with..." onclick = "form1.text.value +=  '\\e[1;'">
+  <input type = "button" value = "Start dim font-style with..." onclick = "form1.text.value +=  '\\e[2;'">
+  <input type = "button" value = "Start italic font-style with..." onclick = "form1.text.value +=  '\\e[3;'">
+  <input type = "button" value = "Start underlined font-style with..." onclick = "form1.text.value +=  '\\e[4;'">
+  <input type = "button" value = "Start blinking text with..." onclick = "form1.text.value +=  '\\e[5;'">
+  <input type = "button" value = "Start inverted colours with..." onclick = "form1.text.value +=  '\\e[7;'">
+  <br><br>
+  2.<br>
+  <input type = "button" value = "...colour 1 foreground" onclick = "form1.text.value +=  '30m'">
+  <input type = "button" value = "...colour 2 foreground" onclick = "form1.text.value +=  '31m'">
+  <input type = "button" value = "...colour 3 foreground" onclick = "form1.text.value +=  '32m'">
+  <input type = "button" value = "...colour 4 foreground" onclick = "form1.text.value +=  '33m'">
+  <input type = "button" value = "...colour 5 foreground" onclick = "form1.text.value +=  '34m'">
+  <input type = "button" value = "...colour 6 foreground" onclick = "form1.text.value +=  '35m'">
+  <input type = "button" value = "...colour 7 foreground" onclick = "form1.text.value +=  '36m'">
+  <input type = "button" value = "...colour 8 foreground" onclick = "form1.text.value +=  '37m'">
+  <br><br>
+  <input type = "button" value = "...colour 1 darker foreground" onclick = "form1.text.value +=  '90m'">
+  <input type = "button" value = "...colour 2 darker foreground" onclick = "form1.text.value +=  '91m'">
+  <input type = "button" value = "...colour 3 darker foreground" onclick = "form1.text.value +=  '92m'">
+  <input type = "button" value = "...colour 4 darker foreground" onclick = "form1.text.value +=  '93m'">
+  <input type = "button" value = "...colour 5 darker foreground" onclick = "form1.text.value +=  '94m'">
+  <input type = "button" value = "...colour 6 darker foreground" onclick = "form1.text.value +=  '95m'">
+  <input type = "button" value = "...colour 7 darker foreground" onclick = "form1.text.value +=  '96m'">
+  <input type = "button" value = "...colour 8 darker foreground" onclick = "form1.text.value +=  '97m'">
+  <br><br>
+  <input type = "button" value = "...colour 1 background" onclick = "form1.text.value +=  '40m'">
+  <input type = "button" value = "...colour 2 background" onclick = "form1.text.value +=  '41m'">
+  <input type = "button" value = "...colour 3 background" onclick = "form1.text.value +=  '42m'">
+  <input type = "button" value = "...colour 4 background" onclick = "form1.text.value +=  '43m'">
+  <input type = "button" value = "...colour 5 background" onclick = "form1.text.value +=  '44m'">
+  <input type = "button" value = "...colour 6 background" onclick = "form1.text.value +=  '45m'">
+  <input type = "button" value = "...colour 7 background" onclick = "form1.text.value +=  '46m'">
+  <input type = "button" value = "...colour 8 background" onclick = "form1.text.value +=  '47m'">
+  <br><br>
+  
+  Options:<br>
+  <input type = "button" value = "Hostname" onclick = "form1.text.value +=  '\\h'">
+  <input type = "button" value = "Hostname (full)" onclick = "form1.text.value +=  '\\H'">
+  <input type = "button" value = "Username" onclick = "form1.text.value +=  '\\u'">
+  <input type = "button" value = "Working directory path (%HOME=~)" onclick = "form1.text.value +=  '\\w'">
+  <input type = "button" value = "Working directory (%HOME=~)" onclick = "form1.text.value +=  '\\W'">
+  <input type = "button" value = "Date (week day/month/day #)" onclick = "form1.text.value +=  '\\d'">
+  <input type = "button" value = "Time (h:m:s)" onclick = "form1.text.value +=  '\\t'">
+  <input type = "button" value = "Time (12h AM/PM w/o seconds)" onclick = "form1.text.value +=  '\\@'">
+  <input type = "button" value = "Time (24h w/o seconds)" onclick = "form1.text.value +=  '\\A'">
+  <input type = "button" value = "Shell name" onclick = "form1.text.value +=  '\\s'">
+  <input type = "button" value = "Shell version" onclick = "form1.text.value +=  '\\v'">
+  <input type = "button" value = "Shell version (full)" onclick = "form1.text.value +=  '\\V'">
+  <input type = "button" value = "Number of jobs under this shell" onclick = "form1.text.value +=  '\\j'">
+  <input type = "button" value = "Number of the next command in history" onclick = "form1.text.value +=  '\\!'">
+  <input type = "button" value = "Number of the next command in history since shell start" onclick = "form1.text.value +=  '\\#'">
+  <input type = "button" value = "A char # if the user is root and $ otherwise" onclick = "form1.text.value +=  '\\$'">
+  <input type = "button" value = "New line" onclick = "form1.text.value +=  '\\n'">
+  <input type = "button" value = "Backslash" onclick = "form1.text.value +=  '\\'">
+  <br><br>
+  Command:<br>
+  <input id = "cmd" type ="text" size = "50" name = "cmd"><br>
+  <input type = "button" value = "Add as displayable" onclick = "form1.text.value +=  '$(' + form1.cmd.value + ')'">
+  <input type = "button" value = "Add as non-displayable" onclick = "form1.text.value +=  '\\[$(' + form1.cmd.value + ')\\]'">
+  <br>
+</form>  
+</div>  
+</body>  
+</html> 

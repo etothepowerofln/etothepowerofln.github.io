@@ -1,0 +1,23 @@
+<html lang = "en">  
+<head>    
+</head>  
+<body>   
+<div class= "formstyle">  
+<form name = "form1">  
+  Type the formula within using:<br>
+  +  (sum);<br>
+  -  (subtraction);<br>
+  /  (division);<br>
+  *  (multiplication);<br>
+  ** (to the power of);<br>
+  %  (rest of division).<br>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math">For special functions access this link</a>
+  <br><br>
+  <input id = "calc" type ="text" size ="60" name = "answer">  
+    
+  <input type = "button" value = "Calculate" onclick = "function notEval(fn) {return new Function('return ' + fn)();}; form1.answer.value = notEval(form1.answer.value) ">     
+
+</form>  
+</div>  
+</body>  
+</html> 
