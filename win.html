@@ -36,7 +36,7 @@
         .window .title .button {
         background: #c0c0c0;
         color: #000;
-        display: inline-block;
+        /*display: inline-block;*/
         margin: 0px;
         width: 20px;
         height: 20px;
@@ -92,16 +92,16 @@
         z-index: 5;
         }
 
-        .icons .icon {
+        .icon {
         display: inline-block;
-        margin: 8px 8px;
+        margin: 2px 2px;
         width: 80px;
         font-size: 12px;
         text-align: center;
         text-decoration: none;
         }
 
-        .icons .icon a {
+        .icon a {
         color: black;
         text-decoration: none;
         }
@@ -116,10 +116,10 @@
         position: absolute;
         padding: 2px 4px 4px 2px;
         border: 1px solid #000;  
-        width: 640px;
-        height: 480px;
-        top: 12%;
-        left: 20%;
+        width: 750px;
+        height: 450px;
+        top: 10%;
+        left: 30%;
         }
 
         .handle {
@@ -167,7 +167,7 @@
         .drop-opt {
         position: absolute;
         top: 52px;
-        left: 61px;
+        left: 63px;
         width: 220px;
         background-color: white;
         border: 1px solid #000;
@@ -178,8 +178,19 @@
         .drop-win {
         position: absolute;
         top: 52px;
-        left: 153px;
+        left: 155px;
         width: 120px;
+        background-color: white;
+        border: 1px solid #000;
+        display: none;
+        z-index: 9999;
+        }
+
+        .drop-help {
+        position: absolute;
+        top: 52px;
+        left: 245px;
+        width: 220px;
         background-color: white;
         border: 1px solid #000;
         display: none;
@@ -202,24 +213,10 @@
         window.onload = function() {
             document.getElementById("wav-tada").play();
         }
-
-        function keyPress(){
-        if(window.event.keyCode == 87){
-            document.getElementById("prog-manager").style.left = 10 + 'px';
-        }
-        if(window.event.keyCode == 83){
-            document.getElementById("prog-manager").style.left = 50 + 'px';
-        }
-        if(window.event.keyCode == 65){
-            document.getElementById("prog-manager").style.left = 100 + 'px';
-        }
-        if(window.event.keyCode == 68){
-            document.getElementById("prog-manager").style.left = 150 + 'px';
-        }
-        }
     </script>
+
     <audio id="wav-tada" src="ass/TADA.WAV" type="audio/wav"></audio>
-    <audio id="wav-xylophon" src="ass/XYLOPHON.wav" type="audio/wav"></audio>
+    
     <audio id="ogg-almonds" src="ass/ALMONDS.ogg" type="audio/ogg"></audio>
     <audio id="ogg-canyon" src="ass/CANYON.ogg" type="audio/ogg"></audio>
     <audio id="ogg-dreamy" src="ass/DREAMY.ogg" type="audio/ogg"></audio>
@@ -234,26 +231,36 @@
             <div id="title" class="title" onclick="
             document.getElementById('drop-file').style.display = 'none'; 
             document.getElementById('drop-win').style.display = 'none'; 
-            document.getElementById('drop-opt').style.display = 'none';">
-                <div class="button close" id="window" onclick="document.getElementById('wav-xylophon').play(); document.getElementById('prog-manager').style.display = 'none';">
-                    &#8212;
+            document.getElementById('drop-opt').style.display = 'none';
+            document.getElementById('drop-help').style.display = 'none'">
+                <div class="button close" id="window">
+                    <a href="jsdos.html" target="frame" style="text-decoration: none; color: white;" onclick="//https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2Fb%2Fb46a42839934a8710efc5a40139be6ee239204fb.jsdos?anonymous=1
+                    document.getElementById('prog-manager').style.display = 'none';
+                    ">&#8212;</a>
                 </div>
                 Program Manager
-                <div class="button" id="max" onclick="
-                    document.getElementById('prog-manager').style.top = '.0'; 
-                    document.getElementById('prog-manager').style.left = '.0'; 
-                    document.getElementById('prog-manager').style.right = '0';
-                    document.getElementById('prog-manager').style.bottom = '0'; 
-                    document.getElementById('prog-manager').style.width = 'auto';
-                    document.getElementById('prog-manager').style.height = 'auto';">
-                    &#9650;
+                <div class="button" style="font-size: large;" id="btn-max" onclick="
+                    if (document.getElementById('btn-max').innerHTML == '&diamondsuit;') {
+                        document.getElementById('prog-manager').style.top = '10%'; 
+                        document.getElementById('prog-manager').style.left = '30%'; 
+                        document.getElementById('prog-manager').style.width = '750px';
+                        document.getElementById('prog-manager').style.height = '450px';
+                        document.getElementById('btn-max').innerHTML = '&blacktriangle;'} 
+                    else {
+                        document.getElementById('prog-manager').style.top = '.0'; 
+                        document.getElementById('prog-manager').style.left = '.0'; 
+                        document.getElementById('prog-manager').style.right = '0';
+                        document.getElementById('prog-manager').style.bottom = '0'; 
+                        document.getElementById('prog-manager').style.width = 'auto';
+                        document.getElementById('prog-manager').style.height = 'auto';
+                        document.getElementById('btn-max').innerHTML = '&diamondsuit;'};">
+                    &blacktriangle;
                 </div>
-                <div class="button" id="min" onclick="
-                    document.getElementById('prog-manager').style.top = '12%'; 
-                    document.getElementById('prog-manager').style.left = '40%'; 
-                    document.getElementById('prog-manager').style.width = '40%';
-                    document.getElementById('prog-manager').style.height = '40%';">
-                    &#9660;
+                <div class="button" style="font-size: large;" id="btn-min" onclick="
+                    document.getElementById('prog-manager-icon').style.display = 'block';
+                    document.getElementById('prog-manager-icon').style.bottom = '10px';
+                    document.getElementById('prog-manager').style.display = 'none';">
+                    &blacktriangledown;
                 </div>
             </div>
 
@@ -262,6 +269,7 @@
                 <div class="menuitem" onclick="
                 document.getElementById('drop-opt').style.display = 'none';
                 document.getElementById('drop-win').style.display = 'none';
+                document.getElementById('drop-help').style.display = 'none';
                 document.getElementById('drop-file').style.display == 'inline-block' ? 
                 document.getElementById('drop-file').style.display = 'none' : document.getElementById('drop-file').style.display = 'inline-block';">
                     <span style="text-decoration:underline;">F</span>ile
@@ -269,6 +277,7 @@
                 <div class="menuitem" onclick="
                 document.getElementById('drop-file').style.display = 'none';
                 document.getElementById('drop-win').style.display = 'none';
+                document.getElementById('drop-help').style.display = 'none';
                 document.getElementById('drop-opt').style.display == 'inline-block' ? 
                 document.getElementById('drop-opt').style.display = 'none' : document.getElementById('drop-opt').style.display = 'inline-block';">
                     <span style="text-decoration:underline;">O</span>ptions
@@ -276,12 +285,18 @@
                 <div class="menuitem" onclick="
                 document.getElementById('drop-file').style.display = 'none';
                 document.getElementById('drop-opt').style.display = 'none';
+                document.getElementById('drop-help').style.display = 'none';
                 document.getElementById('drop-win').style.display == 'inline-block' ? 
                 document.getElementById('drop-win').style.display = 'none' : document.getElementById('drop-win').style.display = 'inline-block';">
                     <span style="text-decoration:underline;">W</span>indows
                 </div>
-                <div class="menuitem">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fcomputer-quiz.jsdos?anonymous=1" target="frame"><span style="text-decoration:underline;">H</span>elp</a>
+                <div class="menuitem" onclick="
+                document.getElementById('drop-file').style.display = 'none';
+                document.getElementById('drop-opt').style.display = 'none';
+                document.getElementById('drop-win').style.display = 'none';
+                document.getElementById('drop-help').style.display == 'inline-block' ? 
+                document.getElementById('drop-help').style.display = 'none' : document.getElementById('drop-help').style.display = 'inline-block';">
+                    <span style="text-decoration:underline;">H</span>elp
                 </div>
             </div>
 
@@ -344,6 +359,11 @@
                 <div class="item-drop"><a href="https://www.windows93.net" target="frame">Windows 93?</a></div>
                 <div class="item-drop"><a href="https://webamp.org/" target="frame">Winamp</a></div>
             </div>
+            <div id="drop-help" class="drop-help">
+                <div class="item-drop"><a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fcomputer-quiz.jsdos?anonymous=1" target="frame">With Computers...</a></div>
+                <div class="item-drop"><a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fibm-basic-quiz.jsdos?anonymous=1" target="frame">With The Basic...</a></div>
+                <div class="item-drop"><a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fastronomy-quiz.jsdos?anonymous=1" target="frame">With The Universe...</a></div>
+            </div>
 
             <!--ICONS-->
             <div class="icons">
@@ -390,9 +410,57 @@
                     </a>
                 </div>
                 <div class="icon">
+                    <a href="https://online-emulators.com/msdos/game/?game=rott" target="frame">
+                    <img src="ass/triad.png"/>
+                    <div class="text">TRIAD</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://online-emulators.com/msdos/game/?game=aliencabal" target="frame">
+                    <img src="ass/alienc.png"/>
+                    <div class="text">ALIENC</div>
+                    </a>
+                </div>
+                <div class="icon">
                     <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fduke3d_320.jsdos?anonymous=1" target="frame">
                     <img src="ass/duke.png" />
                     <div class="text">DUKE3D</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://online-emulators.com/msdos/game/?game=quake" target="frame">
+                    <img src="ass/quake.png" />
+                    <div class="text">QUAKE</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://online-emulators.com/msdos/game/?game=descent" target="frame">
+                    <img src="ass/descent.png" />
+                    <div class="text">DESCENT</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://online-emulators.com/msdos/game/?game=terminal" target="frame">
+                    <img src="ass/terminalvelocity.png" />
+                    <div class="text">TERMVEL</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://online-emulators.com/msdos/game/?game=sf2" target="frame">
+                    <img src="ass/sf2.png" />
+                    <div class="text">SF2WW</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://online-emulators.com/msdos/game/?game=simpsons" target="frame">
+                    <img src="ass/simpsons.png" />
+                    <div class="text">SIMPSONS</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fdream-team-3-on-3-challenge.jsdos?anonymous=1" target="frame">
+                    <img src="ass/basketball.png" />
+                    <div class="text">3X3</div>
                     </a>
                 </div>
                 <div class="icon">
@@ -402,9 +470,57 @@
                     </a>
                 </div>
                 <div class="icon">
+                    <a href="https://online-emulators.com/msdos/game/?game=carmageddon" target="frame">
+                    <img src="ass/carmaged.png" />
+                    <div class="text">CARMAGED</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://online-emulators.com/msdos/game/?game=outrun" target="frame">
+                    <img src="ass/outrun.png" />
+                    <div class="text">OUTRUN</div>
+                    </a>
+                </div>
+                <div class="icon">
                     <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fwar2.jsdos?anonymous=1" target="frame">
                     <img src="ass/war.png"/>
                     <div class="text">WAR2</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://online-emulators.com/msdos/game/?game=commandredalert" target="frame">
+                    <img src="ass/ra.png"/>
+                    <div class="text">RA</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://online-emulators.com/msdos/game/?game=worms" target="frame">
+                    <img src="ass/worms.png"/>
+                    <div class="text">WORMS</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F3%2F320c1d875fba0f53476ae188195d2bec2cefdf8b.jsdos?anonymous=1" target="frame">
+                    <img src="ass/bomberman.png"/>
+                    <div class="text">DYNA</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://online-emulators.com/msdos/game/?game=fdizzy" target="frame">
+                    <img src="ass/dizzy.png"/>
+                    <div class="text">DIZZY</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F7%2F73ff69232f4002228e74f73abb7e62299a2a8f3f.jsdos?anonymous=1" target="frame">
+                    <img src="ass/prehistorik.png"/>
+                    <div class="text">PREHIST</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2Ff%2Ff460331d06f443fc58ad21fc4824a74716270243.jsdos?anonymous=1" target="frame">
+                    <img src="ass/prehistorik.png"/>
+                    <div class="text">PREHIST2</div>
                     </a>
                 </div>
                 <div class="icon">
@@ -474,6 +590,30 @@
                     </a>
                 </div>
                 <div class="icon">
+                    <a href="https://jsnes.org/" target="frame">
+                    <img src="ass/folder.png"/>
+                    <div class="text">NES</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://neilb.net/n64wasm/" target="frame">
+                    <img src="ass/folder.png"/>
+                    <div class="text">N64</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="easygba/index.html" target="frame">
+                    <img src="ass/folder.png"/>
+                    <div class="text">GBA</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="wasmpsx/index.html" target="frame">
+                    <img src="ass/folder.png"/>
+                    <div class="text">PS1</div>
+                    </a>
+                </div>
+                <div class="icon">
                     <a href="https://app.classcalc.com/prod/embed/?linkId=XXZ1n2BX2AurnUkD8#/scientific" target="frame">
                     <img src="ass/calc.png"/>
                     <div class="text">CALC</div>
@@ -483,6 +623,12 @@
                     <a href="https://www.onlinegdb.com/" target="frame">
                     <img src="ass/write.png"/>
                     <div class="text">PROG</div>
+                    </a>
+                </div>
+                <div class="icon">
+                    <a href="https://msxpen.com/" target="frame">
+                    <img src="ass/write.png"/>
+                    <div class="text">PROGMSX</div>
                     </a>
                 </div>
                 <div class="icon">
@@ -498,7 +644,12 @@
         <div class="topleft handle"></div>
         <div class="bottomleft handle"></div>
     </div>
-    <!--<div>
-        <img src="ass/programmingguy.gif" alt="Computer man" style="width:48px;height:48px;">
-    </div>-->
+    <div class="icon" id="prog-manager-icon" style="display: none;">
+        <a href="javascript:void(0)" onclick="
+        document.getElementById('prog-manager').style.display = 'block';
+        document.getElementById('prog-manager-icon').style.display = 'none';">
+        <img src="ass/progmanager.png"/>
+        <div class="text">Program<br>Manager</div>
+        </a>
+    </div>
 </body>

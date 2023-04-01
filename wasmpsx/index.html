@@ -1,0 +1,10 @@
+<wasmpsx-player></wasmpsx-player>    
+<button onclick="document.getElementById('e').click()" style="position: relative; left: 45%; background-color:#eee; border-color: #eee">Choose a ROM</button>
+<input id="e" style="display: none;" type="file"  onchange="document.querySelector('wasmpsx-player').readFile(this.files[0]);" />
+
+<script src="wasmpsx.min.js"></script>
+<script>
+  setTimeout(function(){
+  document.querySelector('wasmpsx-player').shadowRoot.querySelector('canvas').style="border: 0px none; background-color: black; top: 0px; top: 0; position: relative; display: block; margin: auto;";
+  }, 100);
+</script>
