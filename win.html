@@ -2,6 +2,10 @@
 <html>
 <body id="body">
     <style>
+        *{
+            cursor: url('ass/cursorWin.cur'), auto;
+        }
+
         body {
         background-color: teal;
         font-family: fixedsys, consolas, monospace;
@@ -19,7 +23,7 @@
         width: 100%;
         position: relative;
         border: 1px solid #000;
-        z-index: 9999;
+        z-index: 10;
         }
 
         .window .title {
@@ -30,6 +34,21 @@
         height: 26px;
         font-weight: 500;
         border-bottom: solid 1px #000;
+        }
+
+        .window .button {
+        background: #c0c0c0;
+        color: #000;
+        /*display: inline-block;*/
+        margin-left: 99px;
+        width: 100px;
+        height: 20px;
+        font-size: 12px;
+        float: left;
+        border: outset 3px;
+        line-height: 20px;
+        text-align: center;
+        z-index: 10;
         }
 
         .window .title .button {
@@ -43,10 +62,10 @@
         float: right;
         border: outset 3px;
         line-height: 20px;
-        z-index: 5555;
+        z-index: 10;
         }
 
-        .window .title .button:active {
+        .window .button:active {
         border: inset 3px;
         }
 
@@ -115,10 +134,6 @@
         position: absolute;
         padding: 2px 4px 4px 2px;
         border: 1px solid #000;  
-        width: 750px;
-        height: 470px;
-        top: 10%;
-        left: 30%;
         }
 
         .handle {
@@ -129,24 +144,28 @@
         }
 
         .topright {
+        position:absolute;
         top: -1px;
         right: -1px;
         cursor:ne-resize;
         }
 
         .bottomright {
+        position:absolute;
         bottom: -1px;
         right: -1px;
         cursor:nw-resize;
         }
 
         .topleft {
+        position:absolute;
         top: -1px;
         left: -1px;
         cursor:nw-resize;
         }
 
         .bottomleft {
+        position:absolute;
         bottom: -1px;
         left: -1px;
         cursor:ne-resize;
@@ -178,7 +197,7 @@
         position: absolute;
         top: 52px;
         left: 155px;
-        width: 120px;
+        width: 220px;
         background-color: white;
         border: 1px solid #000;
         display: none;
@@ -215,7 +234,7 @@
     </script>
 
     <audio id="wav-tada" src="ass/TADA.WAV" type="audio/wav"></audio>
-    
+    <audio id="wav-ding" src="ass/DING.WAV" type="audio/wav"></audio>
     <audio id="ogg-almonds" src="ass/ALMONDS.ogg" type="audio/ogg"></audio>
     <audio id="ogg-canyon" src="ass/CANYON.ogg" type="audio/ogg"></audio>
     <audio id="ogg-dreamy" src="ass/DREAMY.ogg" type="audio/ogg"></audio>
@@ -225,26 +244,27 @@
     <audio id="ogg-someband" src="ass/SOMEBAND.ogg" type="audio/ogg"></audio>
     <audio id="ogg-stomp" src="ass/STOMP.ogg" type="audio/ogg"></audio>
 
-    <div id="prog-manager" class="window-border ">
-        <div class="window">
+    <div id="prog-manager" class="window-border " style="top: 10%; left: 20%; width: 900px; height: 600px">
+        <div class="window" id="pg-window">
             <div id="title" class="title" onclick="
             document.getElementById('drop-file').style.display = 'none'; 
             document.getElementById('drop-win').style.display = 'none'; 
             document.getElementById('drop-opt').style.display = 'none';
             document.getElementById('drop-help').style.display = 'none'">
-                <a href="jsdos.html" target="frame" style="text-decoration: none; color: white;" onclick="
-                document.getElementById('prog-manager').style.display = 'none';">
-                    <div class="button close" id="window">
-                        &#8212;
-                    </div>
-                </a>
+                <div class="button close" id="window" onclick="
+                document.getElementById('exit-window').style.display = 'block';
+                document.querySelectorAll('audio').forEach(el => el.pause());
+                document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
+                document.getElementById('wav-ding').play();">
+                    &#8212;
+                </div>
                 Program Manager
                 <div class="button" style="font-size: large;" id="btn-max" onclick="
                     if (document.getElementById('btn-max').innerHTML == '&diamondsuit;') {
                         document.getElementById('prog-manager').style.top = '10%'; 
-                        document.getElementById('prog-manager').style.left = '30%'; 
-                        document.getElementById('prog-manager').style.width = '750px';
-                        document.getElementById('prog-manager').style.height = '450px';
+                        document.getElementById('prog-manager').style.left = '20%'; 
+                        document.getElementById('prog-manager').style.width = '900px';
+                        document.getElementById('prog-manager').style.height = '600px';
                         document.getElementById('btn-max').innerHTML = '&blacktriangle;'} 
                     else {
                         document.getElementById('prog-manager').style.top = '.0'; 
@@ -302,397 +322,545 @@
 
             <!--DROPDOWN-->
             <div id="drop-file" class="drop-file">
-                <div class="item-drop"><a href="webapps/pizzaAreaCalc.html" target="frame">Pizza Area Calculator</a></div>
-                <div class="item-drop"><a href="webapps/exprCalc.html" target="frame">Expr Calculator</a></div>
-                <div class="item-drop"><a href="webapps/BASHCustomizer.html" target="frame">BASH Customizer</a></div>
-                <div class="item-drop"><a href="webapps/screenCalc.html" target="frame">Screen Calculator</a></div>
-            </div>
-            <div id="drop-opt" class="drop-opt">
-                <div class="item-drop"><a href="javascript:void(0)" onclick="document.body.style.backgroundColor = 'white';">Background Blank</a></div>
-                <div class="item-drop"><a href="javascript:void(0)" onclick="document.body.style.backgroundColor = 'black';">Background Black</a></div>
-                <div class="item-drop"><a href="javascript:void(0)" onclick="document.body.style.backgroundColor = 'teal';">Background Teal</a></div>
-                <div class="item-drop"><a href="javascript:void(0)" onclick="document.body.style.backgroundColor = 'cadetblue';">Background Cadet Blue</a></div>
-                <div class="item-drop"><a href="javascript:void(0)" onclick="document.body.style.backgroundColor = 'antiquewhite';">Background Antique White</a></div>
-                <!--<div class="item-drop"><a href="javascript:void(0)" onclick="document.body.style.background = 'linear-gradient(to right, green, white, red)';">Background IT</a></div>-->
-                <hr>
-                <div class="item-drop"><a href="javascript:void(0)" onclick="document.getElementById('title').style.backgroundColor = 'maroon';">Title Bar Maroon</a></div>
-                <div class="item-drop"><a href="javascript:void(0)" onclick="document.getElementById('title').style.backgroundColor = 'darksalmon';">Title Bar Salmon</a></div>
-                <div class="item-drop"><a href="javascript:void(0)" onclick="document.getElementById('title').style.backgroundColor = '#000099';">Title Bar Blue</a></div>
-                <div class="item-drop"><a href="javascript:void(0)" onclick="document.getElementById('title').style.backgroundColor = 'darkslateblue';">Title Bar Slate Blue</a></div>
-                <div class="item-drop"><a href="javascript:void(0)" onclick="document.getElementById('title').style.backgroundColor = 'darkslategrey';">Title Bar Slate Grey</a></div>
-                <div class="item-drop"><a href="javascript:void(0)" onclick="document.getElementById('title').style.backgroundColor = 'darkgoldenrod';">Title Bar Golden</a></div>
-                <!--<div class="item-drop"><a href="javascript:void(0)" onclick="document.getElementById('title').style.background = 'linear-gradient(0deg, yellow, red, black)';">Title Bar GR</a></div>-->
-                <hr>
-                <div class="item-drop"><a href="javascript:void(0)" onclick="
+                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
                     document.querySelectorAll('audio').forEach(el => el.pause());
                     document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
                     document.getElementById('ogg-almonds').play();">Play ALMONDS</a></div>
-                <div class="item-drop"><a href="javascript:void(0)" onclick="
+                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
                     document.querySelectorAll('audio').forEach(el => el.pause());
                     document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
                     document.getElementById('ogg-canyon').play();">Play CANYON</a></div>
-                <div class="item-drop"><a href="javascript:void(0)" onclick="
+                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
                     document.querySelectorAll('audio').forEach(el => el.pause());
                     document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
                     document.getElementById('ogg-dreamy').play();">Play DREAMY</a></div>
-                <div class="item-drop"><a href="javascript:void(0)" onclick="
+                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
                     document.querySelectorAll('audio').forEach(el => el.pause());
                     document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
                     document.getElementById('ogg-metblast').play();">Play METBLAST</a></div>
-                <div class="item-drop"><a href="javascript:void(0)" onclick="
+                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
                     document.querySelectorAll('audio').forEach(el => el.pause());
                     document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
                     document.getElementById('ogg-passport').play();">Play PASSPORT</a></div>
-                <div class="item-drop"><a href="javascript:void(0)" onclick="
+                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
                     document.querySelectorAll('audio').forEach(el => el.pause());
                     document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
                     document.getElementById('ogg-seasons').play();">Play SEASONS</a></div>
-                <div class="item-drop"><a href="javascript:void(0)" onclick="
+                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
                     document.querySelectorAll('audio').forEach(el => el.pause());
                     document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
                     document.getElementById('ogg-someband').play();">Play SOMEBAND</a></div>
-                <div class="item-drop"><a href="javascript:void(0)" onclick="
+                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
                     document.querySelectorAll('audio').forEach(el => el.pause());
                     document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
                     document.getElementById('ogg-stomp').play();">Play STOMP</a></div>
             </div>
+            <div id="drop-opt" class="drop-opt">
+                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="document.body.style.backgroundColor = 'white';">Background Blank</a></div>
+                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="document.body.style.backgroundColor = 'black';">Background Black</a></div>
+                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="document.body.style.backgroundColor = 'teal';">Background Teal</a></div>
+                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="document.body.style.backgroundColor = 'cadetblue';">Background Cadet Blue</a></div>
+                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="document.body.style.backgroundColor = 'antiquewhite';">Background Antique White</a></div>
+                <hr>
+                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
+                var x = document.getElementsByClassName('title');
+                for (var i = 0; i < x.length; i++) {
+                    x[i].style.backgroundColor = 'maroon';
+                }">Title Bar Maroon</a></div>
+                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
+                    var x = document.getElementsByClassName('title');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'darksalmon';
+                    }">Title Bar Salmon</a></div>
+                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
+                    var x = document.getElementsByClassName('title');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = '#000099';
+                    }">Title Bar Blue</a></div>
+                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
+                    var x = document.getElementsByClassName('title');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'darkslateblue';
+                    }">Title Bar Slate Blue</a></div>
+                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
+                    var x = document.getElementsByClassName('title');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'darkslategrey';
+                    }">Title Bar Slate Grey</a></div>
+                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
+                    var x = document.getElementsByClassName('title');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'darkgoldenrod';
+                    }">Title Bar Golden</a></div>
+            </div>
             <div id="drop-win" class="drop-win">
-                <div class="item-drop"><a href="https://98.js.org" target="frame">Windows 98</a></div>
-                <div class="item-drop"><a href="https://www.windows93.net" target="frame">Windows 93?</a></div>
-                <div class="item-drop"><a href="https://webamp.org/" target="frame">Winamp</a></div>
+                <div class="item-drop"><a draggable="false" href="https://98.js.org" target="frame">Windows 98</a></div>
+                <div class="item-drop"><a draggable="false" href="https://www.windows93.net" target="frame">Windows 93?</a></div>
+                <div class="item-drop"><a draggable="false" href="https://webamp.org/" target="frame">Winamp</a></div>
+                <hr>
+                <div class="item-drop"><a draggable="false" href="pc.html" target="frame">Real Windows 3.1</a></div>
             </div>
             <div id="drop-help" class="drop-help">
-                <div class="item-drop"><a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fcomputer-quiz.jsdos?anonymous=1" target="frame">With Computers...</a></div>
-                <div class="item-drop"><a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fibm-basic-quiz.jsdos?anonymous=1" target="frame">With The Basic...</a></div>
-                <div class="item-drop"><a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fastronomy-quiz.jsdos?anonymous=1" target="frame">With The Universe...</a></div>
+                <div class="item-drop"><a draggable="false" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fcomputer-quiz.jsdos?anonymous=1" target="frame">With Computers...</a></div>
+                <div class="item-drop"><a draggable="false" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fibm-basic-quiz.jsdos?anonymous=1" target="frame">With The Basic...</a></div>
+                <div class="item-drop"><a draggable="false" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fastronomy-quiz.jsdos?anonymous=1" target="frame">With The Universe...</a></div>
             </div>
-
             <!--ICONS-->
             <div class="icons">
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fdoom.jsdos?anonymous=1" target="frame">
-                    <img src="ass/doom.png" />
-                    <div class="text">DOOM</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fultimate-doom.jsdos?anonymous=1" target="frame">
-                    <img src="ass/doom.png" />
-                    <div class="text">UDOOM</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F4%2F49ea7e89c84d01ae630772b4d90e37927955522a.jsdos?anonymous=1" target="frame">
-                    <img src="ass/doom.png" />
-                    <div class="text">FDOOM</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fdoom2.jsdos?anonymous=1" target="frame">
-                    <img src="ass/doom.png" />
-                    <div class="text">DOOM2</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2Fa%2Fac888d1660aa253f0ed53bd6c962c894125aaa19.jsdos?anonymous=1" target="frame">
-                    <img src="ass/wolf3d.png" />
-                    <div class="text">WOLF3D</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fblood-lowres.jsdos?anonymous=1" target="frame">
-                    <img src="ass/blood.png"/>
-                    <div class="text">BLOOD</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fheretic.jsdos?anonymous=1" target="frame">
-                    <img src="ass/heretic.png"/>
-                    <div class="text">HERETIC</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://online-emulators.com/msdos/game/?game=rott" target="frame">
-                    <img src="ass/triad.png"/>
-                    <div class="text">TRIAD</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://online-emulators.com/msdos/game/?game=aliencabal" target="frame">
-                    <img src="ass/aliencabal.png"/>
-                    <div class="text">ALIENCAB</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fduke3d_320.jsdos?anonymous=1" target="frame">
-                    <img src="ass/duke.png" />
-                    <div class="text">DUKE3D</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://online-emulators.com/msdos/game/?game=quake" target="frame">
-                    <img src="ass/quake.png" />
-                    <div class="text">QUAKE</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://online-emulators.com/msdos/game/?game=descent" target="frame">
-                    <img src="ass/descent.png" />
-                    <div class="text">DESCENT</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://online-emulators.com/msdos/game/?game=terminal" target="frame">
-                    <img src="ass/terminalvelocity.png" />
-                    <div class="text">TERMVEL</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F8%2F872f3668c36085d0b1ace46872145285364ee628.jsdos?anonymous=1" target="frame">
-                    <img src="ass/MK.png" />
-                    <div class="text">MK</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://online-emulators.com/msdos/game/?game=sf2" target="frame">
-                    <img src="ass/sf2.png" />
-                    <div class="text">SF2WW</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2Fa%2Fad3686df58a0bac357d3bb81b3f2536205e9ad76.jsdos?anonymous=1" target="frame">
-                    <img src="ass/goldenaxe.png" />
-                    <div class="text">GOLDAXE</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://online-emulators.com/msdos/game/?game=simpsons" target="frame">
-                    <img src="ass/simpsons.png" />
-                    <div class="text">SIMPSONS</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fdream-team-3-on-3-challenge.jsdos?anonymous=1" target="frame">
-                    <img src="ass/basketball.png" />
-                    <div class="text">3X3</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fnfs.jsdos?anonymous=1" target="frame">
-                    <img src="ass/nfs.png" />
-                    <div class="text">NFS</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://online-emulators.com/msdos/game/?game=carmageddon" target="frame">
-                    <img src="ass/carmaged.png" />
-                    <div class="text">CARMAGED</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://online-emulators.com/msdos/game/?game=outrun" target="frame">
-                    <img src="ass/outrun.png" />
-                    <div class="text">OUTRUN</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fwar2.jsdos?anonymous=1" target="frame">
-                    <img src="ass/war.png"/>
-                    <div class="text">WAR2</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://online-emulators.com/msdos/game/?game=commandredalert" target="frame">
-                    <img src="ass/ra.png"/>
-                    <div class="text">RA</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://online-emulators.com/msdos/game/?game=worms" target="frame">
-                    <img src="ass/worms.png"/>
-                    <div class="text">WORMS</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F3%2F320c1d875fba0f53476ae188195d2bec2cefdf8b.jsdos?anonymous=1" target="frame">
-                    <img src="ass/bomberman.png"/>
-                    <div class="text">DYNA</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://online-emulators.com/msdos/game/?game=fdizzy" target="frame">
-                    <img src="ass/dizzy.png"/>
-                    <div class="text">DIZZY</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://online-emulators.com/msdos/game/?game=joemac" target="frame">
-                    <img src="ass/joemac.png"/>
-                    <div class="text">JOEMAC</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F7%2F73ff69232f4002228e74f73abb7e62299a2a8f3f.jsdos?anonymous=1" target="frame">
-                    <img src="ass/prehistorik.png"/>
-                    <div class="text">PREHIST</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2Ff%2Ff460331d06f443fc58ad21fc4824a74716270243.jsdos?anonymous=1" target="frame">
-                    <img src="ass/prehistorik.png"/>
-                    <div class="text">PREHIST2</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://online-emulators.com/msdos/game/?game=jazz" target="frame">
-                    <img src="ass/jazzjackrabbit.png"/>
-                    <div class="text">JAZZ</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F6%2F6a2bfa87c031c2a11ab212758a5d914f7c112eeb.jsdos?anonymous=1" target="frame">
-                    <img src="ass/dave.png"/>
-                    <div class="text">DAVE</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fsatan.jsdos?anonymous=1" target="frame">
-                    <img src="ass/satan.png"/>
-                    <div class="text">SATAN</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fcaesar.jsdos?anonymous=1" target="frame">
-                    <img src="ass/caesar.png"/>
-                    <div class="text">CAESAR</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F7%2F744842062905f72648a4d492ccc2526d039b3702.jsdos?anonymous=1" target="frame">
-                    <img src="ass/simcity.png"/>
-                    <div class="text">SIMCITY</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2Fb%2Fb1ed3b93829bdff0c9062c5642767825dd52baf1.jsdos?anonymous=1" target="frame">
-                    <img src="ass/sc2000.png"/>
-                    <div class="text">SC2000</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fbattle-chess.jsdos?anonymous=1" target="frame">
-                    <img src="ass/bchess.png"/>
-                    <div class="text">BCHESS</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Ffidelity-chessmaster-2100.jsdos?anonymous=1" target="frame">
-                    <img src="ass/cm2100.png"/>
-                    <div class="text">CM2100</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fsudoku86.jsdos?anonymous=1" target="frame">
-                    <img src="ass/sudoku86.png"/>
-                    <div class="text">SUDOKU86</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fmasque-solitaire-antics.jsdos?anonymous=1" target="frame">
-                    <img src="ass/solitaire.png"/>
-                    <div class="text">CARDS</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fbust-a-move_.jsdos?anonymous=1" target="frame">
-                    <img src="ass/bustmove.png"/>
-                    <div class="text">BUSTMOVE</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Ftetris-classic.jsdos?anonymous=1" target="frame">
-                    <img src="ass/tetris.png"/>
-                    <div class="text">TETRIS</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F5%2F5cdcffbf268b3be0555025902b52a8d21ad595b9.jsdos?anonymous=1" target="frame">
-                    <img src="ass/pacman.png"/>
-                    <div class="text">PACMAN</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Frobotron-2084_.jsdos?anonymous=1" target="frame">
-                    <img src="ass/robotron.png"/>
-                    <div class="text">ROBOTRON</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fspace-invaders______.jsdos?anonymous=1" target="frame">
-                    <img src="ass/invaders.png"/>
-                    <div class="text">INVADERS</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Ftyrian-2000.jsdos?anonymous=1" target="frame">
-                    <img src="ass/tyrian.png"/>
-                    <div class="text">TYRIAN</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://play.webrcade.com/" target="frame">
+                <div class="icon" id="games-icon" style="display: inline-block;">
+                    <a draggable="false" href="javascript:void(0)" ondblclick="
+                    document.getElementById('f-games').style.display = 'block';
+                    document.getElementById('games-icon').style.display = 'none';">
                     <img src="ass/folder.png"/>
-                    <div class="text">RCADE</div>
+                    <div class="text">GAMES</div>
                     </a>
                 </div>
-                <div class="icon">
-                    <a href="https://jsnes.org/" target="frame">
+                <div class="icon" id="accessories-icon" style="display: inline-block;">
+                    <a draggable="false" href="javascript:void(0)" ondblclick="
+                    document.getElementById('f-accessories').style.display = 'block';
+                    document.getElementById('accessories-icon').style.display = 'none';">
                     <img src="ass/folder.png"/>
-                    <div class="text">NES</div>
+                    <div class="text">ACCESSORIES</div>
                     </a>
                 </div>
-                <div class="icon">
-                    <a href="https://neilb.net/n64wasm/" target="frame">
-                    <img src="ass/folder.png"/>
-                    <div class="text">N64</div>
-                    </a>
+            </div>
+
+            <!--FOLDER GAMES-->
+            <div id="f-games" class="window-border " style="top: 60px; left: 5px; width: 752px; height: 438px; z-index: 100; display: none">
+                <div class="window">
+                    <div id="title" class="title" onclick="
+                    document.getElementById('f-accessories').style.zIndex = '200';
+                    document.getElementById('f-games').style.zIndex = '100';">
+                        Games
+                        <div class="button" style="font-size: large;" id="btn-min-games" onclick="
+                            document.getElementById('games-icon').style.display = 'inline-block';
+                            document.getElementById('f-games').style.display = 'none';">
+                            &blacktriangledown;
+                        </div>
+                    </div>
+                    <!--ICONS-->
+                    <div class="icons" id="game-icons">
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fdoom.jsdos?anonymous=1" target="frame">
+                            <img src="ass/doom.png" />
+                            <div class="text">DOOM</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fultimate-doom.jsdos?anonymous=1" target="frame">
+                            <img src="ass/doom.png" />
+                            <div class="text">UDOOM</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F4%2F49ea7e89c84d01ae630772b4d90e37927955522a.jsdos?anonymous=1" target="frame">
+                            <img src="ass/doom.png" />
+                            <div class="text">FDOOM</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fdoom2.jsdos?anonymous=1" target="frame">
+                            <img src="ass/doom.png" />
+                            <div class="text">DOOM2</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2Fa%2Fac888d1660aa253f0ed53bd6c962c894125aaa19.jsdos?anonymous=1" target="frame">
+                            <img src="ass/wolf3d.png" />
+                            <div class="text">WOLF3D</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fblood-lowres.jsdos?anonymous=1" target="frame">
+                            <img src="ass/blood.png"/>
+                            <div class="text">BLOOD</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fheretic.jsdos?anonymous=1" target="frame">
+                            <img src="ass/heretic.png"/>
+                            <div class="text">HERETIC</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://online-emulators.com/msdos/game/?game=rott" target="frame">
+                            <img src="ass/triad.png"/>
+                            <div class="text">TRIAD</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://online-emulators.com/msdos/game/?game=aliencabal" target="frame">
+                            <img src="ass/aliencabal.png"/>
+                            <div class="text">ALIENCAB</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fduke3d_320.jsdos?anonymous=1" target="frame">
+                            <img src="ass/duke.png" />
+                            <div class="text">DUKE3D</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://online-emulators.com/msdos/game/?game=quake" target="frame">
+                            <img src="ass/quake.png" />
+                            <div class="text">QUAKE</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://online-emulators.com/msdos/game/?game=descent" target="frame">
+                            <img src="ass/descent.png" />
+                            <div class="text">DESCENT</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://online-emulators.com/msdos/game/?game=terminal" target="frame">
+                            <img src="ass/terminalvelocity.png" />
+                            <div class="text">TERMVEL</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F8%2F872f3668c36085d0b1ace46872145285364ee628.jsdos?anonymous=1" target="frame">
+                            <img src="ass/MK.png" />
+                            <div class="text">MK</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://online-emulators.com/msdos/game/?game=sf2" target="frame">
+                            <img src="ass/sf2.png" />
+                            <div class="text">SF2WW</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2Fa%2Fad3686df58a0bac357d3bb81b3f2536205e9ad76.jsdos?anonymous=1" target="frame">
+                            <img src="ass/goldenaxe.png" />
+                            <div class="text">GOLDAXE</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://online-emulators.com/msdos/game/?game=simpsons" target="frame">
+                            <img src="ass/simpsons.png" />
+                            <div class="text">SIMPSONS</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fdream-team-3-on-3-challenge.jsdos?anonymous=1" target="frame">
+                            <img src="ass/basketball.png" />
+                            <div class="text">3X3</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fnfs.jsdos?anonymous=1" target="frame">
+                            <img src="ass/nfs.png" />
+                            <div class="text">NFS</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://online-emulators.com/msdos/game/?game=carmageddon" target="frame">
+                            <img src="ass/carmaged.png" />
+                            <div class="text">CARMAGED</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://online-emulators.com/msdos/game/?game=outrun" target="frame">
+                            <img src="ass/outrun.png" />
+                            <div class="text">OUTRUN</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fwar2.jsdos?anonymous=1" target="frame">
+                            <img src="ass/war.png"/>
+                            <div class="text">WAR2</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://online-emulators.com/msdos/game/?game=commandredalert" target="frame">
+                            <img src="ass/ra.png"/>
+                            <div class="text">RA</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://js-dos.com/games/dune2.exe.html" target="frame">
+                            <img src="ass/dune.png"/>
+                            <div class="text">DUNE2</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://online-emulators.com/msdos/game/?game=worms" target="frame">
+                            <img src="ass/worms.png"/>
+                            <div class="text">WORMS</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F3%2F320c1d875fba0f53476ae188195d2bec2cefdf8b.jsdos?anonymous=1" target="frame">
+                            <img src="ass/bomberman.png"/>
+                            <div class="text">DYNA</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://online-emulators.com/msdos/game/?game=fdizzy" target="frame">
+                            <img src="ass/dizzy.png"/>
+                            <div class="text">DIZZY</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://online-emulators.com/msdos/game/?game=joemac" target="frame">
+                            <img src="ass/joemac.png"/>
+                            <div class="text">JOEMAC</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F7%2F73ff69232f4002228e74f73abb7e62299a2a8f3f.jsdos?anonymous=1" target="frame">
+                            <img src="ass/prehistorik.png"/>
+                            <div class="text">PREHIST</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2Ff%2Ff460331d06f443fc58ad21fc4824a74716270243.jsdos?anonymous=1" target="frame">
+                            <img src="ass/prehistorik.png"/>
+                            <div class="text">PREHIST2</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://online-emulators.com/msdos/game/?game=jazz" target="frame">
+                            <img src="ass/jazzjackrabbit.png"/>
+                            <div class="text">JAZZ</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F6%2F6a2bfa87c031c2a11ab212758a5d914f7c112eeb.jsdos?anonymous=1" target="frame">
+                            <img src="ass/dave.png"/>
+                            <div class="text">DAVE</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fsatan.jsdos?anonymous=1" target="frame">
+                            <img src="ass/satan.png"/>
+                            <div class="text">SATAN</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fcaesar.jsdos?anonymous=1" target="frame">
+                            <img src="ass/caesar.png"/>
+                            <div class="text">CAESAR</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F7%2F744842062905f72648a4d492ccc2526d039b3702.jsdos?anonymous=1" target="frame">
+                            <img src="ass/simcity.png"/>
+                            <div class="text">SIMCITY</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2Fb%2Fb1ed3b93829bdff0c9062c5642767825dd52baf1.jsdos?anonymous=1" target="frame">
+                            <img src="ass/sc2000.png"/>
+                            <div class="text">SC2000</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fbattle-chess.jsdos?anonymous=1" target="frame">
+                            <img src="ass/bchess.png"/>
+                            <div class="text">BCHESS</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Ffidelity-chessmaster-2100.jsdos?anonymous=1" target="frame">
+                            <img src="ass/cm2100.png"/>
+                            <div class="text">CM2100</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fsudoku86.jsdos?anonymous=1" target="frame">
+                            <img src="ass/sudoku86.png"/>
+                            <div class="text">SUDOKU86</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fmasque-solitaire-antics.jsdos?anonymous=1" target="frame">
+                            <img src="ass/solitaire.png"/>
+                            <div class="text">CARDS</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fbust-a-move_.jsdos?anonymous=1" target="frame">
+                            <img src="ass/bustmove.png"/>
+                            <div class="text">BUSTMOVE</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Ftetris-classic.jsdos?anonymous=1" target="frame">
+                            <img src="ass/tetris.png"/>
+                            <div class="text">TETRIS</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Foriginal%2F2X%2F5%2F5cdcffbf268b3be0555025902b52a8d21ad595b9.jsdos?anonymous=1" target="frame">
+                            <img src="ass/pacman.png"/>
+                            <div class="text">PACMAN</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Frobotron-2084_.jsdos?anonymous=1" target="frame">
+                            <img src="ass/robotron.png"/>
+                            <div class="text">ROBOTRON</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fspace-invaders______.jsdos?anonymous=1" target="frame">
+                            <img src="ass/invaders.png"/>
+                            <div class="text">INVADERS</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Ftyrian-2000.jsdos?anonymous=1" target="frame">
+                            <img src="ass/tyrian.png"/>
+                            <div class="text">TYRIAN</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://play.webrcade.com/" target="frame">
+                            <img src="ass/PROGM007.ICO"/>
+                            <div class="text">RCADE</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://jsnes.org/" target="frame">
+                            <img src="ass/PROGM007.ICO"/>
+                            <div class="text">NES</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://neilb.net/n64wasm/" target="frame">
+                            <img src="ass/PROGM007.ICO"/>
+                            <div class="text">N64</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="easygba/index.html" target="frame">
+                            <img src="ass/PROGM007.ICO"/>
+                            <div class="text">GBA</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="wasmpsx/index.html" target="frame">
+                            <img src="ass/PROGM007.ICO"/>
+                            <div class="text">PS1</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://www.adversator.com/game.html" target="frame">
+                            <img src="ass/PROGM007.ICO"/>
+                            <div class="text">MOBA3D</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://leagueofpixels.eu/" target="frame">
+                            <img src="ass/PROGM007.ICO"/>
+                            <div class="text">MOBA2D</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://skribbl.io/" target="frame">
+                            <img src="ass/PROGM007.ICO"/>
+                            <div class="text">SKRIBBL</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://play.pokemonshowdown.com/" target="frame">
+                            <img src="ass/PROGM007.ICO"/>
+                            <div class="text">PKMSHDWN</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://wanderers.io/" target="frame">
+                            <img src="ass/PROGM007.ICO"/>
+                            <div class="text">WANDERER</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="icon">
-                    <a href="easygba/index.html" target="frame">
-                    <img src="ass/folder.png"/>
-                    <div class="text">GBA</div>
-                    </a>
+                <div class="bottomright handle"></div>
+                <div class="topright handle"></div>
+                <div class="topleft handle"></div>
+                <div class="bottomleft handle"></div>
+            </div>
+
+            <!--FOLDER ACCESSORIES-->
+            <div id="f-accessories" class="window-border " style="top: 140px; right: 10px; width: 382px; height: 168px; z-index: 100; display: none">
+                <div class="window">
+                    <div id="title" class="title" onclick="
+                        document.getElementById('f-accessories').style.zIndex = '200';
+                        document.getElementById('f-games').style.zIndex = '100';">
+                        Accessories
+                        <div class="button" style="font-size: large;" id="btn-min-accessories" onclick="
+                            document.getElementById('accessories-icon').style.display = 'inline-block';
+                            document.getElementById('f-accessories').style.display = 'none';">
+                            &blacktriangledown;
+                        </div>
+                    </div>
+                    <!--ICONS-->
+                    <div class="icons" id="accessories-icons">
+                        <div class="icon" id="pizza-icon" style="display: inline-block;">
+                            <a draggable="false" href="javascript:void(0)" ondblclick="
+                            document.getElementById('app-pizza').style.display = 'block';
+                            document.getElementById('pizza-icon').style.display = 'none';">
+                            <img src="ass/VBRUN001.ICO"/>
+                            <div class="text">PIZZACAL</div>
+                            </a>
+                        </div>
+                        <div class="icon" id="expr-icon" style="display: inline-block;">
+                            <a draggable="false" href="javascript:void(0)" ondblclick="
+                            document.getElementById('app-expr').style.display = 'block';
+                            document.getElementById('expr-icon').style.display = 'none';">
+                            <img src="ass/VBRUN001.ICO"/>
+                            <div class="text">EXPRCAL</div>
+                            </a>
+                        </div>
+                        <div class="icon" id="bash-icon" style="display: inline-block;">
+                            <a draggable="false" href="javascript:void(0)" ondblclick="
+                            document.getElementById('app-bash').style.display = 'block';
+                            document.getElementById('bash-icon').style.display = 'none';">
+                            <img src="ass/VBRUN001.ICO"/>
+                            <div class="text">BASHCUS</div>
+                            </a>
+                        </div>
+                        <div class="icon" id="screen-icon" style="display: inline-block;">
+                            <a draggable="false" href="javascript:void(0)" ondblclick="
+                            document.getElementById('app-screen').style.display = 'block';
+                            document.getElementById('screen-icon').style.display = 'none';">
+                            <img src="ass/VBRUN001.ICO"/>
+                            <div class="text">SCREENC</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://app.classcalc.com/prod/embed/?linkId=XXZ1n2BX2AurnUkD8#/scientific" target="frame">
+                            <img src="ass/calc.png"/>
+                            <div class="text">CALC</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://www.onlinegdb.com/" target="frame">
+                            <img src="ass/write.png"/>
+                            <div class="text">PROG</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://msxpen.com/" target="frame">
+                            <img src="ass/write.png"/>
+                            <div class="text">PROGMSX</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://8bitworkshop.com/v3.10.0/?platform=vcs&file=examples%2Fhello.a" target="frame">
+                            <img src="ass/write.png"/>
+                            <div class="text">PROG8BIT</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="icon">
-                    <a href="wasmpsx/index.html" target="frame">
-                    <img src="ass/folder.png"/>
-                    <div class="text">PS1</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://app.classcalc.com/prod/embed/?linkId=XXZ1n2BX2AurnUkD8#/scientific" target="frame">
-                    <img src="ass/calc.png"/>
-                    <div class="text">CALC</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://www.onlinegdb.com/" target="frame">
-                    <img src="ass/write.png"/>
-                    <div class="text">PROG</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://msxpen.com/" target="frame">
-                    <img src="ass/write.png"/>
-                    <div class="text">PROGMSX</div>
-                    </a>
-                </div>
-                <div class="icon">
-                    <a href="https://8bitworkshop.com/v3.10.0/?platform=vcs&file=examples%2Fhello.a" target="frame">
-                    <img src="ass/write.png"/>
-                    <div class="text">PROG8BIT</div>
-                    </a>
-                </div>
+                <div class="bottomright handle"></div>
+                <div class="topright handle"></div>
+                <div class="topleft handle"></div>
+                <div class="bottomleft handle"></div>
             </div>
         </div>
         <div class="bottomright handle"></div>
@@ -701,12 +869,104 @@
         <div class="bottomleft handle"></div>
     </div>
     <div class="icon" id="prog-manager-icon" style="display: none;">
-        <a href="javascript:void(0)" onclick="
+        <a draggable="false" href="javascript:void(0)" ondblclick="
         document.getElementById('prog-manager').style.display = 'block';
         document.getElementById('prog-manager-icon').style.display = 'none';">
         <img src="ass/progmanager.png"/>
         <div class="text">Program<br>Manager</div>
         </a>
+    </div>
+
+    <!--APPS-->
+    <div id="app-pizza" class="window-border " style="top: 10px; left: 10px; width: 400px; height: 300px; z-index: 300; display: none">
+        <div class="window">
+            <div id="title" class="title">
+                Pizza Area Calculator
+                <div class="button" style="font-size: large;" id="btn-min-app" onclick="
+                    document.getElementById('pizza-icon').style.display = 'inline-block';
+                    document.getElementById('app-pizza').style.display = 'none';">
+                    &blacktriangledown;
+                </div>
+            </div>
+            <iframe id="frame-app" src="webapps/pizzaAreaCalc.html" style="top: 26px; width: 398px; height: 272px; position: absolute;"></iframe>
+        </div>
+        <div class="bottomright handle"></div>
+        <div class="topright handle"></div>
+        <div class="topleft handle"></div>
+        <div class="bottomleft handle"></div>
+    </div>
+    <div id="app-expr" class="window-border " style="top: 10px; left: 10px; width: 600px; height: 300px; z-index: 300; display: none">
+        <div class="window">
+            <div id="title" class="title">
+                Expression Calculator
+                <div class="button" style="font-size: large;" id="btn-min-app" onclick="
+                    document.getElementById('expr-icon').style.display = 'inline-block';
+                    document.getElementById('app-expr').style.display = 'none';">
+                    &blacktriangledown;
+                </div>
+            </div>
+            <iframe id="frame-app" src="webapps/exprCalc.html" style="top: 26px; width: 598px; height: 272px; position: absolute;"></iframe>
+        </div>
+        <div class="bottomright handle"></div>
+        <div class="topright handle"></div>
+        <div class="topleft handle"></div>
+        <div class="bottomleft handle"></div>
+    </div>
+    <div id="app-bash" class="window-border " style="top: 10px; left: 10px; width: 600px; height: 800px; z-index: 300; display: none">
+        <div class="window">
+            <div id="title" class="title">
+                BASH Customizer
+                <div class="button" style="font-size: large;" id="btn-min-app" onclick="
+                    document.getElementById('bash-icon').style.display = 'inline-block';
+                    document.getElementById('app-bash').style.display = 'none';">
+                    &blacktriangledown;
+                </div>
+            </div>
+            <iframe id="frame-app" src="webapps/BASHCustomizer.html" style="top: 26px; width: 598px; height: 772px; position: absolute;"></iframe>
+        </div>
+        <div class="bottomright handle"></div>
+        <div class="topright handle"></div>
+        <div class="topleft handle"></div>
+        <div class="bottomleft handle"></div>
+    </div>
+    <div id="app-screen" class="window-border " style="top: 10px; left: 10px; width: 600px; height: 400px; z-index: 300; display: none">
+        <div class="window">
+            <div id="title" class="title">
+                Screen Calculator
+                <div class="button" style="font-size: large;" id="btn-min-app" onclick="
+                    document.getElementById('screen-icon').style.display = 'inline-block';
+                    document.getElementById('app-screen').style.display = 'none';">
+                    &blacktriangledown;
+                </div>
+            </div>
+            <iframe id="frame-app" src="webapps/screenCalc.html" style="top: 26px; width: 598px; height: 372px; position: absolute;"></iframe>
+        </div>
+        <div class="bottomright handle"></div>
+        <div class="topright handle"></div>
+        <div class="topleft handle"></div>
+        <div class="bottomleft handle"></div>
+    </div>
+    <div id="exit-window" class="window-border " style="top: 35%; left: 35%; width: 480px; height: 130px; z-index: 99999; display: none">
+        <div class="window">
+            <div id="title" class="title">
+                Exit Finestra
+            </div>
+            <div><p style="text-align: center;"><img src="ass/PROGM038.ICO">This will end your Finestra 3.1 section.</p></div>
+            <div>
+                <a draggable="false" href="jsdos.html" target="frame" style="text-decoration: none; color: black;">
+                    <div class="button" style="font-size: large;">
+                        OK
+                    </div>
+                </a>
+                <div class="button" style="font-size: large;" onclick="document.getElementById('exit-window').style.display = 'none';">
+                    CANCEL
+                </div>
+            </div>
+        </div>
+        <div class="bottomright handle"></div>
+        <div class="topright handle"></div>
+        <div class="topleft handle"></div>
+        <div class="bottomleft handle"></div>
     </div>
 </body>
 </html>
