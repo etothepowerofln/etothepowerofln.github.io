@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-    <head><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=VT323"></head>
+<head><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=VT323"></head>
 <body id="body">
     <style>
         *{
@@ -96,11 +96,6 @@
         color: black;
         }
 
-        .menubar .menuitem:active {
-        background: #000099;
-        color: #fff;
-        }
-
         .icons {
         position: absolute;
         bottom: 0px;
@@ -182,7 +177,7 @@
         .drop-opt {
         position: absolute;
         top: 52px;
-        left: 63px;
+        left: 58px;
         width: 250px;
         background-color: white;
         border: 1px solid #000;
@@ -193,7 +188,7 @@
         .drop-win {
         position: absolute;
         top: 52px;
-        left: 150px;
+        left: 146px;
         width: 180px;
         background-color: white;
         border: 1px solid #000;
@@ -204,7 +199,7 @@
         .drop-help {
         position: absolute;
         top: 52px;
-        left: 235px;
+        left: 234px;
         width: 210px;
         background-color: white;
         border: 1px solid #000;
@@ -219,16 +214,87 @@
         font-size: 24px;
         text-decoration: solid;
         }
-
-        .item-drop a:hover {
-        background-color: #000099 ;
-        color: white;
-        }
     </style>
     <script>
         window.onload = function() {
             document.getElementById("wav-tada").play();
         }
+
+        var colorActive = '#000099';
+        var mouseNotOverMenu = true;
+
+        document.body.addEventListener("mousedown", function(){
+            if (Boolean(mouseNotOverMenu)){
+                var x = document.getElementsByClassName('menuitem');
+                for (var i = 0; i < x.length; i++) {
+                    x[i].style.backgroundColor = 'white';
+                    x[i].style.color = 'black';
+                }
+                document.getElementById('drop-file').style.display = 'none'; 
+                document.getElementById('drop-win').style.display = 'none'; 
+                document.getElementById('drop-opt').style.display = 'none';
+                document.getElementById('drop-help').style.display = 'none'
+            }
+        })
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === 'f'){
+                var x = document.getElementsByClassName('menuitem');
+                for (var i = 0; i < x.length; i++) {
+                    x[i].style.backgroundColor = 'white';
+                    x[i].style.color = 'black';
+                }
+                document.getElementById('menuitem-file').style.backgroundColor = colorActive;
+                document.getElementById('menuitem-file').style.color = 'white';
+                document.getElementById('drop-opt').style.display = 'none';
+                document.getElementById('drop-win').style.display = 'none';
+                document.getElementById('drop-help').style.display = 'none';
+                document.getElementById('menuitem-file').style.backgroundColor == 'white' ? 
+                document.getElementById('drop-file').style.display = 'none' : document.getElementById('drop-file').style.display = 'inline-block';
+            }
+            if (event.key === 'o'){
+                var x = document.getElementsByClassName('menuitem');
+                for (var i = 0; i < x.length; i++) {
+                    x[i].style.backgroundColor = 'white';
+                    x[i].style.color = 'black';
+                }
+                document.getElementById('menuitem-opt').style.backgroundColor = colorActive;
+                document.getElementById('menuitem-opt').style.color = 'white';
+                document.getElementById('drop-file').style.display = 'none';
+                document.getElementById('drop-win').style.display = 'none';
+                document.getElementById('drop-help').style.display = 'none';
+                document.getElementById('menuitem-opt').style.backgroundColor == 'white' ? 
+                document.getElementById('drop-opt').style.display = 'none' : document.getElementById('drop-opt').style.display = 'inline-block';
+            }
+            if (event.key === 'w'){
+                var x = document.getElementsByClassName('menuitem');
+                for (var i = 0; i < x.length; i++) {
+                    x[i].style.backgroundColor = 'white';
+                    x[i].style.color = 'black';
+                }
+                document.getElementById('menuitem-win').style.backgroundColor = colorActive;
+                document.getElementById('menuitem-win').style.color = 'white';
+                document.getElementById('drop-file').style.display = 'none';
+                document.getElementById('drop-opt').style.display = 'none';
+                document.getElementById('drop-help').style.display = 'none';
+                document.getElementById('menuitem-win').style.backgroundColor == 'white' ? 
+                document.getElementById('drop-win').style.display = 'none' : document.getElementById('drop-win').style.display = 'inline-block';
+            }
+            if (event.key === 'h'){
+                var x = document.getElementsByClassName('menuitem');
+                for (var i = 0; i < x.length; i++) {
+                    x[i].style.backgroundColor = 'white';
+                    x[i].style.color = 'black';
+                }
+                document.getElementById('menuitem-help').style.backgroundColor = colorActive;
+                document.getElementById('menuitem-help').style.color = 'white';
+                document.getElementById('drop-file').style.display = 'none';
+                document.getElementById('drop-opt').style.display = 'none';
+                document.getElementById('drop-win').style.display = 'none';
+                document.getElementById('menuitem-help').style.backgroundColor == 'white' ? 
+                document.getElementById('drop-help').style.display = 'none' : document.getElementById('drop-help').style.display = 'inline-block';
+            }
+        })
     </script>
 
     <audio id="wav-tada" src="ass/TADA.WAV" type="audio/wav"></audio>
@@ -244,7 +310,12 @@
 
     <div id="prog-manager" class="window-border " style="top: 10%; left: 20%; width: 900px; height: 600px">
         <div class="window" id="pg-window">
-            <div id="title" class="title" onclick="
+            <div id="title" class="title" onmousedown="
+            var x = document.getElementsByClassName('menuitem');
+            for (var i = 0; i < x.length; i++) {
+                x[i].style.backgroundColor = 'white';
+                x[i].style.color = 'black';
+            }
             document.getElementById('drop-file').style.display = 'none'; 
             document.getElementById('drop-win').style.display = 'none'; 
             document.getElementById('drop-opt').style.display = 'none';
@@ -284,124 +355,450 @@
 
             <!--MENUBAR-->
             <div class="menubar">
-                <div class="menuitem" onclick="
+                <div class="menuitem" id="menuitem-file" onmouseenter="mouseNotOverMenu = false" onmouseleave="mouseNotOverMenu = true" onmousedown="
+                var x = document.getElementsByClassName('menuitem');
+                for (var i = 0; i < x.length; i++) {
+                    x[i].style.backgroundColor = 'white';
+                    x[i].style.color = 'black';
+                }
+                this.style.backgroundColor = colorActive; this.style.color = 'white';
                 document.getElementById('drop-opt').style.display = 'none';
                 document.getElementById('drop-win').style.display = 'none';
                 document.getElementById('drop-help').style.display = 'none';
-                document.getElementById('drop-file').style.display == 'inline-block' ? 
+                this.style.backgroundColor == 'white' ? 
                 document.getElementById('drop-file').style.display = 'none' : document.getElementById('drop-file').style.display = 'inline-block';">
                     <span style="text-decoration:underline; font-size: 24px;">F</span>ile
                 </div>
-                <div class="menuitem" onclick="
+                <div class="menuitem" id="menuitem-opt" onmouseenter="mouseNotOverMenu = false" onmouseleave="mouseNotOverMenu = true" onmousedown="
+                var x = document.getElementsByClassName('menuitem');
+                for (var i = 0; i < x.length; i++) {
+                    x[i].style.backgroundColor = 'white';
+                    x[i].style.color = 'black';
+                }
+                this.style.backgroundColor = colorActive; this.style.color = 'white';
                 document.getElementById('drop-file').style.display = 'none';
                 document.getElementById('drop-win').style.display = 'none';
                 document.getElementById('drop-help').style.display = 'none';
-                document.getElementById('drop-opt').style.display == 'inline-block' ? 
+                this.style.backgroundColor == 'white' ? 
                 document.getElementById('drop-opt').style.display = 'none' : document.getElementById('drop-opt').style.display = 'inline-block';">
                     <span style="text-decoration:underline; font-size: 24px;">O</span>ptions
                 </div>
-                <div class="menuitem" onclick="
+                <div class="menuitem" id="menuitem-win" onmouseenter="mouseNotOverMenu = false" onmouseleave="mouseNotOverMenu = true" onmousedown="
+                var x = document.getElementsByClassName('menuitem');
+                for (var i = 0; i < x.length; i++) {
+                    x[i].style.backgroundColor = 'white';
+                    x[i].style.color = 'black';
+                }
+                this.style.backgroundColor = colorActive; this.style.color = 'white';
                 document.getElementById('drop-file').style.display = 'none';
                 document.getElementById('drop-opt').style.display = 'none';
                 document.getElementById('drop-help').style.display = 'none';
-                document.getElementById('drop-win').style.display == 'inline-block' ? 
+                this.style.backgroundColor == 'white' ? 
                 document.getElementById('drop-win').style.display = 'none' : document.getElementById('drop-win').style.display = 'inline-block';">
                     <span style="text-decoration:underline; font-size: 24px;">W</span>indows
                 </div>
-                <div class="menuitem" onclick="
+                <div class="menuitem" id="menuitem-help" onmouseenter="mouseNotOverMenu = false" onmouseleave="mouseNotOverMenu = true" onmousedown="
+                var x = document.getElementsByClassName('menuitem');
+                for (var i = 0; i < x.length; i++) {
+                    x[i].style.backgroundColor = 'white';
+                    x[i].style.color = 'black';
+                }
+                this.style.backgroundColor = colorActive; this.style.color = 'white';
                 document.getElementById('drop-file').style.display = 'none';
                 document.getElementById('drop-opt').style.display = 'none';
                 document.getElementById('drop-win').style.display = 'none';
-                document.getElementById('drop-help').style.display == 'inline-block' ? 
+                this.style.backgroundColor == 'white' ? 
                 document.getElementById('drop-help').style.display = 'none' : document.getElementById('drop-help').style.display = 'inline-block';">
                     <span style="text-decoration:underline; font-size: 24px;">H</span>elp
                 </div>
             </div>
 
             <!--DROPDOWN-->
-            <div id="drop-file" class="drop-file">
-                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
+            <div id="drop-file" class="drop-file" onmouseenter="mouseNotOverMenu = false" onmouseleave="mouseNotOverMenu = true"
+            onclick="
+            var x = document.getElementsByClassName('menuitem');
+            for (var i = 0; i < x.length; i++) {
+                x[i].style.backgroundColor = 'white';
+                x[i].style.color = 'black';
+            }">
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="
+                    this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-file').style.display = 'none';
                     document.querySelectorAll('audio').forEach(el => el.pause());
                     document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
                     document.getElementById('ogg-almonds').play();">Play ALMONDS</a></div>
-                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="
+                    this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-file').style.display = 'none';
                     document.querySelectorAll('audio').forEach(el => el.pause());
                     document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
                     document.getElementById('ogg-canyon').play();">Play CANYON</a></div>
-                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="
+                    this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-file').style.display = 'none';
                     document.querySelectorAll('audio').forEach(el => el.pause());
                     document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
                     document.getElementById('ogg-dreamy').play();">Play DREAMY</a></div>
-                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="
+                    this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-file').style.display = 'none';
                     document.querySelectorAll('audio').forEach(el => el.pause());
                     document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
                     document.getElementById('ogg-metblast').play();">Play METBLAST</a></div>
-                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="
+                    this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-file').style.display = 'none';
                     document.querySelectorAll('audio').forEach(el => el.pause());
                     document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
                     document.getElementById('ogg-passport').play();">Play PASSPORT</a></div>
-                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="
+                    this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-file').style.display = 'none';
                     document.querySelectorAll('audio').forEach(el => el.pause());
                     document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
                     document.getElementById('ogg-seasons').play();">Play SEASONS</a></div>
-                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="
+                    this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-file').style.display = 'none';
                     document.querySelectorAll('audio').forEach(el => el.pause());
                     document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
                     document.getElementById('ogg-someband').play();">Play SOMEBAND</a></div>
-                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="
+                    this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-file').style.display = 'none';
                     document.querySelectorAll('audio').forEach(el => el.pause());
                     document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
                     document.getElementById('ogg-stomp').play();">Play STOMP</a></div>
-            </div>
-            <div id="drop-opt" class="drop-opt">
-                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="document.body.style.backgroundColor = 'white';">Background Blank</a></div>
-                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="document.body.style.backgroundColor = 'black';">Background Black</a></div>
-                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="document.body.style.backgroundColor = 'teal';">Background Teal</a></div>
-                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="document.body.style.backgroundColor = 'cadetblue';">Background Cadet Blue</a></div>
-                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="document.body.style.backgroundColor = 'antiquewhite';">Background Antique White</a></div>
                 <hr>
-                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
-                var x = document.getElementsByClassName('title');
-                for (var i = 0; i < x.length; i++) {
-                    x[i].style.backgroundColor = 'maroon';
-                }">Title Bar Maroon</a></div>
-                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="
+                    this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-file').style.display = 'none';
+                    document.querySelectorAll('audio').forEach(el => el.pause());
+                    document.querySelectorAll('audio').forEach(el => el.currentTime = 0);">Stop all audio</a></div>
+            </div>
+            <div id="drop-opt" class="drop-opt" onmouseenter="mouseNotOverMenu = false" onmouseleave="mouseNotOverMenu = true"
+            onclick="
+            var x = document.getElementsByClassName('menuitem');
+            for (var i = 0; i < x.length; i++) {
+                x[i].style.backgroundColor = 'white';
+                x[i].style.color = 'black';
+            }">
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="
+                    this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-opt').style.display = 'none';
+                    document.body.style.backgroundColor = 'white';">Background Blank</a></div>
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="
+                    this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-opt').style.display = 'none';
+                    document.body.style.backgroundColor = 'black';">Background Black</a></div>
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="
+                    this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-opt').style.display = 'none';
+                    document.body.style.backgroundColor = 'teal';">Background Teal</a></div>
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="
+                    this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-opt').style.display = 'none';
+                    document.body.style.backgroundColor = 'cadetblue';">Background Cadet Blue</a></div>
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="
+                    this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-opt').style.display = 'none';
+                    document.body.style.backgroundColor = 'antiquewhite';">Background Antique White</a></div>
+                <hr>
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="
+                    this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-opt').style.display = 'none';
+                    colorActive = 'maroon';
+                    var x = document.getElementsByClassName('title');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'maroon';
+                    }">Title Bar Maroon</a></div>
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="
+                    this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-opt').style.display = 'none';
+                    colorActive = 'darksalmon';
                     var x = document.getElementsByClassName('title');
                     for (var i = 0; i < x.length; i++) {
                         x[i].style.backgroundColor = 'darksalmon';
                     }">Title Bar Salmon</a></div>
-                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="
+                    this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-opt').style.display = 'none';
+                    colorActive = '#000099';
                     var x = document.getElementsByClassName('title');
                     for (var i = 0; i < x.length; i++) {
                         x[i].style.backgroundColor = '#000099';
                     }">Title Bar Blue</a></div>
-                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="
+                    this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-opt').style.display = 'none';
+                    colorActive = 'darkslateblue';
                     var x = document.getElementsByClassName('title');
                     for (var i = 0; i < x.length; i++) {
                         x[i].style.backgroundColor = 'darkslateblue';
                     }">Title Bar Slate Blue</a></div>
-                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="
+                    this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-opt').style.display = 'none';
+                    colorActive = 'darkslategrey';
                     var x = document.getElementsByClassName('title');
                     for (var i = 0; i < x.length; i++) {
                         x[i].style.backgroundColor = 'darkslategrey';
                     }">Title Bar Slate Grey</a></div>
-                <div class="item-drop"><a draggable="false" href="javascript:void(0)" onclick="
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="
+                    this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-opt').style.display = 'none';
+                    colorActive = 'darkgoldenrod';
                     var x = document.getElementsByClassName('title');
                     for (var i = 0; i < x.length; i++) {
                         x[i].style.backgroundColor = 'darkgoldenrod';
                     }">Title Bar Golden</a></div>
             </div>
-            <div id="drop-win" class="drop-win">
-                <div class="item-drop"><a draggable="false" href="https://98.js.org" target="frame">Windows 98</a></div>
-                <div class="item-drop"><a draggable="false" href="https://www.windows93.net" target="frame">Windows 93?</a></div>
-                <div class="item-drop"><a draggable="false" href="https://webamp.org/" target="frame">Winamp</a></div>
+            <div id="drop-win" class="drop-win" onmouseenter="mouseNotOverMenu = false" onmouseleave="mouseNotOverMenu = true"
+            onclick="
+            var x = document.getElementsByClassName('menuitem');
+            for (var i = 0; i < x.length; i++) {
+                x[i].style.backgroundColor = 'white';
+                x[i].style.color = 'black';
+            }">
+                <div class="item-drop"><a class="item-drop-a" draggable="false"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-win').style.display = 'none';" href="https://98.js.org" target="frame">Windows 98</a></div>
+                <div class="item-drop"><a class="item-drop-a" draggable="false"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-win').style.display = 'none';" href="https://www.windows93.net" target="frame">Windows 93?</a></div>
+                <div class="item-drop"><a class="item-drop-a" draggable="false"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-win').style.display = 'none';" href="https://webamp.org/" target="frame">Winamp</a></div>
                 <hr>
-                <div class="item-drop"><a draggable="false" href="pc.html" target="frame">Real Windows 3.1</a></div>
+                <div class="item-drop"><a class="item-drop-a" draggable="false"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-win').style.display = 'none';" href="pc.html" target="frame">Real Windows 3.1</a></div>
             </div>
-            <div id="drop-help" class="drop-help">
-                <div class="item-drop"><a draggable="false" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fcomputer-quiz.jsdos?anonymous=1" target="frame">With Computers...</a></div>
-                <div class="item-drop"><a draggable="false" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fibm-basic-quiz.jsdos?anonymous=1" target="frame">With The Basic...</a></div>
-                <div class="item-drop"><a draggable="false" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fastronomy-quiz.jsdos?anonymous=1" target="frame">With The Universe...</a></div>
+            <div id="drop-help" class="drop-help" onmouseenter="mouseNotOverMenu = false" onmouseleave="mouseNotOverMenu = true"
+            onclick="
+            var x = document.getElementsByClassName('menuitem');
+            for (var i = 0; i < x.length; i++) {
+                x[i].style.backgroundColor = 'white';
+                x[i].style.color = 'black';
+            }">
+                <div class="item-drop"><a class="item-drop-a" draggable="false"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-help').style.display = 'none';" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fcomputer-quiz.jsdos?anonymous=1" target="frame">With Computers...</a></div>
+                <div class="item-drop"><a class="item-drop-a" draggable="false"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-help').style.display = 'none';" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fibm-basic-quiz.jsdos?anonymous=1" target="frame">With The Basic...</a></div>
+                <div class="item-drop"><a class="item-drop-a" draggable="false"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-help').style.display = 'none';" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fastronomy-quiz.jsdos?anonymous=1" target="frame">With The Universe...</a></div>
             </div>
             <!--ICONS-->
             <div class="icons">
@@ -432,7 +829,7 @@
             </div>
 
             <!--FOLDER GAMES-->
-            <div id="f-games" class="window-border " style="top: 56px; left: 4px; width: 742px; height: 452px; z-index: 100; display: none">
+            <div id="f-games" class="window-border " style="top: 56px; left: 4px; width: 740px; height: 490px; z-index: 100; display: none">
                 <div class="window">
                     <div id="title" class="title" onclick="
                     document.getElementById('f-accessories').style.zIndex = '200';
@@ -791,7 +1188,7 @@
             </div>
 
             <!--FOLDER ACCESSORIES-->
-            <div id="f-accessories" class="window-border " style="top: 140px; right: 10px; width: 382px; height: 172px; z-index: 100; display: none">
+            <div id="f-accessories" class="window-border " style="top: 140px; right: 10px; width: 380px; height: 180px; z-index: 100; display: none">
                 <div class="window">
                     <div id="title" class="title" onclick="
                         document.getElementById('f-accessories').style.zIndex = '200';
@@ -870,7 +1267,7 @@
             </div>
 
             <!--FOLDER CURRICULUM-->
-            <div id="f-curriculum" class="window-border " style="top: 300px; left: 200px; width: 292px; height: 112px; z-index: 100; display: none">
+            <div id="f-curriculum" class="window-border " style="top: 300px; left: 200px; width: 290px; height: 120px; z-index: 100; display: none">
                 <div class="window">
                     <div id="title" class="title">
                         Curriculum
