@@ -1,9 +1,12 @@
 <!doctype html>
 <html>
+    <head><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=VT323"></head>
 <body id="body">
     <style>
         *{
             cursor: url('ass/cursorWin.cur'), auto;
+            font-family: 'VT323';
+            font-size: 16px;
         }
 
         body {
@@ -33,14 +36,13 @@
         text-align: center;
         line-height: 24px;
         height: 26px;
-        font-weight: 500;
         border-bottom: solid 1px #000;
+        font-size: 24px;
         }
 
         .window .button {
         background: #c0c0c0;
         color: #000;
-        /*display: inline-block;*/
         margin-left: 99px;
         width: 100px;
         height: 20px;
@@ -55,7 +57,6 @@
         .window .title .button {
         background: #c0c0c0;
         color: #000;
-        /*display: inline-block;*/
         margin: 0px;
         width: 20px;
         height: 20px;
@@ -88,12 +89,11 @@
         line-height: 24px;
         padding: 0px 7px;
         display: inline-block;
-        text-decoration: none;
+        font-size: 24px;
         }
 
         .menubar .menuitem a {
         color: black;
-        text-decoration: none;
         }
 
         .menubar .menuitem:active {
@@ -148,35 +148,31 @@
         position:absolute;
         top: -1px;
         right: -1px;
-        cursor:ne-resize;
         }
 
         .bottomright {
         position:absolute;
         bottom: -1px;
         right: -1px;
-        cursor:nw-resize;
         }
 
         .topleft {
         position:absolute;
         top: -1px;
         left: -1px;
-        cursor:nw-resize;
         }
 
         .bottomleft {
         position:absolute;
         bottom: -1px;
         left: -1px;
-        cursor:ne-resize;
         }
 
         .drop-file {
         position: absolute;
         top: 52px;
         left: 1px;
-        width: 220px;
+        width: 160px;
         background-color: white;
         border: 1px solid #000;
         display: none;
@@ -187,7 +183,7 @@
         position: absolute;
         top: 52px;
         left: 63px;
-        width: 220px;
+        width: 250px;
         background-color: white;
         border: 1px solid #000;
         display: none;
@@ -197,8 +193,8 @@
         .drop-win {
         position: absolute;
         top: 52px;
-        left: 155px;
-        width: 220px;
+        left: 150px;
+        width: 180px;
         background-color: white;
         border: 1px solid #000;
         display: none;
@@ -208,8 +204,8 @@
         .drop-help {
         position: absolute;
         top: 52px;
-        left: 245px;
-        width: 220px;
+        left: 235px;
+        width: 210px;
         background-color: white;
         border: 1px solid #000;
         display: none;
@@ -220,7 +216,8 @@
         display: block;
         color: black;
         padding: 4px;
-        text-decoration: none;
+        font-size: 24px;
+        text-decoration: solid;
         }
 
         .item-drop a:hover {
@@ -293,7 +290,7 @@
                 document.getElementById('drop-help').style.display = 'none';
                 document.getElementById('drop-file').style.display == 'inline-block' ? 
                 document.getElementById('drop-file').style.display = 'none' : document.getElementById('drop-file').style.display = 'inline-block';">
-                    <span style="text-decoration:underline;">F</span>ile
+                    <span style="text-decoration:underline; font-size: 24px;">F</span>ile
                 </div>
                 <div class="menuitem" onclick="
                 document.getElementById('drop-file').style.display = 'none';
@@ -301,7 +298,7 @@
                 document.getElementById('drop-help').style.display = 'none';
                 document.getElementById('drop-opt').style.display == 'inline-block' ? 
                 document.getElementById('drop-opt').style.display = 'none' : document.getElementById('drop-opt').style.display = 'inline-block';">
-                    <span style="text-decoration:underline;">O</span>ptions
+                    <span style="text-decoration:underline; font-size: 24px;">O</span>ptions
                 </div>
                 <div class="menuitem" onclick="
                 document.getElementById('drop-file').style.display = 'none';
@@ -309,7 +306,7 @@
                 document.getElementById('drop-help').style.display = 'none';
                 document.getElementById('drop-win').style.display == 'inline-block' ? 
                 document.getElementById('drop-win').style.display = 'none' : document.getElementById('drop-win').style.display = 'inline-block';">
-                    <span style="text-decoration:underline;">W</span>indows
+                    <span style="text-decoration:underline; font-size: 24px;">W</span>indows
                 </div>
                 <div class="menuitem" onclick="
                 document.getElementById('drop-file').style.display = 'none';
@@ -317,7 +314,7 @@
                 document.getElementById('drop-win').style.display = 'none';
                 document.getElementById('drop-help').style.display == 'inline-block' ? 
                 document.getElementById('drop-help').style.display = 'none' : document.getElementById('drop-help').style.display = 'inline-block';">
-                    <span style="text-decoration:underline;">H</span>elp
+                    <span style="text-decoration:underline; font-size: 24px;">H</span>elp
                 </div>
             </div>
 
@@ -435,7 +432,7 @@
             </div>
 
             <!--FOLDER GAMES-->
-            <div id="f-games" class="window-border " style="top: 60px; left: 5px; width: 752px; height: 442px; z-index: 100; display: none">
+            <div id="f-games" class="window-border " style="top: 56px; left: 4px; width: 742px; height: 452px; z-index: 100; display: none">
                 <div class="window">
                     <div id="title" class="title" onclick="
                     document.getElementById('f-accessories').style.zIndex = '200';
@@ -873,7 +870,7 @@
             </div>
 
             <!--FOLDER CURRICULUM-->
-            <div id="f-curriculum" class="window-border " style="top: 300px; left: 200px; width: 302px; height: 112px; z-index: 100; display: none">
+            <div id="f-curriculum" class="window-border " style="top: 300px; left: 200px; width: 292px; height: 112px; z-index: 100; display: none">
                 <div class="window">
                     <div id="title" class="title">
                         Curriculum
