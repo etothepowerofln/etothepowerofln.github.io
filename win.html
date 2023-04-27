@@ -9,6 +9,7 @@
         body {
         background-color: teal;
         font-family: fixedsys, consolas, monospace;
+        -webkit-font-smoothing : none;
         -webkit-touch-callout: none;
         -webkit-user-select: none;
         -khtml-user-select: none;
@@ -423,10 +424,18 @@
                     <div class="text">ACCESSORIES</div>
                     </a>
                 </div>
+                <div class="icon" id="curriculum-icon" style="display: inline-block;">
+                    <a draggable="false" href="javascript:void(0)" ondblclick="
+                    document.getElementById('f-curriculum').style.display = 'block';
+                    document.getElementById('curriculum-icon').style.display = 'none';">
+                    <img src="ass/folder.png"/>
+                    <div class="text">CURRICULUM</div>
+                    </a>
+                </div>
             </div>
 
             <!--FOLDER GAMES-->
-            <div id="f-games" class="window-border " style="top: 60px; left: 5px; width: 752px; height: 438px; z-index: 100; display: none">
+            <div id="f-games" class="window-border " style="top: 60px; left: 5px; width: 752px; height: 442px; z-index: 100; display: none">
                 <div class="window">
                     <div id="title" class="title" onclick="
                     document.getElementById('f-accessories').style.zIndex = '200';
@@ -785,7 +794,7 @@
             </div>
 
             <!--FOLDER ACCESSORIES-->
-            <div id="f-accessories" class="window-border " style="top: 140px; right: 10px; width: 382px; height: 168px; z-index: 100; display: none">
+            <div id="f-accessories" class="window-border " style="top: 140px; right: 10px; width: 382px; height: 172px; z-index: 100; display: none">
                 <div class="window">
                     <div id="title" class="title" onclick="
                         document.getElementById('f-accessories').style.zIndex = '200';
@@ -853,6 +862,45 @@
                             <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://8bitworkshop.com/v3.10.0/?platform=vcs&file=examples%2Fhello.a" target="frame">
                             <img src="ass/write.png"/>
                             <div class="text">PROG8BIT</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottomright handle"></div>
+                <div class="topright handle"></div>
+                <div class="topleft handle"></div>
+                <div class="bottomleft handle"></div>
+            </div>
+
+            <!--FOLDER CURRICULUM-->
+            <div id="f-curriculum" class="window-border " style="top: 300px; left: 200px; width: 302px; height: 112px; z-index: 100; display: none">
+                <div class="window">
+                    <div id="title" class="title">
+                        Curriculum
+                        <div class="button" style="font-size: large;" id="btn-min-accessories" onclick="
+                            document.getElementById('curriculum-icon').style.display = 'inline-block';
+                            document.getElementById('f-curriculum').style.display = 'none';">
+                            &blacktriangledown;
+                        </div>
+                    </div>
+                    <!--ICONS-->
+                    <div class="icons" id="curriculum-icons">
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="cv.html" target="frame">
+                            <img src="ass/PROGM031.ICO"/>
+                            <div class="text">CV</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="http://lattes.cnpq.br/9736593152697583" target="frame">
+                            <img src="ass/PROGM031.ICO"/>
+                            <div class="text">LATTESCV</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTZrvoqWxxkwrW9Or3GYCV2pSjhljUqLGlCLVBuMBePd481kkTo3S0GHAb4imWEzi85AnV_NPvf-e_W/pubhtml?widget=true&amp;headers=false" target="frame">
+                            <img src="ass/WINHL002.ICO"/>
+                            <div class="text">GAMERCV</div>
                             </a>
                         </div>
                     </div>
@@ -951,7 +999,7 @@
             <div id="title" class="title">
                 Exit Finestra
             </div>
-            <div><p style="text-align: center;"><img src="ass/PROGM038.ICO">This will end your Finestra 3.1 section.</p></div>
+            <div><p style="text-align: center;"><img src="ass/PROGM039.ICO"> This will end your Finestra 3.1 section.</p></div>
             <div>
                 <a draggable="false" href="jsdos.html" target="frame" style="text-decoration: none; color: black;">
                     <div class="button" style="font-size: large;">
