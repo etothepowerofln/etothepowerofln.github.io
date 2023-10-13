@@ -1,35 +1,114 @@
 <html lang="en">
-<head>    
+<head>   
+  <script>var bestPrice = 999999;</script> 
+  <style>
+    .btns {
+      margin-left: 10px;
+    }
+    .btnsp {
+      margin-left: 24px;
+    }
+  </style>
 </head>  
 <body>   
 <div class="formstyle">  
 <form name="form1">  
-  Enter radius in cm:
-  
-  <input id="calc" name="radius" size="2" type="text" />
-  <br /><br />
-  <input onclick="form1.r1.value +=  3.1415 * form1.radius.value ** 2 ; form1.l1.value = form1.radius.value; form1.radius.value = '' " type="button" value="Save as value 1" />    
-  
-  <input onclick="form1.r2.value +=  3.1415 * form1.radius.value ** 2 ; form1.l2.value = form1.radius.value; form1.radius.value = '' " type="button" value="Save as value 2" />  
-  
-  <input onclick="form1.r3.value +=  3.1415 * form1.radius.value ** 2 ; form1.l3.value = form1.radius.value; form1.radius.value = '' " type="button" value="Save as value 3" />  
 
+  Enter radius:
+  <input id="calc" name="radius" size="2" type="text" />cm
+  <input onclick="form1.r1.value =  3.1415 * form1.radius.value ** 2 ; form1.l1.value = form1.radius.value; form1.radius.value = ''; form1.p1.value = '' 
+  var x = document.getElementsByClassName('prices');
+  for (var i = 0; i < x.length; i++) {
+      x[i].style.color = 'black';
+      if (0 < x[i].value && x[i].value <= bestPrice) {bestPrice = x[i].value;}
+  }
+  for (var i = 0; i < x.length; i++) {
+      if (x[i].value == bestPrice) {x[i].style.color = 'green';}
+  }
+  bestPrice = 999999;
+  " type="button" value="Save as radius 1" class="btns" />    
+  <input onclick="form1.r2.value =  3.1415 * form1.radius.value ** 2 ; form1.l2.value = form1.radius.value; form1.radius.value = ''; form1.p2.value = '' 
+  var x = document.getElementsByClassName('prices');
+  for (var i = 0; i < x.length; i++) {
+      x[i].style.color = 'black';
+      if (0 < x[i].value && x[i].value <= bestPrice) {bestPrice = x[i].value;}
+  }
+  for (var i = 0; i < x.length; i++) {
+      if (x[i].value == bestPrice) {x[i].style.color = 'green';}
+  }
+  bestPrice = 999999;
+  " type="button" value="Save as radius 2" class="btns" />  
+  <input onclick="form1.r3.value =  3.1415 * form1.radius.value ** 2 ; form1.l3.value = form1.radius.value; form1.radius.value = ''; form1.p3.value = '' 
+  var x = document.getElementsByClassName('prices');
+  for (var i = 0; i < x.length; i++) {
+      x[i].style.color = 'black';
+      if (0 < x[i].value && x[i].value <= bestPrice) {bestPrice = x[i].value;}
+  }
+  for (var i = 0; i < x.length; i++) {
+      if (x[i].value == bestPrice) {x[i].style.color = 'green';}
+  }
+  bestPrice = 999999;
+  " type="button" value="Save as radius 3" class="btns" />  
+
+  <br /><br />
+
+  Enter price:
+  <input id="calc" name="price" size="2" type="text" />$
+  <input onclick="form1.p1.value =  form1.price.value / form1.r1.value ; form1.price.value = ''; 
+  var x = document.getElementsByClassName('prices');
+  for (var i = 0; i < x.length; i++) {
+      x[i].style.color = 'black';
+      if (0 < x[i].value && x[i].value <= bestPrice) {bestPrice = x[i].value;}
+  }
+  for (var i = 0; i < x.length; i++) {
+      if (x[i].value == bestPrice) {x[i].style.color = 'green';}
+  }
+  bestPrice = 999999;
+  " type="button" value="Save as price 1" class="btnsp"" />    
+  <input onclick="form1.p2.value =  form1.price.value / form1.r2.value ; form1.price.value = ''; 
+  var x = document.getElementsByClassName('prices');
+  for (var i = 0; i < x.length; i++) {
+      x[i].style.color = 'black';
+      if (0 < x[i].value && x[i].value <= bestPrice) {bestPrice = x[i].value;}
+  }
+  for (var i = 0; i < x.length; i++) {
+      if (x[i].value == bestPrice) {x[i].style.color = 'green';}
+  }
+  bestPrice = 999999;
+  " type="button" value="Save as price 2" class="btnsp" />    
+  <input onclick="form1.p3.value =  form1.price.value / form1.r3.value ; form1.price.value = ''; 
+  var x = document.getElementsByClassName('prices');
+  for (var i = 0; i < x.length; i++) {
+      x[i].style.color = 'black';
+      if (0 < x[i].value && x[i].value <= bestPrice) {bestPrice = x[i].value;}
+  }
+  for (var i = 0; i < x.length; i++) {
+      if (x[i].value == bestPrice) {x[i].style.color = 'green';}
+  }
+  bestPrice = 999999;
+  " type="button" value="Save as price 3" class="btnsp" />    
   <br /><br />
   
   <input id="calc" name="l1" readonly="" size="2" type="text" />
   cm -&gt; 
   <input id="calc" name="r1" readonly="" type="text" /> 
   cm²
+  <input id="p1" name="p1" class="prices" readonly="" type="text" /> 
+  $ per cm²
   <br />
   <input id="calc" name="l2" readonly="" size="2" type="text" />
   cm -&gt; 
   <input id="calc" name="r2" readonly="" type="text" /> 
   cm²
+  <input id="p2" name="p2" class="prices" readonly="" type="text" /> 
+  $ per cm²
   <br /> 
   <input id="calc" name="l3" readonly="" size="2" type="text" /> 
   cm -&gt; 
   <input id="calc" name="r3" readonly="" type="text" /> 
   cm²
+  <input id="p3" name="p3" class="prices" readonly="" type="text" /> 
+  $ per cm²
   
 </form>  
 </div>  

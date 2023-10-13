@@ -8,12 +8,44 @@
   <strong>Get screen size:</strong>
   <p>Enter the diagonal size of the rectangle in inches and the proportion (w:h). The result is the total width and height of the rectangle in centimeters.</p>
   Diagonal in inches = <input id = "text" type ="text" size = "10" name = "diag">
-  Proportion = <input id = "text" type ="text" size = "3" name = "p1"> : <input id = "text" type ="text" size = "3" name = "p2">
-  <input type = "button" value = "Get screen size" onclick = "form1.scrSize.value =  
-  'Width of ' + form1.p1.value * (form1.diag.value * 2.54) / Math.sqrt(form1.p1.value ** 2 + form1.p2.value ** 2) + 
-  'cm X Height of ' + form1.p2.value * (form1.diag.value * 2.54) / Math.sqrt(form1.p1.value ** 2 + form1.p2.value ** 2) + 'cm'">
+  Proportion = <input id = "text" type ="text" size = "3" name = "prop1"> : <input id = "text" type ="text" size = "3" name = "prop2">
+  <br>
+  <input type = "button" value = "Save as screen 1" onclick = "form1.diag1.value =  form1.diag.value + ' (' + form1.prop1.value + ':' + form1.prop2.value + ')'; 
+  form1.w1.value = form1.prop1.value * (form1.diag.value * 2.54) / Math.sqrt(form1.prop1.value ** 2 + form1.prop2.value ** 2); 
+  form1.h1.value = form1.prop2.value * (form1.diag.value * 2.54) / Math.sqrt(form1.prop1.value ** 2 + form1.prop2.value ** 2); 
+  form1.a1.value = form1.w1.value * form1.h1.value;">
+  <input type = "button" value = "Save as screen 2" onclick = "form1.diag2.value =  form1.diag.value + ' (' + form1.prop1.value + ':' + form1.prop2.value + ')'; 
+  form1.w2.value = form1.prop1.value * (form1.diag.value * 2.54) / Math.sqrt(form1.prop1.value ** 2 + form1.prop2.value ** 2); 
+  form1.h2.value = form1.prop2.value * (form1.diag.value * 2.54) / Math.sqrt(form1.prop1.value ** 2 + form1.prop2.value ** 2); 
+  form1.a2.value = form1.w2.value * form1.h2.value;">
+  <input type = "button" value = "Save as screen 3" onclick = "form1.diag3.value =  form1.diag.value + ' (' + form1.prop1.value + ':' + form1.prop2.value + ')'; 
+  form1.w3.value = form1.prop1.value * (form1.diag.value * 2.54) / Math.sqrt(form1.prop1.value ** 2 + form1.prop2.value ** 2); 
+  form1.h3.value = form1.prop2.value * (form1.diag.value * 2.54) / Math.sqrt(form1.prop1.value ** 2 + form1.prop2.value ** 2); 
+  form1.a3.value = form1.w3.value * form1.h3.value;">
+  <input type = "button" value = "Save as screen 4" onclick = "form1.diag4.value =  form1.diag.value + ' (' + form1.prop1.value + ':' + form1.prop2.value + ')'; 
+  form1.w4.value = form1.prop1.value * (form1.diag.value * 2.54) / Math.sqrt(form1.prop1.value ** 2 + form1.prop2.value ** 2); 
+  form1.h4.value = form1.prop2.value * (form1.diag.value * 2.54) / Math.sqrt(form1.prop1.value ** 2 + form1.prop2.value ** 2); 
+  form1.a4.value = form1.w4.value * form1.h4.value;">
   <br><br>
-  <input id = "text" type ="text" size = "70" name = "scrSize" readonly>
+  <input id = "diag1" type ="text" size = "4" name = "diag1" readonly>in -> 
+  <input id = "w1" type ="text" name = "w1" readonly>cm x
+  <input id = "h1" type ="text" name = "h1" readonly>cm -> 
+  <input id = "a1" type ="text" name = "a1" readonly>cm²
+  <br>
+  <input id = "diag2" type ="text" size = "4" name = "diag2" readonly>in -> 
+  <input id = "w2" type ="text" name = "w2" readonly>cm x
+  <input id = "h2" type ="text" name = "h2" readonly>cm -> 
+  <input id = "a2" type ="text" name = "a2" readonly>cm²
+  <br>
+  <input id = "diag3" type ="text" size = "4" name = "diag3" readonly>in -> 
+  <input id = "w3" type ="text" name = "w3" readonly>cm x
+  <input id = "h3" type ="text" name = "h3" readonly>cm -> 
+  <input id = "a3" type ="text" name = "a3" readonly>cm²
+  <br>
+  <input id = "diag4" type ="text" size = "4" name = "diag4" readonly>in -> 
+  <input id = "w4" type ="text" name = "w4" readonly>cm x
+  <input id = "h4" type ="text" name = "h4" readonly>cm -> 
+  <input id = "a4" type ="text" name = "a4" readonly>cm²
   
   <br><hr><br>
   
