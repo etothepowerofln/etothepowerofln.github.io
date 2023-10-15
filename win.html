@@ -592,14 +592,6 @@
             </div>
             <!--ICONS-->
             <div class="icons">
-                <div class="icon" id="mystuff-icon" style="display: inline-block;">
-                    <a draggable="false" href="javascript:void(0)" ondblclick="
-                    document.getElementById('f-mystuff').style.display = 'block';
-                    document.getElementById('mystuff-icon').style.display = 'none';">
-                    <img src="ass/folder.png"/>
-                    <div class="text">MY_STUFF</div>
-                    </a>
-                </div>
                 <div class="icon" id="games-icon" style="display: inline-block;">
                     <a draggable="false" href="javascript:void(0)" ondblclick="
                     document.getElementById('f-games').style.display = 'block';
@@ -616,79 +608,14 @@
                     <div class="text">EXTRA</div>
                     </a>
                 </div>
-            </div>
-
-            <!--FOLDER MY_STUFF-->
-            <div id="f-mystuff" class="window-border " style="top: 220px; left: 100px; width: 380px; height: 180px; z-index: 100; display: none">
-                <div class="window">
-                    <div id="title" class="title" onclick="
-                        document.getElementById('f-mystuff').style.zIndex = '200';
-                        document.getElementById('f-games').style.zIndex = '100';">
-                        MY_STUFF
-                        <div class="button" style="font-size: large;" id="btn-min-mystuff" onclick="
-                            document.getElementById('mystuff-icon').style.display = 'inline-block';
-                            document.getElementById('f-mystuff').style.display = 'none';">
-                            &blacktriangledown;
-                        </div>
-                    </div>
-                    <!--ICONS-->
-                    <div class="icons" id="mystuff-icons">
-                        <div class="icon" id="pizza-icon" style="display: inline-block;">
-                            <a draggable="false" href="javascript:void(0)" ondblclick="
-                            document.getElementById('app-pizza').style.display = 'block';
-                            document.getElementById('pizza-icon').style.display = 'none';">
-                            <img src="ass/VBRUN001.ICO"/>
-                            <div class="text">PIZZACAL</div>
-                            </a>
-                        </div>
-                        <div class="icon" id="expr-icon" style="display: inline-block;">
-                            <a draggable="false" href="javascript:void(0)" ondblclick="
-                            document.getElementById('app-expr').style.display = 'block';
-                            document.getElementById('expr-icon').style.display = 'none';">
-                            <img src="ass/VBRUN001.ICO"/>
-                            <div class="text">EXPRCAL</div>
-                            </a>
-                        </div>
-                        <div class="icon" id="bash-icon" style="display: inline-block;">
-                            <a draggable="false" href="javascript:void(0)" ondblclick="
-                            document.getElementById('app-bash').style.display = 'block';
-                            document.getElementById('bash-icon').style.display = 'none';">
-                            <img src="ass/VBRUN001.ICO"/>
-                            <div class="text">BASHCUS</div>
-                            </a>
-                        </div>
-                        <div class="icon" id="screen-icon" style="display: inline-block;">
-                            <a draggable="false" href="javascript:void(0)" ondblclick="
-                            document.getElementById('app-screen').style.display = 'block';
-                            document.getElementById('screen-icon').style.display = 'none';">
-                            <img src="ass/VBRUN001.ICO"/>
-                            <div class="text">SCREENC</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://app.classcalc.com/prod/embed/?linkId=XXZ1n2BX2AurnUkD8#/scientific" target="frame">
-                            <img src="ass/calc.png"/>
-                            <div class="text">CALC</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://docs.google.com/document/d/e/2PACX-1vSttftWJ3Qd1uXQlRnz9oDd6O_ZW93Vs2jewvO0CNQqb9WFv35TkoX0fF1TD4ysD1fLMtbcwPqEqThv/pub" target="frame">
-                            <img src="ass/PROGM031.ICO"/>
-                            <div class="text">CV</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTZrvoqWxxkwrW9Or3GYCV2pSjhljUqLGlCLVBuMBePd481kkTo3S0GHAb4imWEzi85AnV_NPvf-e_W/pubhtml?widget=true&amp;headers=false" target="frame">
-                            <img src="ass/MORIC066.ICO"/>
-                            <div class="text">GAMERCV</div>
-                            </a>
-                        </div>
-                    </div>
+                <div class="icon" id="mystuff-icon" style="display: inline-block;">
+                    <a draggable="false" href="javascript:void(0)" ondblclick="
+                    document.getElementById('f-mystuff').style.display = 'block';
+                    document.getElementById('mystuff-icon').style.display = 'none';">
+                    <img src="ass/folder.png"/>
+                    <div class="text">MY_STUFF</div>
+                    </a>
                 </div>
-                <div class="bottomright handle"></div>
-                <div class="topright handle"></div>
-                <div class="topleft handle"></div>
-                <div class="bottomleft handle"></div>
             </div>
 
             <!--FOLDER GAMES-->
@@ -991,7 +918,7 @@
             </div>
 
             <!--FOLDER EXTRA-->
-            <div id="f-extra" class="window-border " style="top: 300px; left: 200px; width: 370px; height: 180px; z-index: 100; display: none">
+            <div id="f-extra" class="window-border " style="top: 300px; right: 100px; width: 370px; height: 180px; z-index: 100; display: none">
                 <div class="window">
                     <div id="title" class="title">
                         EXTRA
@@ -1019,6 +946,12 @@
                             <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://8bitworkshop.com/v3.10.0/?platform=vcs&file=examples%2Fhello.a" target="frame">
                             <img src="ass/write.png"/>
                             <div class="text">PROG8BIT</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://app.classcalc.com/prod/embed/?linkId=XXZ1n2BX2AurnUkD8#/scientific" target="frame">
+                            <img src="ass/calc.png"/>
+                            <div class="text">CALC</div>
                             </a>
                         </div>
                         <div class="icon">
@@ -1052,6 +985,74 @@
                 <div class="topleft handle"></div>
                 <div class="bottomleft handle"></div>
             </div>
+
+            <!--FOLDER MY_STUFF-->
+            <div id="f-mystuff" class="window-border " style="bottom: 100px; left: 80px; width: 380px; height: 180px; z-index: 100; display: none">
+                <div class="window">
+                    <div id="title" class="title" onclick="
+                        document.getElementById('f-mystuff').style.zIndex = '200';
+                        document.getElementById('f-games').style.zIndex = '100';">
+                        MY_STUFF
+                        <div class="button" style="font-size: large;" id="btn-min-mystuff" onclick="
+                            document.getElementById('mystuff-icon').style.display = 'inline-block';
+                            document.getElementById('f-mystuff').style.display = 'none';">
+                            &blacktriangledown;
+                        </div>
+                    </div>
+                    <!--ICONS-->
+                    <div class="icons" id="mystuff-icons">
+                        <div class="icon" id="pizza-icon" style="display: inline-block;">
+                            <a draggable="false" href="javascript:void(0)" ondblclick="
+                            document.getElementById('app-pizza').style.display = 'block';
+                            document.getElementById('pizza-icon').style.display = 'none';">
+                            <img src="ass/VBRUN001.ICO"/>
+                            <div class="text">PIZZACAL</div>
+                            </a>
+                        </div>
+                        <div class="icon" id="expr-icon" style="display: inline-block;">
+                            <a draggable="false" href="javascript:void(0)" ondblclick="
+                            document.getElementById('app-expr').style.display = 'block';
+                            document.getElementById('expr-icon').style.display = 'none';">
+                            <img src="ass/VBRUN001.ICO"/>
+                            <div class="text">EXPRCAL</div>
+                            </a>
+                        </div>
+                        <div class="icon" id="bash-icon" style="display: inline-block;">
+                            <a draggable="false" href="javascript:void(0)" ondblclick="
+                            document.getElementById('app-bash').style.display = 'block';
+                            document.getElementById('bash-icon').style.display = 'none';">
+                            <img src="ass/VBRUN001.ICO"/>
+                            <div class="text">BASHCUS</div>
+                            </a>
+                        </div>
+                        <div class="icon" id="screen-icon" style="display: inline-block;">
+                            <a draggable="false" href="javascript:void(0)" ondblclick="
+                            document.getElementById('app-screen').style.display = 'block';
+                            document.getElementById('screen-icon').style.display = 'none';">
+                            <img src="ass/VBRUN001.ICO"/>
+                            <div class="text">SCREENC</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://docs.google.com/document/d/e/2PACX-1vSttftWJ3Qd1uXQlRnz9oDd6O_ZW93Vs2jewvO0CNQqb9WFv35TkoX0fF1TD4ysD1fLMtbcwPqEqThv/pub" target="frame">
+                            <img src="ass/PROGM031.ICO"/>
+                            <div class="text">CV</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTZrvoqWxxkwrW9Or3GYCV2pSjhljUqLGlCLVBuMBePd481kkTo3S0GHAb4imWEzi85AnV_NPvf-e_W/pubhtml?widget=true&amp;headers=false" target="frame">
+                            <img src="ass/MORIC066.ICO"/>
+                            <div class="text">GAMERCV</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottomright handle"></div>
+                <div class="topright handle"></div>
+                <div class="topleft handle"></div>
+                <div class="bottomleft handle"></div>
+            </div>
+
         </div>
         <div class="bottomright handle"></div>
         <div class="topright handle"></div>
