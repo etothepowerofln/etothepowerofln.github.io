@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MS-DOS Simulator</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=VT323">
+  <style>
+    body {
+      font-family: 'VT323';
+      font-size: 24px;
+      /*font-family: 'Courier New', monospace;*/
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .msdos-window {
+      width: 80%;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 10px;
+      border: 2px solid #fff;
+      border-radius: 5px;
+      height: 400px;
+      overflow: auto;
+    }
+
+    input {
+      outline: none;
+      border: none;
+      background: transparent;
+      color: #fff;
+      width: 90%;
+      font-family: 'VT323';
+      font-size: 24px;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    ::selection {
+      background-color: #000;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="msdos-window" id="msdosWindow" onclick="focusInput()">
+    <div>Welcome to MS-DOS Simulator</div>
+    <div>Command list: 'pong', 'win'.</div>
+    <div id="output">&gt; C:\></div>
+    <input type="text" id="commandInput" onkeydown="handleCommand(event)">
+  </div>
+
+  <script>
+    function handleCommand(event) {
+      if (event.key === "Enter") {
+        const inputElement = document.getElementById("commandInput");
+        const command = inputElement.value;
+        const outputElement = document.getElementById("output");
+
+        if (command.toLowerCase() === "cls") {
+          outputElement.innerHTML = "&gt; C:\\>";
+        } else if (command.toLowerCase() === "win") {
+          window.open("index.html", "_self");
+          outputElement.innerHTML += "<br>Opening website...<br>" + "&gt; C:\\>";
+        } else if (command.toLowerCase() === "pong") {
+          window.open("pong.html", "_self");
+          outputElement.innerHTML += "<br>Opening website...<br>" + "&gt; C:\\>";
+        } else {
+          outputElement.innerHTML += "<br>Command not found.";
+          outputElement.innerHTML += "<br>" + command + "<br>" + "&gt; C:\\>";
+        }
+
+        inputElement.value = "";
+        document.getElementById("msdosWindow").scrollTop = document.getElementById("msdosWindow").scrollHeight;
+      }
+    }
+
+    function focusInput() {
+      document.getElementById("commandInput").focus();
+    }
+  </script>
+</body>
+</html>

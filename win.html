@@ -608,12 +608,19 @@
                     <div class="text">EXTRA</div>
                     </a>
                 </div>
-                <div class="icon" id="mystuff-icon" style="display: inline-block;">
+                <div class="icon" id="myapps-icon" style="display: inline-block;">
                     <a draggable="false" href="javascript:void(0)" ondblclick="
-                    document.getElementById('f-mystuff').style.display = 'block';
-                    document.getElementById('mystuff-icon').style.display = 'none';">
+                    document.getElementById('f-myapps').style.display = 'block';
+                    document.getElementById('myapps-icon').style.display = 'none';">
                     <img src="ass/folder.png"/>
-                    <div class="text">MY_STUFF</div>
+                    <div class="text">MY_APPS</div>
+                    </a>
+                </div>
+                <div class="icon" id="aboutme-icon" style="display: inline-block;">
+                    <a draggable="false" onclick="return false" ondblclick="
+                        frame2.src='about.html'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
+                    <img src="ass/Eu-Grego32.jpg"/>
+                    <div class="text">ABOUT_ME</div>
                     </a>
                 </div>
             </div>
@@ -622,7 +629,7 @@
             <div id="f-games" class="window-border " style="top: 56px; left: 4px; width: 750px; height: 400px; z-index: 100; display: none">
                 <div class="window">
                     <div id="title" class="title" onclick="
-                    document.getElementById('f-mystuff').style.zIndex = '200';
+                    document.getElementById('f-myapps').style.zIndex = '200';
                     document.getElementById('f-games').style.zIndex = '100';">
                         Freeware And Shareware Games
                         <div class="button" style="font-size: large;" id="btn-min-games" onclick="
@@ -634,277 +641,323 @@
                     <!--ICONS-->
                     <div class="icons" id="game-icons">
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://play.webrcade.com/" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://play.webrcade.com'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">WEBRCADE</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://jsnes.org/" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://jsnes.org'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/nes.png"/>
                             <div class="text">NES</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://xania.org/miracle/miracle.html" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://xania.org/miracle/miracle.html'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/sms.png"/>
                             <div class="text">SMS</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://d07riv.github.io/diabloweb/" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://d07riv.github.io/diabloweb'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/diablo.png"/>
                             <div class="text">DIABLO</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://www.netquake.io/" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://www.netquake.io'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/quake.png"/>
                             <div class="text">QUAKE</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://v6p9d9t4.ssl.hwcdn.net/html/3102700/HH%20GB%200.1g_Web/index.html" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://v6p9d9t4.ssl.hwcdn.net/html/3102700/HH%20GB%200.1g_Web/index.html'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">HELLHUNT</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://duckhuntjs.com/" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://duckhuntjs.com'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">DUCKHUNT</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://gamegur-us.github.io/circushtml5/" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://gamegur-us.github.io/circushtml5'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">CIRCUS</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://codeincomplete.com/games/gauntlet/" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://codeincomplete.com/games/gauntlet'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">GAUNTLET</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://v6p9d9t4.ssl.hwcdn.net/html/3170081/index.html" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://v6p9d9t4.ssl.hwcdn.net/html/3170081/index.html'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">2TTOWER</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://v6p9d9t4.ssl.hwcdn.net/html/6468898/index.html" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://v6p9d9t4.ssl.hwcdn.net/html/6468898/index.html'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">WITCHCTD</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://v6p9d9t4.ssl.hwcdn.net/html/6750153/index.html" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://v6p9d9t4.ssl.hwcdn.net/html/6750153/index.html'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">RAVENIA</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://play.retrogames.onl/openbor/beats-of-rage-openbor.html" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://play.retrogames.onl/openbor/beats-of-rage-openbor.html'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">BOR</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://beastinblack.com/game/" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://beastinblack.com/game'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">1NTOKYO</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="http://arcade.lostdecadegames.com/onslaught-arena/" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://arcade.lostdecadegames.com/onslaught-arena'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">ONSARENA</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://v6p9d9t4.ssl.hwcdn.net/html/4504414/210925_SPOLOUS_wg/index.html" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://v6p9d9t4.ssl.hwcdn.net/html/4504414/210925_SPOLOUS_wg/index.html'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">SPOLOUS</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="http://hexgl.bkcore.com/play/" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://hexgl.bkcore.com/play'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">HEXGL</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://v6p9d9t4.ssl.hwcdn.net/html/1792221/ItchIO/index.html?v=1574649458" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://v6p9d9t4.ssl.hwcdn.net/html/1792221/ItchIO/index.html?v=1574649458'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">DRIFT</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://v6p9d9t4.ssl.hwcdn.net/html/7561063/index.html" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://v6p9d9t4.ssl.hwcdn.net/html/7561063/index.html'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">POLYTRCK</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://www.adversator.com/game.html" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://www.adversator.com/game.html'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">MOBA3D</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://leagueofpixels.eu/" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://www.leagueofpixels.eu'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">MOBA2D</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://wanderers.io/" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://www.wanderers.io'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">WANDERER</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://www.konkr.io/" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://www.konkr.io'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">KONKR</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://play.pokemonshowdown.com/" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://play.pokemonshowdown.com'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">PKMSHDWN</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="http://play.elevatorsaga.com/" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://play.elevatorsaga.com'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">ELEVATOR</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://skribbl.io/" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://skribbl.io'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">SKRIBBL</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://v6p9d9t4.ssl.hwcdn.net/html/2786355/index.html" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://v6p9d9t4.ssl.hwcdn.net/html/2786355/index.html'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">LOGIGATE</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="http://entanglement.gopherwoodstudios.com/en-US-index.html" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://entanglement.gopherwoodstudios.com/en-US-index.html'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">ENTANGLE</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://fritz.chessbase.com/en/fritz" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://fritz.chessbase.com/en/fritz'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">CHESS</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://conroy.org/roms/2048.html" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="              
+                                frame2.src='https\://conroy.org/roms/2048.html'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">2048</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://v6p9d9t4.ssl.hwcdn.net/html/2759715/index.html" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://v6p9d9t4.ssl.hwcdn.net/html/2759715/index.html'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">KAKURO</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://solitaired.com/free-games" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://solitaired.com/free-games'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/joy.png"/>
                             <div class="text">+GAMES</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://gba.ninja/" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://gba.ninja'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/gba.png"/>
                             <div class="text">GBA</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/PokemonZeroNegative.gba" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/PokemonZeroNegative.gba'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/gba.png"/>
                             <div class="text">PKM0-</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/PokemonFlarev1.02.gba" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/PokemonFlarev1.02.gba'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/gba.png"/>
                             <div class="text">PKMFLARE</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/minicraft.gba" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/minicraft.gba'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/gba.png"/>
                             <div class="text">MINICRFT</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/ucity-advance-v1.0.1.gba" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/ucity-advance-v1.0.1.gba'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/gba.png"/>
                             <div class="text">UCITY</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/thinkingwithboxes.gba" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/thinkingwithboxes.gba'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/gba.png"/>
                             <div class="text">THINKBOX</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/feline.gba" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/feline.gba'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/gba.png"/>
                             <div class="text">FELINE</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/ScrollsOfFire.gba" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/ScrollsOfFire.gba'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/gba.png"/>
                             <div class="text">SCRLFIRE</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/CelesteClassicHomebrewv1.2.gba" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/CelesteClassicHomebrewv1.2.gba'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/gba.png"/>
                             <div class="text">CELESTEH</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/USAsteroidMiningCompnyComplianceOfficerSimulator.gba" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/USAsteroidMiningCompnyComplianceOfficerSimulator.gba'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/gba.png"/>
                             <div class="text">USAMCCOS</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/butano-fighter.gba" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/butano-fighter.gba'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/gba.png"/>
                             <div class="text">USAMC</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/CheeseburgerKing.gba" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://gba.ninja/?autorun=https://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/CheeseburgerKing.gba'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/gba.png"/>
                             <div class="text">CBKING</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/BlackSeaMSX.gba" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                            frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/BlackSeaMSX.gba'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/gba.png"/>
                             <div class="text">BLACKSEA</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/fate_s_crossing.gba" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                            frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/fate_s_crossing.gba'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/gba.png"/>
                             <div class="text">FATECRSS</div>
                             </a>
@@ -931,43 +984,50 @@
                     <!--ICONS-->
                     <div class="icons" id="extra-icons">
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://www.onlinegdb.com/" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                            frame2.src='https\://www.onlinegdb.com'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/write.png"/>
                             <div class="text">PROG</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://msxpen.com/" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://msxpen.com'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/write.png"/>
                             <div class="text">PROGMSX</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://8bitworkshop.com/v3.10.0/?platform=vcs&file=examples%2Fhello.a" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                            frame2.src='https\://8bitworkshop.com/v3.10.0/?platform=vcs&file=examples%2Fhello.a'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/write.png"/>
                             <div class="text">PROG8BIT</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://app.classcalc.com/prod/embed/?linkId=XXZ1n2BX2AurnUkD8#/scientific" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://app.classcalc.com/prod/embed/?linkId=XXZ1n2BX2AurnUkD8#/scientific/'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/calc.png"/>
                             <div class="text">CALC</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://www.gutenberg.org/" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                            frame2.src='https\://www.gutenberg.org/'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/WINHL002.ICO"/>
                             <div class="text">GUTENBRG</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://openlibrary.org/" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://openlibrary.org/'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/WINHL002.ICO"/>
                             <div class="text">OLIBRARY</div>
                             </a>
                         </div>
                         <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://libreflix.org" target="frame">
+                            <a draggable="false" onclick="return false" ondblclick="
+                                frame2.src='https\://libreflix.org'; document.getElementById('app-loader').style.display = 'block';" href="javascript:void(0)" target="frame2">
                             <img src="ass/MPLAY001.ICO"/>
                             <div class="text">LIBRFLIX</div>
                             </a>
@@ -986,21 +1046,21 @@
                 <div class="bottomleft handle"></div>
             </div>
 
-            <!--FOLDER MY_STUFF-->
-            <div id="f-mystuff" class="window-border " style="bottom: 100px; left: 80px; width: 380px; height: 180px; z-index: 100; display: none">
+            <!--FOLDER MY_APPS-->
+            <div id="f-myapps" class="window-border " style="bottom: 100px; left: 80px; width: 370px; height: 120px; z-index: 100; display: none">
                 <div class="window">
                     <div id="title" class="title" onclick="
-                        document.getElementById('f-mystuff').style.zIndex = '200';
+                        document.getElementById('f-myapps').style.zIndex = '200';
                         document.getElementById('f-games').style.zIndex = '100';">
-                        MY_STUFF
-                        <div class="button" style="font-size: large;" id="btn-min-mystuff" onclick="
-                            document.getElementById('mystuff-icon').style.display = 'inline-block';
-                            document.getElementById('f-mystuff').style.display = 'none';">
+                        MY_APPS
+                        <div class="button" style="font-size: large;" id="btn-min-myapps" onclick="
+                            document.getElementById('myapps-icon').style.display = 'inline-block';
+                            document.getElementById('f-myapps').style.display = 'none';">
                             &blacktriangledown;
                         </div>
                     </div>
                     <!--ICONS-->
-                    <div class="icons" id="mystuff-icons">
+                    <div class="icons" id="myapps-icons">
                         <div class="icon" id="pizza-icon" style="display: inline-block;">
                             <a draggable="false" href="javascript:void(0)" ondblclick="
                             document.getElementById('app-pizza').style.display = 'block';
@@ -1031,18 +1091,6 @@
                             document.getElementById('screen-icon').style.display = 'none';">
                             <img src="ass/VBRUN001.ICO"/>
                             <div class="text">SCREENC</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://docs.google.com/document/d/e/2PACX-1vSDNSvAMFqNqB5xbidcLkyreEfWbeuGSsw5F_PFf_6h8nc4BT2v5gLIgTHTfEK-RRWYLI4LFj6MJrgX/pub" target="frame">
-                            <img src="ass/PROGM031.ICO"/>
-                            <div class="text">CV</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="return false" ondblclick="location=this.href" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTZrvoqWxxkwrW9Or3GYCV2pSjhljUqLGlCLVBuMBePd481kkTo3S0GHAb4imWEzi85AnV_NPvf-e_W/pubhtml?widget=true&amp;headers=false" target="frame">
-                            <img src="ass/MORIC066.ICO"/>
-                            <div class="text">GAMERCV</div>
                             </a>
                         </div>
                     </div>
@@ -1153,6 +1201,22 @@
                     CANCEL
                 </div>
             </div>
+        </div>
+        <div class="bottomright handle"></div>
+        <div class="topright handle"></div>
+        <div class="topleft handle"></div>
+        <div class="bottomleft handle"></div>
+    </div>
+    <div id="app-loader" class="window-border " style="top: 0px; bottom: 0px; left: 0px; right: 0px; z-index: 300; display: none">
+        <div class="window">
+            <div id="title" class="title">
+                Luiz Filipi's Desktop
+                <div class="button" style="font-size: large;" id="btn-min-app" onclick="
+                    document.getElementById('app-loader').style.display = 'none'; frame2.src='loading.html';">
+                    &blacktriangledown;
+                </div>
+            </div>
+            <iframe id="frame2" src="loading.html" style="top: 26px; width: calc(100% - 1px); height: calc(100% - 27px); position: absolute;"></iframe>
         </div>
         <div class="bottomright handle"></div>
         <div class="topright handle"></div>

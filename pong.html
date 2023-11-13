@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pong</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #000;
+    }
+
+    canvas {
+      border: 2px solid #fff;
+    }
+
+    #score {
+      color: #fff;
+      font-size: 20px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    #timer {
+      color: #fff;
+      font-size: 20px;
+      position: absolute;
+      top: 50px;
+      left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="pongCanvas" width="800" height="400"></canvas>
+  <div id="score">Use W, S, or mouse to move paddle. Press E to exit.</div>
+
+  <script>
+    const canvas = document.getElementById("pongCanvas");
+    const context = canvas.getContext("2d");
+
+    const paddleWidth = 10, paddleHeight = 60;
+    const leftPaddle = { x: 0, y: canvas.height / 2 - paddleHeight / 2, width: paddleWidth, height: paddleHeight, dy: 5 };
+    const rightPaddle = { x: canvas.width - paddleWidth, y: canvas.height / 2 - paddleHeight / 2, width: paddleWidth, height: paddleHeight, dy: 5 };
+
+    const ball = { x: canvas.width / 2, y: canvas.height / 2, radius: 8, dx: 5, dy: 5 };
+
+    let playerScore = 0;
+    let aiScore = 0;
+    let gameTimer;
+    let seconds = 0;
+
+    function drawPaddle(x, y, width, height) {
+      context.fillStyle = "#fff";
+      context.fillRect(x, y, width, height);
+    }
+
+    function drawBall(x, y, radius) {
+      context.beginPath();
+      context.arc(x, y, radius, 0, Math.PI * 2);
+      context.fillStyle = "#fff";
+      context.fill();
+      context.closePath();
+    }
+
+    function drawScore() {
+      context.font = "20px Courier New";
+      context.fillText(`Player: ${playerScore} | AI: ${aiScore}`, 20, 20);
+    }
+
+    function drawTimer() {
+      context.font = "20px Courier New";
+      context.fillText(`Time: ${seconds}s`, 20, 50);
+    }
+
+    function draw() {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+
+      drawPaddle(leftPaddle.x, leftPaddle.y, leftPaddle.width, leftPaddle.height);
+      drawPaddle(rightPaddle.x, rightPaddle.y, rightPaddle.width, rightPaddle.height);
+      drawBall(ball.x, ball.y, ball.radius);
+      drawScore();
+      drawTimer();
+
+      ball.x += ball.dx;
+      ball.y += ball.dy;
+
+      if (ball.y + ball.radius > canvas.height || ball.y - ball.radius < 0) {
+        ball.dy = -ball.dy;
+      }
+
+      if (
+        (ball.x - ball.radius < leftPaddle.x + leftPaddle.width &&
+          ball.y > leftPaddle.y &&
+          ball.y < leftPaddle.y + leftPaddle.height) ||
+        (ball.x + ball.radius > rightPaddle.x &&
+          ball.y > rightPaddle.y &&
+          ball.y < rightPaddle.y + rightPaddle.height)
+      ) {
+        ball.dx = -ball.dx;
+      }
+
+      if (rightPaddle.y + rightPaddle.height / 2 < ball.y) {
+        rightPaddle.y += rightPaddle.dy;
+      } else {
+        rightPaddle.y -= rightPaddle.dy;
+      }
+
+      if (ball.x + ball.radius > canvas.width) {
+        playerScore++;
+        resetGame();
+      } else if (ball.x - ball.radius < 0) {
+        aiScore++;
+        resetGame();
+      }
+
+      seconds++;
+      requestAnimationFrame(draw);
+    }
+
+    function resetGame() {
+      ball.x = canvas.width / 2;
+      ball.y = canvas.height / 2;
+      ball.dx = -ball.dx;
+
+      if (playerScore >= 5 || aiScore >= 5) {
+        clearInterval(gameTimer);
+        alert(`Game Over! Player: ${playerScore} | AI: ${aiScore} | Time: ${seconds}s`);
+        playerScore = 0;
+        aiScore = 0;
+        seconds = 0;
+        startGameTimer();
+      }
+    }
+
+    function startGameTimer() {
+      gameTimer = setInterval(() => {
+        seconds++;
+        drawTimer();
+      }, 1000);
+    }
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "w" && leftPaddle.y > 0) {
+        leftPaddle.y -= leftPaddle.dy;
+      } else if (event.key === "s" && leftPaddle.y + leftPaddle.height < canvas.height) {
+        leftPaddle.y += leftPaddle.dy;
+      } else if (event.key === "e") {
+        window.open("dos.html", "_self");
+      }
+    });
+    canvas.addEventListener("mousemove", function (event) {
+      const mouseY = event.clientY - canvas.getBoundingClientRect().top - leftPaddle.height / 2;
+      if (mouseY >= 0 && mouseY + leftPaddle.height <= canvas.height) {
+        leftPaddle.y = mouseY;
+      }
+    });
+
+    startGameTimer();
+    draw();
+  </script>
+</body>
+</html>
