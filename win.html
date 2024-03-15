@@ -407,7 +407,14 @@
                     this.style.backgroundColor = 'white'; this.style.color = 'black';
                     document.getElementById('drop-opt').style.display = 'none';
                     document.body.style.backgroundColor = 'antiquewhite';">Background Antique White</a></div>
-                <hr>
+            </div>
+            <div id="drop-win" class="drop-win" onmouseenter="mouseNotOverMenu = false" onmouseleave="mouseNotOverMenu = true"
+            onclick="
+            var x = document.getElementsByClassName('menuitem');
+            for (var i = 0; i < x.length; i++) {
+                x[i].style.backgroundColor = 'white';
+                x[i].style.color = 'black';
+            }">
                 <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
                     onmousedown="
                     var x = document.getElementsByClassName('item-drop-a');
@@ -418,7 +425,7 @@
                     this.style.backgroundColor = colorActive; this.style.color = 'white';"
                     onclick="
                     this.style.backgroundColor = 'white'; this.style.color = 'black';
-                    document.getElementById('drop-opt').style.display = 'none';
+                    document.getElementById('drop-win').style.display = 'none';
                     colorActive = 'maroon';
                     var x = document.getElementsByClassName('title');
                     for (var i = 0; i < x.length; i++) {
@@ -434,7 +441,7 @@
                     this.style.backgroundColor = colorActive; this.style.color = 'white';"
                     onclick="
                     this.style.backgroundColor = 'white'; this.style.color = 'black';
-                    document.getElementById('drop-opt').style.display = 'none';
+                    document.getElementById('drop-win').style.display = 'none';
                     colorActive = 'darksalmon';
                     var x = document.getElementsByClassName('title');
                     for (var i = 0; i < x.length; i++) {
@@ -450,7 +457,7 @@
                     this.style.backgroundColor = colorActive; this.style.color = 'white';"
                     onclick="
                     this.style.backgroundColor = 'white'; this.style.color = 'black';
-                    document.getElementById('drop-opt').style.display = 'none';
+                    document.getElementById('drop-win').style.display = 'none';
                     colorActive = '#000099';
                     var x = document.getElementsByClassName('title');
                     for (var i = 0; i < x.length; i++) {
@@ -466,7 +473,7 @@
                     this.style.backgroundColor = colorActive; this.style.color = 'white';"
                     onclick="
                     this.style.backgroundColor = 'white'; this.style.color = 'black';
-                    document.getElementById('drop-opt').style.display = 'none';
+                    document.getElementById('drop-win').style.display = 'none';
                     colorActive = 'darkslateblue';
                     var x = document.getElementsByClassName('title');
                     for (var i = 0; i < x.length; i++) {
@@ -482,7 +489,7 @@
                     this.style.backgroundColor = colorActive; this.style.color = 'white';"
                     onclick="
                     this.style.backgroundColor = 'white'; this.style.color = 'black';
-                    document.getElementById('drop-opt').style.display = 'none';
+                    document.getElementById('drop-win').style.display = 'none';
                     colorActive = 'darkslategrey';
                     var x = document.getElementsByClassName('title');
                     for (var i = 0; i < x.length; i++) {
@@ -498,61 +505,12 @@
                     this.style.backgroundColor = colorActive; this.style.color = 'white';"
                     onclick="
                     this.style.backgroundColor = 'white'; this.style.color = 'black';
-                    document.getElementById('drop-opt').style.display = 'none';
+                    document.getElementById('drop-win').style.display = 'none';
                     colorActive = 'darkgoldenrod';
                     var x = document.getElementsByClassName('title');
                     for (var i = 0; i < x.length; i++) {
                         x[i].style.backgroundColor = 'darkgoldenrod';
                     }">Title Bar Golden</a></div>
-            </div>
-            <div id="drop-win" class="drop-win" onmouseenter="mouseNotOverMenu = false" onmouseleave="mouseNotOverMenu = true"
-            onclick="
-            var x = document.getElementsByClassName('menuitem');
-            for (var i = 0; i < x.length; i++) {
-                x[i].style.backgroundColor = 'white';
-                x[i].style.color = 'black';
-            }">
-                <div class="item-drop"><a class="item-drop-a" draggable="false"
-                    onmousedown="
-                    var x = document.getElementsByClassName('item-drop-a');
-                    for (var i = 0; i < x.length; i++) {
-                        x[i].style.backgroundColor = 'white';
-                        x[i].style.color = 'black';
-                    }
-                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
-                    onclick="this.style.backgroundColor = 'white'; this.style.color = 'black';
-                    document.getElementById('drop-win').style.display = 'none';" href="pc.html" target="frame">Windows 3.1</a></div>
-                <div class="item-drop"><a class="item-drop-a" draggable="false"
-                    onmousedown="
-                    var x = document.getElementsByClassName('item-drop-a');
-                    for (var i = 0; i < x.length; i++) {
-                        x[i].style.backgroundColor = 'white';
-                        x[i].style.color = 'black';
-                    }
-                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
-                    onclick="this.style.backgroundColor = 'white'; this.style.color = 'black';
-                    document.getElementById('drop-win').style.display = 'none';" href="https://www.windows93.net" target="frame">Windows 93?</a></div>
-                <div class="item-drop"><a class="item-drop-a" draggable="false"
-                    onmousedown="
-                    var x = document.getElementsByClassName('item-drop-a');
-                    for (var i = 0; i < x.length; i++) {
-                        x[i].style.backgroundColor = 'white';
-                        x[i].style.color = 'black';
-                    }
-                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
-                    onclick="this.style.backgroundColor = 'white'; this.style.color = 'black';
-                    document.getElementById('drop-win').style.display = 'none';" href="https://98.js.org" target="frame">Windows 98</a></div>
-                <hr>
-                <div class="item-drop"><a class="item-drop-a" draggable="false"
-                    onmousedown="
-                    var x = document.getElementsByClassName('item-drop-a');
-                    for (var i = 0; i < x.length; i++) {
-                        x[i].style.backgroundColor = 'white';
-                        x[i].style.color = 'black';
-                    }
-                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
-                    onclick="this.style.backgroundColor = 'white'; this.style.color = 'black';
-                    document.getElementById('drop-win').style.display = 'none';" href="https://webamp.org/" target="frame">Winamp</a></div>
             </div>
             <div id="drop-help" class="drop-help" onmouseenter="mouseNotOverMenu = false" onmouseleave="mouseNotOverMenu = true"
             onclick="
@@ -628,7 +586,7 @@
             </div>
 
             <!--FOLDER GAMES-->
-            <div id="f-games" class="window-border " style="top: 56px; left: 4px; width: 750px; height: 400px; z-index: 100; display: none">
+            <div id="f-games" class="window-border " style="top: 56px; left: 4px; width: 740px; height: 430px; z-index: 100; display: none">
                 <div class="window">
                     <div id="title" class="title" onclick="
                     document.getElementById('f-myapps').style.zIndex = '200';
