@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <header style="text-align: center; color: brown;"><h1>Pool of Radiance Calculator</h1></header>
+    <main>
+      <hr>
+      <input name="class1" type="radio" id="c" checked>Cleric</input>
+      <input name="class1" type="radio" id="f">Fighter</input>
+      <input name="class1" type="radio" id="m">Magic-user</input>
+      <input name="class1" type="radio" id="t">Thief</input>
+      <br>
+      <label id="lbl1-tip">*If your character has more than one class, divide your exp by the number of classes.<br>
+        Considerations: some races have a limited max level with the fighter class in comparison to this calculator, these limitations are:<br>
+        Elf, up to level 7; Gnome, up to level 6; Half-elf, up to level 8; Halflings, up to level 6.</label>
+      <br>
+      <input id="exp1" size="6" value="0">exp</input>
+      <input id="classes1" size="3" value="1">classes</input>
+      <input type="button" size="5" value="Calculate exp ->" onclick="
+      var e = parseInt(document.getElementById('exp1').value) / parseInt(document.getElementById('classes1').value)
+      if (document.getElementById('c').checked) {
+        if (e > 55000) {document.getElementById('lbl1').innerHTML = 
+        'Your player is a Cleric with ' + e + ' exp points and can evolve beyond level 6.'}
+        else if (e > 27500) {var x = 55000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Cleric with ' + e + ' exp points and can evolve to level 6. Next threshold with more ' + x + 'exp.'}
+        else if (e > 13000) {var x = 27500 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Cleric with ' + e + ' exp points and can evolve to level 5. Next threshold with more ' + x + 'exp.'}
+        else if (e > 6000) {var x = 13000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Cleric with ' + e + ' exp points and can evolve to level 4. Next threshold with more ' + x + 'exp.'}
+        else if (e > 3000) {var x = 6000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Cleric with ' + e + ' exp points and can evolve to level 3. Next threshold with more ' + x + 'exp.'}
+        else if (e > 1500) {var x = 3000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Cleric with ' + e + ' exp points and can evolve to level 2. Next threshold with more ' + x + 'exp.'}
+        else if (e >= 0) {var x = 1500 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Cleric with ' + e + ' exp points and cannot evolve to level 2. Next threshold with more ' + x + 'exp.'}
+      }
+      if (document.getElementById('f').checked) {
+        if (e > 250000) {document.getElementById('lbl1').innerHTML = 
+        'Your player is a Fighter with ' + e + ' exp points and can evolve beyond level 8.'}
+        else if (e > 125000) {var x = 250000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Fighter with ' + e + ' exp points and can evolve to level 8. Next threshold with more ' + x + 'exp.'}
+        else if (e > 70000) {var x = 125000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Fighter with ' + e + ' exp points and can evolve to level 7. Next threshold with more ' + x + 'exp.'}
+        else if (e > 35000) {var x = 70000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Fighter with ' + e + ' exp points and can evolve to level 6. Next threshold with more ' + x + 'exp.'}
+        else if (e > 18000) {var x = 35000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Fighter with ' + e + ' exp points and can evolve to level 5. Next threshold with more ' + x + 'exp.'}
+        else if (e > 8000) {var x = 18000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Fighter with ' + e + ' exp points and can evolve to level 4. Next threshold with more ' + x + 'exp.'}
+        else if (e > 4000) {var x = 8000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Fighter with ' + e + ' exp points and can evolve to level 3. Next threshold with more ' + x + 'exp.'}
+        else if (e > 2000) {var x = 4000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Fighter with ' + e + ' exp points and can evolve to level 2. Next threshold with more ' + x + 'exp.'}
+        else if (e >= 0) {var x = 2000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Fighter with ' + e + ' exp points and cannot evolve to level 2. Next threshold with more ' + x + 'exp.'}
+      }
+        if (document.getElementById('m').checked) {
+        if (e > 60000) {document.getElementById('lbl1').innerHTML = 
+        'Your player is a Magic-user with ' + e + ' exp points and can evolve beyond level 6.'}
+        else if (e > 40000) {var x = 60000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Magic-user with ' + e + ' exp points and can evolve to level 6. Next threshold with more ' + x + 'exp.'}
+        else if (e > 22500) {var x = 40000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Magic-user with ' + e + ' exp points and can evolve to level 5. Next threshold with more ' + x + 'exp.'}
+        else if (e > 10000) {var x = 22500 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Magic-user with ' + e + ' exp points and can evolve to level 4. Next threshold with more ' + x + 'exp.'}
+        else if (e > 5000) {var x = 10000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Magic-user with ' + e + ' exp points and can evolve to level 3. Next threshold with more ' + x + 'exp.'}
+        else if (e > 2500) {var x = 5000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Magic-user with ' + e + ' exp points and can evolve to level 2. Next threshold with more ' + x + 'exp.'}
+        else if (e >= 0) {var x = 2500 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Magic-user with ' + e + ' exp points and cannot evolve to level 2. Next threshold with more ' + x + 'exp.'}
+      }
+      if (document.getElementById('t').checked) {
+        if (e > 160000) {document.getElementById('lbl1').innerHTML = 
+        'Your player is a Thief with ' + e + ' exp points and can evolve beyond level 9.'}
+        else if (e > 110000) {var x = 160000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Thief with ' + e + ' exp points and can evolve to level 9. Next threshold with more ' + x + 'exp.'}
+        else if (e > 70000) {var x = 110000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Thief with ' + e + ' exp points and can evolve to level 8. Next threshold with more ' + x + 'exp.'}
+        else if (e > 42500) {var x = 70000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Thief with ' + e + ' exp points and can evolve to level 7. Next threshold with more ' + x + 'exp.'}
+        else if (e > 20000) {var x = 42500 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Thief with ' + e + ' exp points and can evolve to level 6. Next threshold with more ' + x + 'exp.'}
+        else if (e > 10000) {var x = 20000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Thief with ' + e + ' exp points and can evolve to level 5. Next threshold with more ' + x + 'exp.'}
+        else if (e > 5000) {var x = 10000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Thief with ' + e + ' exp points and can evolve to level 4. Next threshold with more ' + x + 'exp.'}
+        else if (e > 2500) {var x = 5000 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Thief with ' + e + ' exp points and can evolve to level 3. Next threshold with more ' + x + 'exp.'}
+        else if (e > 1250) {var x = 4500 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Thief with ' + e + ' exp points and can evolve to level 2. Next threshold with more ' + x + 'exp.'}
+        else if (e >= 0) {var x = 1250 - e;
+        document.getElementById('lbl1').innerHTML = 
+        'Your player is a Thief with ' + e + ' exp points and cannot evolve to level 2. Next threshold with more ' + x + 'exp.'}
+      }
+      ">
+      <label id="lbl1"></label>
+
+      <hr>
+      <input id="cp" size="6" value="0">copper pieces</input><br>
+      <input id="sp" size="6" value="0">silver pieces</input><br>
+      <input id="ep" size="6" value="0">electrum pieces</input><br>
+      <input id="gp" size="6" value="0">gold pieces</input><br>
+      <input id="pp" size="6" value="0">platinum pieces</input><br>
+      <input type="button" size="5" value="Calculate to gp ->" onclick="
+      var cp = parseInt(document.getElementById('cp').value)
+      var sp = parseInt(document.getElementById('sp').value)
+      var ep = parseInt(document.getElementById('ep').value)
+      var gp = parseInt(document.getElementById('gp').value)
+      var pp = parseInt(document.getElementById('pp').value)
+      var weight = cp + sp + ep + gp + pp;
+      var gold = cp / 200 + sp / 20 + ep / 2 + gp + pp * 5;
+      document.getElementById('lbl2').innerHTML = 'Total weight = ' + weight + 'gp. Total value = ' + gold + 'gp.'
+      ">
+      <label id="lbl2"></label>
+    </main>
+    <footer style="text-align: center; font-size: small; padding: 200px;">Calculator for the MS-DOS game AD&D Pool of Radiance.</footer>
+  </body>
+</html>
