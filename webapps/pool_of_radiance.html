@@ -13,14 +13,12 @@
       <input name="class1" type="radio" id="m">Magic-user</input>
       <input name="class1" type="radio" id="t">Thief</input>
       <br>
-      <label id="lbl1-tip">*If your character has more than one class, divide your exp by the number of classes.<br>
-        Considerations: some races have a limited max level with the fighter class in comparison to this calculator, these limitations are:<br>
+      <label id="lbl1-tip">Considerations: some races have a limited max level with the fighter class in comparison to this calculator, these limitations are:<br>
         Elf, up to level 7; Gnome, up to level 6; Half-elf, up to level 8; Halflings, up to level 6.</label>
       <br>
       <input id="exp1" size="6" value="0">exp</input>
-      <input id="classes1" size="3" value="1">classes</input>
       <input type="button" size="5" value="Calculate exp ->" onclick="
-      var e = parseInt(document.getElementById('exp1').value) / parseInt(document.getElementById('classes1').value)
+      var e = parseInt(document.getElementById('exp1').value)
       if (document.getElementById('c').checked) {
         if (e > 55000) {document.getElementById('lbl1').innerHTML = 
         'Your player is a Cleric with ' + e + ' exp points and can evolve beyond level 6.'}
