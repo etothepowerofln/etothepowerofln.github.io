@@ -17,14 +17,44 @@
     font-family: 'Open Sans', sans-serif;
   }
 
-  .sidebar {
+  nav {
+    background-color: #206080;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav ul li {
+    display: inline;
+  }
+
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: inline-block;
+  }
+
+  nav ul li a:hover {
+    background-color: #555;
+  }
+  
+  .profile {
     margin: 0;
     padding: 0;
     float: left;
     width: 100%;
     height: 100%;
     background-color: #206080;
-    top: 0;
     left: 0;
     position: fixed;
     overflow: auto;
@@ -32,8 +62,7 @@
     z-index: 2;
   }
 
-  /* Sidebar links */
-  .sidebar a {
+  .profile a {
     display: block;
     color: black;
     padding: 0px;
@@ -41,93 +70,49 @@
     text-decoration: none;
   }
 
-  /* Active/current link */
-  .sidebar a.active {
+  .profile a.active {
     background-color: #04AA6D;
     color: white;
   }
 
-  /* Links on mouse-over */
-  .sidebar a:hover {
+  .profile a:hover {
     background-color: #247296;
   }
   
-  .sidebar a:hover:not(.chk) {
+  .profile a:hover:not(.chk) {
     background-color: #555;
     color: white;
     font-size: 20px;
   }
-
-  /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
-  div.content {
-    padding: 0px;
-    margin-left: 25%;
-    float: right;
-    height: 100%;
-    width: 0%;
-    position: fixed;
-    z-index: 1;
-    background-color: #04AA6D;
-  }
-
-  /*On screens that are less than 700px wide, make the sidebar into a topbar */
-  @media screen and (max-width: 700px) {
-    .sidebar {
-      width: 100%;
-      height: auto;
-      position: relative;
-    }
-    .sidebar a {float: left;}
-    div.content {margin-left: 0;}
-  }
-
-  /*On screens that are less than 400px, display the bar vertically, instead of horizontally */
-  @media screen and (max-width: 400px) {
-    .sidebar a {
-      text-align: center;
-      float: none;
-    }
-  } 
-
   </style>
 </head>
 <body>
-  <!-- The sidebar -->
-  <div class="sidebar">
-    <div class="profile">
-      <div class="profile-img">
-        <img style="display: block; margin-top: 20px; margin-left: auto; margin-right: auto;" src="ass/23-menor2.jpg" alt="">
-      </div>
-      <div class="profile-name"><p><h2 style="margin: 20px;">Luiz Filipi Anderson de Sousa Moura</h2></p></div>
-      <div class="profile-p"><p style="margin: 25px;">Physicist and Computer Scientist. I work on Quantum Computing, Security, and Algorithms.</p></div>
-      <img style="border:0; width:88px; height:31px"
-        onclick="window.open('https\:\/\/html5.validator.nu/?doc=https%3A%2F%2Fetothepowerofln.github.io%2F', '_blank').focus();"
-        src="ass/html5-validator-badge-blue.png"
-        alt="Valid HTML5!" />
-      <img style="border:0; width:88px; height:31px"
-        onclick="window.open('http\:\/\/jigsaw.w3.org/css-validator/validator?lang=en&profile=css3svg&uri=https%3A%2F%2Fetothepowerofln.github.io%2F&usermedium=all&vextwarning=&warning=1', '_blank').focus();"
-        src="ass/vcss-blue.gif"
-        alt="Valid CSS!" />
-      <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=4e6024&w=300&t=tt&d=t_ti__CfOdk4nna0JR_MOgnJIQ6yDE6TgIwAT31Xils&co=a4cbe8&ct=000000'></script>
-      <hr>
-      <a href="https://docs.google.com/document/d/1so53hxySGBJRON_zWUqHOHInWyR2g2LaJ4swJMT48XY/edit?usp=sharing" target="frame2">CV</a>
-      <a href="https://docs.google.com/document/d/1bCgfI-Qa4lJysJmGKEDw184_grZAG89cuV1_-hqnxgg/edit?usp=sharing" target="frame2">Events</a>
-      <!--<a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTZrvoqWxxkwrW9Or3GYCV2pSjhljUqLGlCLVBuMBePd481kkTo3S0GHAb4imWEzi85AnV_NPvf-e_W/pubhtml" target="frame2">GamerCV</a>-->
-      <!--<a href="https://www.etothepowerofln.tumblr.com" target="frame">Blog</a>-->
-      <a href="http://lattes.cnpq.br/9736593152697583" target="_blank">Lattes CV</a>
-      <a href="https://www.linkedin.com/in/luiz-filipi-anderson-de-sousa-moura-6558a4209/" target="_blank">LinkedIn</a>
-      <a href="https://www.github.com/etothepowerofln" target="_blank">GitHub</a>
-      <a href="https://www.youtube.com/channel/UCqEY_w_RMytRiIphh_fsMRA" target="_blank">YouTube</a>
-      <a href="https://br.pinterest.com/filipilfsm/" target="_blank">Pinterest</a>
-    </div>
+  <!-- The profile -->
+  <nav>
+    <ul>
+      <!--
+      <li><a href="https://docs.google.com/document/d/1so53hxySGBJRON_zWUqHOHInWyR2g2LaJ4swJMT48XY/edit?usp=sharing" target="frame2">CV</a></li>
+      <li><a href="https://docs.google.com/document/d/1bCgfI-Qa4lJysJmGKEDw184_grZAG89cuV1_-hqnxgg/edit?usp=sharing" target="frame2">Events</a></li>
+      <li><a href="http://lattes.cnpq.br/9736593152697583" target="_blank">Lattes CV</a></li>
+      <li><a href="https://www.linkedin.com/in/luiz-filipi-anderson-de-sousa-moura-6558a4209/" target="_blank">LinkedIn</a></li>
+      <li><a href="https://www.github.com/etothepowerofln" target="_blank">GitHub</a></li>
+  --><li><p>Viewers map widget</p></li>
+    </ul>
+  </nav>
+  <div class="profile">
+    <br><br>
+    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=080808&w=794&t=tt&d=t_ti__CfOdk4nna0JR_MOgnJIQ6yDE6TgIwAT31Xils&co=ffffff&cmo=3acc3a&cmn=ff5353&ct=808080'></script>
+    <br><br>
+    <img style="border:0; width:88px; height:31px"
+      onclick="window.open('https\:\/\/html5.validator.nu/?doc=https%3A%2F%2Fetothepowerofln.github.io%2F', '_blank').focus();"
+      src="ass/html5-validator-badge-blue.png"
+      alt="Valid HTML5!" />
+    <img style="border:0; width:88px; height:31px"
+      onclick="window.open('http\:\/\/jigsaw.w3.org/css-validator/validator?lang=en&profile=css3svg&uri=https%3A%2F%2Fetothepowerofln.github.io%2F&usermedium=all&vextwarning=&warning=1', '_blank').focus();"
+      src="ass/vcss-blue.gif"
+      alt="Valid CSS!" />
+    <br><br>
   </div>
 
-  <!-- Page content -->
-  <div id="content" class="content">
-    <!--<iframe name="frame" src="https://docs.google.com/document/d/e/2PACX-1vSDNSvAMFqNqB5xbidcLkyreEfWbeuGSsw5F_PFf_6h8nc4BT2v5gLIgTHTfEK-RRWYLI4LFj6MJrgX/pub" style="top: 0; left: 300px; width: 100%; height: 100%; background-color: #f2f6f8;"></iframe>-->
-  </div> 
-  <script>
-      
-  </script>
 </body>
 </html>

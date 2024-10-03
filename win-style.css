@@ -14,6 +14,7 @@ font-family: fixedsys, consolas, monospace;
 -moz-user-select: none;
 -ms-user-select: none;
 user-select: none;
+overflow: hidden;
 }
 
 .window {
@@ -33,6 +34,14 @@ line-height: 24px;
 height: 26px;
 border-bottom: solid 1px #000;
 font-size: 24px;
+display: block;
+}
+
+.window .app-title {
+    margin: 0% auto;
+    left: 0;
+    right: 0;
+    font-size: 24px;
 }
 
 .window .button {
@@ -84,7 +93,7 @@ border-bottom: solid 1px #191919;
 line-height: 24px;
 padding: 0px 7px;
 display: inline-block;
-font-size: 24px;
+font-size: 20px;
 }
 
 .menubar .menuitem a {
@@ -162,7 +171,7 @@ left: -1px;
 position: absolute;
 top: 52px;
 left: 1px;
-width: 150px;
+width: 130px;
 background-color: white;
 border: 1px solid #000;
 display: none;
@@ -172,8 +181,8 @@ z-index: 9999;
 .drop-opt {
 position: absolute;
 top: 52px;
-left: 58px;
-width: 240px;
+left: 53px;
+width: 215px;
 background-color: white;
 border: 1px solid #000;
 display: none;
@@ -183,8 +192,8 @@ z-index: 9999;
 .drop-win {
 position: absolute;
 top: 52px;
-left: 146px;
-width: 200px;
+left: 129px;
+width: 180px;
 background-color: white;
 border: 1px solid #000;
 display: none;
@@ -194,8 +203,8 @@ z-index: 9999;
 .drop-help {
 position: absolute;
 top: 52px;
-left: 234px;
-width: 200px;
+left: 205px;
+width: 115px;
 background-color: white;
 border: 1px solid #000;
 display: none;
@@ -206,6 +215,6 @@ z-index: 9999;
 display: block;
 color: black;
 padding: 4px;
-font-size: 24px;
+font-size: 20px;
 text-decoration: solid;
 }

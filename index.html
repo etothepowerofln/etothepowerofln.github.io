@@ -5,7 +5,7 @@
     <link rel="icon" type="image/x-icon" href="ass/Eu-Grego.jpg">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=VT323">
     <link rel="stylesheet" href="win-style.css">
-    <meta http-equiv="refresh" content="2; url=win.html"/>
+    <!--<meta http-equiv="refresh" content="2; url=win.html"/>-->
     <style>
         body {
             background-color: black;
@@ -13,6 +13,8 @@
     </style>
 </head>
 <body id="body">
-<img style="display: block; margin-top: 3vh; margin-bottom: 3vh; margin-left: auto; margin-right: auto; width: auto; height: 94vh;" src="ass/logo-win.png"  alt="">
+    <audio id="wav-tada" src="ass/TADA.WAV" type="audio/wav" onended="window.location.replace('win.html')"></audio>
+    <img style="display: block; margin-top: 3vh; margin-bottom: 3vh; margin-left: auto; margin-right: auto; width: auto; height: 94vh;" src="ass/logo-win.png"  alt=""
+        onclick="document.getElementById('wav-tada').volume = 0.1; document.getElementById('wav-tada').play();">
 </body>
 </html>

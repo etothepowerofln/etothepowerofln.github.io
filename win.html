@@ -6,10 +6,24 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=VT323">
     <link rel="stylesheet" href="win-style.css">
 </head>
-<body id="body">
+<body id="body" scroll="no">
+
+    <audio id="wav-tada" src="ass/TADA.WAV" type="audio/wav"></audio>
+    <audio id="wav-ding" src="ass/DING.WAV" type="audio/wav"></audio>
+    <audio id="wav-chimes" src="ass/CHIMES.WAV" type="audio/wav" onended="window.location.replace('dos.html')"></audio>
+    <audio id="ogg-almonds" src="ass/ALMONDS.ogg" type="audio/ogg"></audio>
+    <audio id="ogg-canyon" src="ass/CANYON.ogg" type="audio/ogg"></audio>
+    <audio id="ogg-dreamy" src="ass/DREAMY.ogg" type="audio/ogg"></audio>
+    <audio id="ogg-metblast" src="ass/METBLAST.ogg" type="audio/ogg"></audio>
+    <audio id="ogg-passport" src="ass/PASSPORT.ogg" type="audio/ogg"></audio>
+    <audio id="ogg-seasons" src="ass/SEASONS.ogg" type="audio/ogg"></audio>
+    <audio id="ogg-someband" src="ass/SOMEBAND.ogg" type="audio/ogg"></audio>
+    <audio id="ogg-stomp" src="ass/STOMP.ogg" type="audio/ogg"></audio>
+    
     <script>
         window.onload = function() {
-            document.getElementById("wav-tada").play();
+            document.getElementById('wav-ding').volume = 0.2;
+            document.getElementById('wav-chimes').volume = 0.2;
         }
 
         var colorActive = '#000099';
@@ -88,19 +102,18 @@
             }
         })
     </script>
+    
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.0/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( ".window-border" ).draggable({handle: ".title"});
+            $( ".window-border" ).draggable('option', 'cancel', ".button");
+            //$( ".window-border" ).resizable({ handles: ".window-border"});
+        } );
+    </script>
 
-    <audio id="wav-tada" src="ass/TADA.WAV" type="audio/wav"></audio>
-    <audio id="wav-ding" src="ass/DING.WAV" type="audio/wav"></audio>
-    <audio id="ogg-almonds" src="ass/ALMONDS.ogg" type="audio/ogg"></audio>
-    <audio id="ogg-canyon" src="ass/CANYON.ogg" type="audio/ogg"></audio>
-    <audio id="ogg-dreamy" src="ass/DREAMY.ogg" type="audio/ogg"></audio>
-    <audio id="ogg-metblast" src="ass/METBLAST.ogg" type="audio/ogg"></audio>
-    <audio id="ogg-passport" src="ass/PASSPORT.ogg" type="audio/ogg"></audio>
-    <audio id="ogg-seasons" src="ass/SEASONS.ogg" type="audio/ogg"></audio>
-    <audio id="ogg-someband" src="ass/SOMEBAND.ogg" type="audio/ogg"></audio>
-    <audio id="ogg-stomp" src="ass/STOMP.ogg" type="audio/ogg"></audio>
-
-    <div id="prog-manager" class="window-border " style="top: 10%; left: 20%; width: 900px; height: 600px">
+    <div id="prog-manager" class="window-border" style="top: 10%; left: 20%; width: 900px; height: 600px; display: none">
         <div class="window" id="pg-window">
             <div id="title" class="title" onmousedown="
             var x = document.getElementsByClassName('menuitem');
@@ -159,7 +172,7 @@
                 document.getElementById('drop-help').style.display = 'none';
                 this.style.backgroundColor == 'white' ? 
                 document.getElementById('drop-file').style.display = 'none' : document.getElementById('drop-file').style.display = 'inline-block';">
-                    <span style="text-decoration:underline; font-size: 24px;">F</span>ile
+                    <span style="text-decoration:underline; font-size: 20px;">F</span>ile
                 </div>
                 <div class="menuitem" id="menuitem-opt" onmouseenter="mouseNotOverMenu = false" onmouseleave="mouseNotOverMenu = true" onmousedown="
                 var x = document.getElementsByClassName('menuitem');
@@ -173,7 +186,7 @@
                 document.getElementById('drop-help').style.display = 'none';
                 this.style.backgroundColor == 'white' ? 
                 document.getElementById('drop-opt').style.display = 'none' : document.getElementById('drop-opt').style.display = 'inline-block';">
-                    <span style="text-decoration:underline; font-size: 24px;">O</span>ptions
+                    <span style="text-decoration:underline; font-size: 20px;">O</span>ptions
                 </div>
                 <div class="menuitem" id="menuitem-win" onmouseenter="mouseNotOverMenu = false" onmouseleave="mouseNotOverMenu = true" onmousedown="
                 var x = document.getElementsByClassName('menuitem');
@@ -187,7 +200,7 @@
                 document.getElementById('drop-help').style.display = 'none';
                 this.style.backgroundColor == 'white' ? 
                 document.getElementById('drop-win').style.display = 'none' : document.getElementById('drop-win').style.display = 'inline-block';">
-                    <span style="text-decoration:underline; font-size: 24px;">W</span>indows
+                    <span style="text-decoration:underline; font-size: 20px;">W</span>indows
                 </div>
                 <div class="menuitem" id="menuitem-help" onmouseenter="mouseNotOverMenu = false" onmouseleave="mouseNotOverMenu = true" onmousedown="
                 var x = document.getElementsByClassName('menuitem');
@@ -201,7 +214,7 @@
                 document.getElementById('drop-win').style.display = 'none';
                 this.style.backgroundColor == 'white' ? 
                 document.getElementById('drop-help').style.display = 'none' : document.getElementById('drop-help').style.display = 'inline-block';">
-                    <span style="text-decoration:underline; font-size: 24px;">H</span>elp
+                    <span style="text-decoration:underline; font-size: 20px;">H</span>elp
                 </div>
             </div>
 
@@ -528,7 +541,7 @@
                     }
                     this.style.backgroundColor = colorActive; this.style.color = 'white';"
                     onclick="this.style.backgroundColor = 'white'; this.style.color = 'black';
-                    document.getElementById('drop-help').style.display = 'none';" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fcomputer-quiz.jsdos?anonymous=1" target="frame">With Computers...</a></div>
+                    document.getElementById('drop-help').style.display = 'none';" href="https://docs.google.com/document/d/1so53hxySGBJRON_zWUqHOHInWyR2g2LaJ4swJMT48XY/edit?usp=sharing" target="_blank">Curriculum...</a></div>
                 <div class="item-drop"><a class="item-drop-a" draggable="false"
                     onmousedown="
                     var x = document.getElementsByClassName('item-drop-a');
@@ -538,7 +551,8 @@
                     }
                     this.style.backgroundColor = colorActive; this.style.color = 'white';"
                     onclick="this.style.backgroundColor = 'white'; this.style.color = 'black';
-                    document.getElementById('drop-help').style.display = 'none';" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fibm-basic-quiz.jsdos?anonymous=1" target="frame">With The Basic...</a></div>
+                    document.getElementById('drop-help').style.display = 'none';" href="https://www.github.com/etothepowerofln" target="_blank">GitHub...</a></div>
+                <hr>
                 <div class="item-drop"><a class="item-drop-a" draggable="false"
                     onmousedown="
                     var x = document.getElementsByClassName('item-drop-a');
@@ -548,7 +562,9 @@
                     }
                     this.style.backgroundColor = colorActive; this.style.color = 'white';"
                     onclick="this.style.backgroundColor = 'white'; this.style.color = 'black';
-                    document.getElementById('drop-help').style.display = 'none';" href="https://dos.zone/player/?bundleUrl=https%3A%2F%2Fcdn.dos.zone%2Fcustom%2Fdos%2Fastronomy-quiz.jsdos?anonymous=1" target="frame">With The Universe...</a></div>
+                    document.getElementById('drop-help').style.display = 'none'; frame2.src='about.html'; document.getElementById('app-loader').style.display = 'block';
+                    document.getElementById('app-title').innerHTML = 'About';" 
+                    target="frame2">About...</a></div>
             </div>
             <!--ICONS-->
             <div class="icons">
@@ -574,13 +590,6 @@
                     document.getElementById('myapps-icon').style.display = 'none';">
                     <img src="ass/folder.png"/>
                     <div class="text">MY_APPS</div>
-                    </a>
-                </div>
-                <div class="icon" id="aboutme-icon" style="display: inline-block;">
-                    <a draggable="false" onclick="
-                        frame2.src='about.html'; document.getElementById('app-loader').style.display = 'block';" target="frame2">
-                    <img src="ass/Eu-Grego32.jpg"/>
-                    <div class="text">ABOUT_ME</div>
                     </a>
                 </div>
             </div>
@@ -931,7 +940,7 @@
             </div>
 
             <!--FOLDER EXTRA-->
-            <div id="f-extra" class="window-border " style="top: 300px; right: 100px; width: 370px; height: 180px; z-index: 100; display: none">
+            <div id="f-extra" class="window-border " style="top: 300px; right: 100px; width: 280px; height: 180px; z-index: 100; display: none">
                 <div class="window">
                     <div id="title" class="title">
                         EXTRA
@@ -943,13 +952,6 @@
                     </div>
                     <!--ICONS-->
                     <div class="icons" id="extra-icons">
-                        <div class="icon">
-                            <a draggable="false" onclick="
-                            frame2.src='https\://www.onlinegdb.com'; document.getElementById('app-loader').style.display = 'block';" target="frame2">
-                            <img src="ass/write.png"/>
-                            <div class="text">PROG</div>
-                            </a>
-                        </div>
                         <div class="icon">
                             <a draggable="false" onclick="
                                 frame2.src='https\://msxpen.com'; document.getElementById('app-loader').style.display = 'block';" target="frame2">
@@ -973,13 +975,6 @@
                         </div>
                         <div class="icon">
                             <a draggable="false" onclick="
-                            frame2.src='https\://www.gutenberg.org/'; document.getElementById('app-loader').style.display = 'block';" target="frame2">
-                            <img src="ass/WINHL002.ICO"/>
-                            <div class="text">GUTENBRG</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="
                                 frame2.src='https\://openlibrary.org/'; document.getElementById('app-loader').style.display = 'block';" target="frame2">
                             <img src="ass/WINHL002.ICO"/>
                             <div class="text">OLIBRARY</div>
@@ -990,12 +985,6 @@
                                 frame2.src='https\://libreflix.org'; document.getElementById('app-loader').style.display = 'block';" target="frame2">
                             <img src="ass/MPLAY001.ICO"/>
                             <div class="text">LIBRFLIX</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="alert('For this item, right click and open in new tab.');" href="https://www.plex.tv" target="_blank">
-                            <img src="ass/MPLAY001.ICO"/>
-                            <div class="text">PLEX</div>
                             </a>
                         </div>
                     </div>
@@ -1023,39 +1012,40 @@
                     <div class="icons" id="myapps-icons">
                         <div class="icon" id="pizza-icon" style="display: inline-block;">
                             <a draggable="false" onclick="
-                            document.getElementById('app-pizza').style.display = 'block';
-                            document.getElementById('pizza-icon').style.display = 'none';">
+                            frame2.src='webapps/pizzaAreaCalc.html'; document.getElementById('app-loader').style.display = 'block';
+                            document.getElementById('app-title').innerHTML = 'Pizza Calculator';" target="frame2">
                             <img src="ass/VBRUN001.ICO"/>
-                            <div class="text">PIZZACAL</div>
+                            <div class="text">PIZZA</div>
                             </a>
                         </div>
                         <div class="icon" id="expr-icon" style="display: inline-block;">
                             <a draggable="false" onclick="
-                            document.getElementById('app-expr').style.display = 'block';
-                            document.getElementById('expr-icon').style.display = 'none';">
+                            frame2.src='webapps/exprCalc.html'; document.getElementById('app-loader').style.display = 'block';
+                            document.getElementById('app-title').innerHTML = 'Expression Calculator';" target="frame2">
                             <img src="ass/VBRUN001.ICO"/>
-                            <div class="text">EXPRCAL</div>
+                            <div class="text">EXPR</div>
                             </a>
                         </div>
                         <div class="icon" id="bash-icon" style="display: inline-block;">
                             <a draggable="false" onclick="
-                            document.getElementById('app-bash').style.display = 'block';
-                            document.getElementById('bash-icon').style.display = 'none';">
+                            frame2.src='webapps/BASHCustomizer.html'; document.getElementById('app-loader').style.display = 'block';
+                            document.getElementById('app-title').innerHTML = 'BASH Customizer';" target="frame2">
                             <img src="ass/VBRUN001.ICO"/>
-                            <div class="text">BASHCUS</div>
+                            <div class="text">BASH</div>
                             </a>
                         </div>
                         <div class="icon" id="screen-icon" style="display: inline-block;">
                             <a draggable="false" onclick="
-                            document.getElementById('app-screen').style.display = 'block';
-                            document.getElementById('screen-icon').style.display = 'none';">
+                            frame2.src='webapps/screenCalc.html'; document.getElementById('app-loader').style.display = 'block';
+                            document.getElementById('app-title').innerHTML = 'Screen Calculator';" target="frame2">
                             <img src="ass/VBRUN001.ICO"/>
-                            <div class="text">SCREENC</div>
+                            <div class="text">SCREENS</div>
                             </a>
                         </div>
                         <div class="icon" id="poolrad-icon" style="display: inline-block;">
                             <a draggable="false" onclick="
-                                frame2.src='webapps/pool_of_radiance.html'; document.getElementById('app-loader').style.display = 'block';" target="frame2">
+                                frame2.src='webapps/pool_of_radiance.html'; document.getElementById('app-loader').style.display = 'block'; 
+                                document.getElementById('app-title').innerHTML = 'Pool of Radiance Calculator';" target="frame2">
                             <img src="ass/VBRUN001.ICO"/>
                             <div class="text">POOLRAD</div>
                             </a>
@@ -1074,7 +1064,7 @@
         <div class="topleft handle"></div>
         <div class="bottomleft handle"></div>
     </div>
-    <div class="icon" id="prog-manager-icon" style="display: none;">
+    <div class="icon" id="prog-manager-icon" style="display: block;">
         <a draggable="false" onclick="
         document.getElementById('prog-manager').style.display = 'block';
         document.getElementById('prog-manager-icon').style.display = 'none';">
@@ -1084,86 +1074,19 @@
     </div>
 
     <!--APPS-->
-    <div id="app-pizza" class="window-border " style="top: 10px; left: 10px; width: 660px; height: 250px; z-index: 300; display: none">
-        <div class="window">
-            <div id="title" class="title">
-                Pizza Area Calculator
-                <div class="button" style="font-size: large;" id="btn-min-app" onclick="
-                    document.getElementById('pizza-icon').style.display = 'inline-block';
-                    document.getElementById('app-pizza').style.display = 'none';">
-                    &blacktriangledown;
-                </div>
-            </div>
-            <iframe id="frame-app" src="webapps/pizzaAreaCalc.html" style="top: 26px; width: 658px; height: 222px; position: absolute;"></iframe>
-        </div>
-        <div class="bottomright handle"></div>
-        <div class="topright handle"></div>
-        <div class="topleft handle"></div>
-        <div class="bottomleft handle"></div>
-    </div>
-    <div id="app-expr" class="window-border " style="top: 10px; left: 10px; width: 600px; height: 300px; z-index: 300; display: none">
-        <div class="window">
-            <div id="title" class="title">
-                Expression Calculator
-                <div class="button" style="font-size: large;" id="btn-min-app" onclick="
-                    document.getElementById('expr-icon').style.display = 'inline-block';
-                    document.getElementById('app-expr').style.display = 'none';">
-                    &blacktriangledown;
-                </div>
-            </div>
-            <iframe id="frame-app" src="webapps/exprCalc.html" style="top: 26px; width: 598px; height: 272px; position: absolute;"></iframe>
-        </div>
-        <div class="bottomright handle"></div>
-        <div class="topright handle"></div>
-        <div class="topleft handle"></div>
-        <div class="bottomleft handle"></div>
-    </div>
-    <div id="app-bash" class="window-border " style="top: 10px; left: 10px; width: 600px; height: 800px; z-index: 300; display: none">
-        <div class="window">
-            <div id="title" class="title">
-                BASH Customizer
-                <div class="button" style="font-size: large;" id="btn-min-app" onclick="
-                    document.getElementById('bash-icon').style.display = 'inline-block';
-                    document.getElementById('app-bash').style.display = 'none';">
-                    &blacktriangledown;
-                </div>
-            </div>
-            <iframe id="frame-app" src="webapps/BASHCustomizer.html" style="top: 26px; width: 598px; height: 772px; position: absolute;"></iframe>
-        </div>
-        <div class="bottomright handle"></div>
-        <div class="topright handle"></div>
-        <div class="topleft handle"></div>
-        <div class="bottomleft handle"></div>
-    </div>
-    <div id="app-screen" class="window-border " style="top: 10px; left: 10px; width: 870px; height: 480px; z-index: 300; display: none">
-        <div class="window">
-            <div id="title" class="title">
-                Screen Calculator
-                <div class="button" style="font-size: large;" id="btn-min-app" onclick="
-                    document.getElementById('screen-icon').style.display = 'inline-block';
-                    document.getElementById('app-screen').style.display = 'none';">
-                    &blacktriangledown;
-                </div>
-            </div>
-            <iframe id="frame-app" src="webapps/screenCalc.html" style="top: 26px; width: 868px; height: 452px; position: absolute;"></iframe>
-        </div>
-        <div class="bottomright handle"></div>
-        <div class="topright handle"></div>
-        <div class="topleft handle"></div>
-        <div class="bottomleft handle"></div>
-    </div>
-    <div id="exit-window" class="window-border " style="top: 35%; left: 35%; width: 480px; height: 130px; z-index: 99999; display: none">
+    <div id="exit-window" class="window-border " style="position: absolute; top: 35%; left: 35%; width: 480px; height: 130px; z-index: 99999; display: none">
         <div class="window">
             <div id="title" class="title">
                 Exit Finestra
             </div>
             <div><p style="text-align: center;"><img src="ass/PROGM039.ICO"> This will end Finestra 3.1 section and go back to DOS. <img src="ass/PROGM010.ICO"></p></div>
             <div>
-                <a draggable="false" href="dos.html" target="_self" style="text-decoration: none; color: black;">
-                    <div class="button" style="font-size: large;">
-                        OK
-                    </div>
-                </a>
+                <div class="button" style="font-size: large;" onclick="
+                document.querySelectorAll('audio').forEach(el => el.pause());
+                document.querySelectorAll('audio').forEach(el => el.currentTime = 0); 
+                document.getElementById('wav-chimes').play();">
+                    OK
+                </div>
                 <div class="button" style="font-size: large;" onclick="document.getElementById('exit-window').style.display = 'none';">
                     CANCEL
                 </div>
@@ -1174,16 +1097,16 @@
         <div class="topleft handle"></div>
         <div class="bottomleft handle"></div>
     </div>
-    <div id="app-loader" class="window-border " style="top: 0px; bottom: 0px; left: 0px; right: 0px; z-index: 300; display: none">
+    <div id="app-loader" class="window-border " style="top: 10%; left: 10%; width: 80%; height: 80%; z-index: 300; display: none">
         <div class="window">
-            <div id="title" class="title">
-                Luiz Filipi's Desktop
+            <div class="title">
+                <label id="app-title" class="app-title">Luiz Filipi's Desktop</label> 
                 <div class="button" style="font-size: large;" id="btn-min-app" onclick="
                     document.getElementById('app-loader').style.display = 'none'; frame2.src='loading.html';">
                     &blacktriangledown;
                 </div>
             </div>
-            <iframe id="frame2" src="loading.html" style="top: 26px; width: calc(100% - 1px); height: calc(100% - 27px); position: absolute;"></iframe>
+            <iframe id="frame2" src="loading.html" security="restricted" style="top: 26px; width: calc(100% - 1px); height: calc(100% - 27px); position: absolute;"></iframe>
         </div>
         <div class="bottomright handle"></div>
         <div class="topright handle"></div>
