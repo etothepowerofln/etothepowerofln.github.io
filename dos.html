@@ -45,7 +45,7 @@
   </style>
 </head>
 <body>
-  <div class="msdos-window" id="msdosWindow" onclick="focusInput()">
+  <div class="msdos-window" id="msdosWindow" onmouseover="focusInput()">
     <div>Welcome to MS-DOS Simulator</div>
     <label id="output">&gt; C:\></label>
     <input type="text" id="commandInput" onkeydown="handleCommand(event)">
@@ -65,6 +65,8 @@
           outputElement.innerHTML += "<br>COMMAND.COM";
           outputElement.innerHTML += "<br>CONFIG.SYS";
           outputElement.innerHTML += "<br>PONG.EXE";
+          outputElement.innerHTML += "<br>INVADERS.EXE";
+          outputElement.innerHTML += "<br>ASTEROIDS.EXE";
           outputElement.innerHTML += "<br>AUTOEXEC.BAT<br>" + "&gt; C:\\>";
         } else if (command.toLowerCase() === "command" || command.toLowerCase() === "command.com") {
           outputElement.innerHTML += " " + command.toUpperCase();
@@ -80,11 +82,17 @@
         } else if (command.toLowerCase() === "pong" || command.toLowerCase() === "pong.exe") {
           outputElement.innerHTML += " " + command.toUpperCase();
           window.open("pong.html", "_self");
+        } else if (command.toLowerCase() === "invaders" || command.toLowerCase() === "invaders.exe") {
+          outputElement.innerHTML += " " + command.toUpperCase();
+          window.open("invaders.html", "_self");
+        } else if (command.toLowerCase() === "asteroids" || command.toLowerCase() === "asteroids.exe") {
+          outputElement.innerHTML += " " + command.toUpperCase();
+          window.open("asteroids.html", "_self");
         } else {
           outputElement.innerHTML += " " + command.toUpperCase();
           outputElement.innerHTML += "<br>Bad command or file name";
           outputElement.innerHTML += "<br>&gt; C:\\>";
-        }
+        } 
 
         inputElement.value = "";
         document.getElementById("msdosWindow").scrollTop = document.getElementById("msdosWindow").scrollHeight;

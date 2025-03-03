@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Asteroids</title>
+<style>
+  body {
+    background-color: black;
+    margin: 0;
+    overflow: hidden;
+  }
+  canvas {
+    display: block;
+    margin: 0 auto;
+  }
+</style>
+</head>
+<body>
+<canvas id="gameCanvas"></canvas>
+
+<script>
+  const canvas = document.getElementById('gameCanvas');
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const player = {
+    x: canvas.width / 2,
+    y: canvas.height / 2,
+    angle: 0,
+    velocity: { x: 0, y: 0 },
+    rotation: 0,
+    size: 20,
+    lives: 3,
+    invulnerable: 0,
+	thrusting: false,
+	rotatingRight: false,
+	rotatingLeft: false,
+  };
+  
+  let movementAngle = player.angle;
+
+  const bullets = [];
+  const asteroids = [];
+  let score = 0;
+  let gameRunning = true;
+  let level = 1;
+  
+  function createAsteroid(x, y, size, speedX, speedY) {
+    asteroids.push({
+      x: x,
+      y: y,
+      size: size,
+      speedX: speedX,
+      speedY: speedY,
+      rotation: Math.random() * 0.1 - 0.05,
+      angle: Math.random() * Math.PI * 2,
+    });
+  }
+
+  function spawnAsteroids(count) {
+    for (let i = 0; i < count; i++) {
+      const size = Math.random() * 40 + 20;
+      const x = Math.random() * canvas.width;
+      const y = Math.random() * canvas.height;
+      const speedX = Math.random() * 2 - 1;
+      const speedY = Math.random() * 2 - 1;
+      createAsteroid(x, y, size, speedX, speedY);
+    }
+  }
+
+  spawnAsteroids(level + 3);
+
+  function drawPlayer() {
+    ctx.save();
+    ctx.translate(player.x, player.y);
+    ctx.rotate(player.angle);
+    ctx.strokeStyle = player.invulnerable > 0 ? 'gray' : 'white';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(player.size, 0);
+    ctx.lineTo(-player.size, player.size);
+    ctx.lineTo(-player.size + 10, 0);
+    ctx.lineTo(-player.size, -player.size);
+    ctx.closePath();
+    ctx.stroke();
+	if (player.rotatingRight) {
+		ctx.beginPath();
+		ctx.moveTo(player.size - 10, - 8);
+		ctx.lineTo(player.size - 12, - 13);
+		ctx.lineTo(player.size - 8, - 13);
+		ctx.closePath();
+		ctx.fillStyle = 'gray';
+		ctx.fill();
+		ctx.beginPath();
+		ctx.moveTo(-player.size + 10, + 18);
+		ctx.lineTo(-player.size + 12, + 23);
+		ctx.lineTo(-player.size + 8, + 23);
+		ctx.closePath();
+		ctx.fillStyle = 'gray';
+		ctx.fill();
+	}
+	if (player.rotatingLeft) {
+		ctx.beginPath();
+		ctx.moveTo(player.size - 10, + 10);
+		ctx.lineTo(player.size - 12, + 15);
+		ctx.lineTo(player.size - 8, + 15);
+		ctx.closePath();
+		ctx.fillStyle = 'gray';
+		ctx.fill();
+		ctx.beginPath();
+		ctx.moveTo(-player.size + 10, - 18);
+		ctx.lineTo(-player.size + 12, - 23);
+		ctx.lineTo(-player.size + 8, - 23);
+		ctx.closePath();
+		ctx.fillStyle = 'gray';
+		ctx.fill();
+	}
+    if (player.thrusting){
+        ctx.beginPath();
+        ctx.moveTo(-player.size + 10, 0);
+        ctx.lineTo(-player.size - 10, 5);
+        ctx.lineTo(-player.size - 10, -5);
+        ctx.closePath();
+        ctx.fillStyle = 'gray';
+        ctx.fill();
+    }
+    ctx.restore();
+  }
+
+  function drawBullets() {
+    ctx.fillStyle = 'white';
+    bullets.forEach((bullet) => {
+      ctx.beginPath();
+      ctx.arc(bullet.x, bullet.y, 2, 0, Math.PI * 2);
+      ctx.fill();
+    });
+  }
+
+  function drawAsteroids() {
+    asteroids.forEach((asteroid) => {
+      ctx.save();
+      ctx.translate(asteroid.x, asteroid.y);
+      ctx.rotate(asteroid.angle);
+      ctx.strokeStyle = 'gray';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      const radius = asteroid.size;
+      const points = 10 + Math.floor(Math.random() * 5);
+      for (let i = 0; i < points; i++) {
+        const angle = (i / points) * Math.PI * 2;
+        const x = radius * Math.cos(angle) + Math.random() * 10 - 5;
+        const y = radius * Math.sin(angle) + Math.random() * 10 - 5;
+        if (i === 0) {
+          ctx.moveTo(x, y);
+        } else {
+          ctx.lineTo(x, y);
+        }
+      }
+      ctx.closePath();
+      ctx.stroke();
+      ctx.restore();
+    });
+  }
+
+  function drawScore() {
+    ctx.fillStyle = 'white';
+    ctx.font = '20px Arial';
+    ctx.fillText('Score: ' + score, 10, 30);
+    ctx.fillText('Press E to exit; F or L to fire; Space or P to pause.', (canvas.width / 2) - 200, 30);
+    ctx.fillText('Lives: ' + player.lives, canvas.width - 80, 30);
+  }
+
+  function update() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawPlayer();
+    drawBullets();
+    drawAsteroids();
+    drawScore();
+	
+	if (gameRunning) {
+		if (player.thrusting) {
+		  player.velocity.x += 0.1 * Math.cos(player.angle);
+		  player.velocity.y += 0.1 * Math.sin(player.angle);
+		}
+		
+		player.x += player.velocity.x;
+		player.y += player.velocity.y;
+		player.angle += player.rotation;
+
+		if (player.x < 0) player.x = canvas.width;
+		if (player.x > canvas.width) player.x = 0;
+		if (player.y < 0) player.y = canvas.height;
+		if (player.y > canvas.height) player.y = 0;
+
+		bullets.forEach((bullet, index) => {
+		  bullet.x += bullet.speedX;
+		  bullet.y += bullet.speedY;
+
+		  if (bullet.x < 0 || bullet.x > canvas.width || bullet.y < 0 || bullet.y > canvas.height) {
+			bullets.splice(index, 1);
+		  }
+		});
+
+		asteroids.forEach((asteroid, index) => {
+		  asteroid.x += asteroid.speedX;
+		  asteroid.y += asteroid.speedY;
+		  asteroid.angle += asteroid.rotation;
+
+		  if (asteroid.x < 0) asteroid.x = canvas.width;
+		  if (asteroid.x > canvas.width) asteroid.x = 0;
+		  if (asteroid.y < 0) asteroid.y = canvas.height;
+		  if (asteroid.y > canvas.height) asteroid.y = 0;
+
+		  const dx = player.x - asteroid.x;
+		  const dy = player.y - asteroid.y;
+		  const distance = Math.sqrt(dx * dx + dy * dy);
+
+		  if (distance < player.size + asteroid.size && player.invulnerable <= 0) {
+			player.lives--;
+			player.x = canvas.width / 2;
+			player.y = canvas.height / 2;
+			player.rotation = 0;
+			player.angle = 0;
+			player.velocity.x = 0;
+			player.velocity.y = 0;
+			player.invulnerable = 120;
+			if (player.lives <= 0) {
+				alert('Game Over! Score: ' + score);
+				score = 0;
+				level = 1;
+				player.lives = 3;
+				player.x = canvas.width / 2;
+				player.y = canvas.height / 2;
+				player.rotation = 0;
+				player.angle = 0;
+				player.velocity.x = 0;
+				player.velocity.y = 0;
+				player.invulnerable = 120;
+			}
+		  }
+
+		  bullets.forEach((bullet, bulletIndex) => {
+			const dxBullet = bullet.x - asteroid.x;
+			const dyBullet = bullet.y - asteroid.y;
+			const distanceBullet = Math.sqrt(dxBullet * dxBullet + dyBullet * dyBullet);
+
+			if (distanceBullet < asteroid.size) {
+			  bullets.splice(bulletIndex, 1);
+			  if (asteroid.size > 20) {
+				createAsteroid(asteroid.x, asteroid.y, asteroid.size / 2, Math.random() * 2 - 1, Math.random() * 2 - 1);
+				createAsteroid(asteroid.x, asteroid.y, asteroid.size / 2, Math.random() * 2 - 1, Math.random() * 2 - 1);
+			  }
+			  asteroids.splice(index, 1);
+			  score += 10;
+			}
+		  });
+		});
+
+		if (asteroids.length === 0) {
+		  level++;
+		  spawnAsteroids(level + 3);
+		}
+		if (player.invulnerable > 0) player.invulnerable--;
+
+		requestAnimationFrame(update);
+	}
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {player.rotation -= 0.01; player.rotatingLeft = true;}
+    if (e.key === 'ArrowRight') {player.rotation += 0.01; player.rotatingRight = true;}
+    if (e.key === 'ArrowUp') player.thrusting = true;
+    if (e.key === 'f' || e.key == 'l') {
+	  if (e.repeat) return;
+      const bulletSpeed = 5;
+      bullets.push({
+        x: player.x + Math.cos(player.angle) * player.size,
+        y: player.y + Math.sin(player.angle) * player.size,
+        speedX: bulletSpeed * Math.cos(player.angle),
+        speedY: bulletSpeed * Math.sin(player.angle),
+      });
+    }
+  if (event.key === "e") {
+    window.open("dos.html", "_self");
+  }
+	if (e.key === ' ' || e.key === 'p') {
+      if (gameRunning) {gameRunning = false;}
+	  else {gameRunning = true; update();}
+	}
+  });
+
+  document.addEventListener('keyup', (e) => {
+	if (e.key === 'ArrowLeft') player.rotatingLeft = false;
+    if (e.key === 'ArrowRight') player.rotatingRight = false;
+    if (e.key === 'ArrowUp') player.thrusting = false;
+  });
+
+  update();
+</script>
+</body>
+</html>

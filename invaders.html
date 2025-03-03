@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Space Invaders</title>
+<style>
+  body {
+    background-color: black;
+    margin: 0;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  canvas {
+    display: block;
+    margin: 0 auto;
+    background-color: black;
+	border: 2px solid #fff;
+  }
+  #controls {
+      color: #fff;
+      font-size: 20px;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+</style>
+</head>
+<body>
+<canvas id="gameCanvas"></canvas>
+<div id="controls">Press E to exit; F or L to fire; Space or P to pause.</div>
+
+<script>
+  const canvas = document.getElementById('gameCanvas');
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = 480;
+  canvas.height = 640;
+
+  const player = {
+    x: canvas.width / 2 - 20,
+    y: canvas.height - 50,
+    width: 40,
+    height: 20,
+    speed: 5,
+    lives: 3,
+  };
+
+  const bullets = [];
+  const invaders = [];
+  const blocks = [];
+  let invaderRowCount = 5;
+  let invaderColumnCount = 10;
+  const invaderWidth = 30;
+  const invaderHeight = 20;
+  const invaderPadding = 10;
+  const invaderOffsetTop = 30;
+  const invaderOffsetLeft = 30;
+  let invaderDirection = 1;
+  let invaderSpeed = 0.5;
+
+  let rightPressed = false;
+  let leftPressed = false;
+  let gameRunning = true;
+  let score = 0;
+
+  function createInvaders() {
+    for (let c = 0; c < invaderColumnCount; c++) {
+      for (let r = 0; r < invaderRowCount; r++) {
+        invaders.push({
+          x: c * (invaderWidth + invaderPadding) + invaderOffsetLeft,
+          y: r * (invaderHeight + invaderPadding) + invaderOffsetTop,
+          width: invaderWidth,
+          height: invaderHeight,
+          alive: true,
+        });
+      }
+    }
+  }
+
+  function createBlocks() {
+    for (let c = 1; c < 5; c+=2) {
+		blocks.push({
+		  x: c * canvas.width / 5,
+		  y: 17 * canvas.height / 20,
+		  width: canvas.width / 5,
+		  height: canvas.height / 20,
+		});
+    }
+  }
+
+  createInvaders();
+  createBlocks();
+
+  function drawPlayer() {
+	ctx.beginPath();
+	ctx.moveTo(player.x + 20, player.y);
+	ctx.lineTo(player.x + 40, player.y + 15);
+	ctx.lineTo(player.x + 30, player.y + 30);
+	ctx.lineTo(player.x + 20, player.y + 20);
+	ctx.lineTo(player.x + 10, player.y + 30);
+	ctx.lineTo(player.x, player.y + 15);
+	ctx.closePath();
+    ctx.fillStyle = 'white';
+	ctx.fill();
+  }
+
+  function drawBullets() {
+    ctx.fillStyle = 'white';
+    for (let i = 0; i < bullets.length; i++) {
+      ctx.fillRect(bullets[i].x, bullets[i].y, 2, 8);
+    }
+  }
+
+  function drawInvaders() {
+    for (let i = 0; i < invaders.length; i++) {
+      if (invaders[i].alive) {
+        ctx.fillStyle = 'white';
+        ctx.fillRect(invaders[i].x, invaders[i].y, invaders[i].width, invaders[i].height);
+      }
+    }
+  }
+
+  function drawBlocks() {
+	ctx.fillStyle = 'white';
+	for (let i = 0; i < blocks.length; i++) {
+		ctx.fillRect(blocks[i].x, blocks[i].y, blocks[i].width, blocks[i].height);
+	}
+  }
+
+  function drawScore() {
+    ctx.fillStyle = 'white';
+    ctx.font = '20px Arial';
+    ctx.fillText('Score: ' + score, 8, 20);
+  }
+
+  function drawLives(){
+      ctx.fillStyle = 'white';
+      ctx.font = '20px Arial';
+      ctx.fillText('Lives: ' + player.lives, canvas.width - 80, 20);
+  }
+
+  function update() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    drawPlayer();
+    drawBullets();
+    drawInvaders();
+	drawBlocks();
+    drawScore();
+    drawLives();
+	
+	if (gameRunning) {
+
+		if (rightPressed && player.x < canvas.width - player.width) {
+		  player.x += player.speed;
+		} else if (leftPressed && player.x > 0) {
+		  player.x -= player.speed;
+		}
+
+		for (let i = 0; i < bullets.length; i++) {
+		  bullets[i].y -= 5;
+		  if (bullets[i].y < 0) {
+			bullets.splice(i, 1);
+			i--;
+		  }
+		}
+
+		for (let i = 0; i < invaders.length; i++) {
+		  if (invaders[i].alive) {
+			invaders[i].x += invaderSpeed * invaderDirection;
+
+			if (invaders[i].x + invaderWidth > canvas.width || invaders[i].x < 0) {
+			  invaderDirection *= -1;
+			  for (let j = 0; j < invaders.length; j++) {
+				invaders[j].y += invaderHeight + invaderPadding;
+			  }
+			  break;
+			}
+
+			for (let j = 0; j < bullets.length; j++) {
+			  if (
+				bullets[j].x > invaders[i].x &&
+				bullets[j].x < invaders[i].x + invaderWidth &&
+				bullets[j].y > invaders[i].y &&
+				bullets[j].y < invaders[i].y + invaderHeight
+			  ) {
+				invaders[i].alive = false;
+				bullets.splice(j, 1);
+				score += 10;
+				break;
+			  }
+			}
+			if(invaders[i].y + invaderHeight > blocks[1].y){
+			  player.lives--;
+			  invaders.forEach(invader => invader.alive = false);
+			  if(player.lives <= 0){
+				alert("Game Over! Your Score: " + score);
+				for (let j = 0; j < bullets.length; j++) {bullets.splice(j, 1); j--;}
+				invaderRowCount = 5;
+				invaderColumnCount = 10;
+				invaderDirection = 1;
+				invaderSpeed = 0.5;
+				score = 0;
+				player.lives = 3;
+			  } else{
+				bullets.length = 0;
+				createInvaders();
+				invaderDirection = 1;
+			  }
+
+			}
+		  }
+		}
+		
+		for (let i = 0; i < blocks.length; i++) {
+			for (let j = 0; j < bullets.length; j++) {
+			  if (
+				bullets[j].x > blocks[i].x &&
+				bullets[j].x < blocks[i].x + blocks[i].width &&
+				bullets[j].y > blocks[i].y &&
+				bullets[j].y < blocks[i].y + blocks[i].height
+			  ) {
+				bullets.splice(j, 1);
+				break;
+			  }
+			}
+		}
+
+		let allDead = true;
+		for (let i = 0; i < invaders.length; i++) {
+		  if (invaders[i].alive) {
+			allDead = false;
+			break;
+		  }
+		}
+
+		if (allDead) {
+		  invaderRowCount++;
+		  createInvaders();
+		  invaderDirection = 1;
+		  invaderSpeed += 0.1;
+		}
+
+		requestAnimationFrame(update);
+	  }
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Right' || e.key === 'ArrowRight') {
+      rightPressed = true;
+    } else if (e.key === 'Left' || e.key === 'ArrowLeft') {
+      leftPressed = true;
+    } else if (e.key === 'f' || e.key === 'l') {
+	  if (e.repeat) return;
+      bullets.push({ x: player.x - 1 + player.width / 2, y: player.y });
+    } else if (e.key === ' ' || e.key === 'p') {
+      if (gameRunning) {gameRunning = false;}
+	  else {gameRunning = true; update();}
+    } else if (event.key === "e") {
+      window.open("dos.html", "_self");
+    }
+  });
+
+  document.addEventListener('keyup', (e) => {
+    if (e.key === 'Right' || e.key === 'ArrowRight') {
+      rightPressed = false;
+    } else if (e.key === 'Left' || e.key === 'ArrowLeft') {
+      leftPressed = false;
+    }
+  });
+
+  update();
+</script>
+</body>
+</html>
