@@ -6,19 +6,19 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=VT323">
     <link rel="stylesheet" href="win-style.css">
 </head>
-<body id="body" scroll="no">
+<body id="body">
 
-    <audio id="wav-tada" src="ass/TADA.WAV" type="audio/wav"></audio>
-    <audio id="wav-ding" src="ass/DING.WAV" type="audio/wav"></audio>
-    <audio id="wav-chimes" src="ass/CHIMES.WAV" type="audio/wav" onended="window.location.replace('dos.html')"></audio>
-    <audio id="ogg-almonds" src="ass/ALMONDS.ogg" type="audio/ogg"></audio>
-    <audio id="ogg-canyon" src="ass/CANYON.ogg" type="audio/ogg"></audio>
-    <audio id="ogg-dreamy" src="ass/DREAMY.ogg" type="audio/ogg"></audio>
-    <audio id="ogg-metblast" src="ass/METBLAST.ogg" type="audio/ogg"></audio>
-    <audio id="ogg-passport" src="ass/PASSPORT.ogg" type="audio/ogg"></audio>
-    <audio id="ogg-seasons" src="ass/SEASONS.ogg" type="audio/ogg"></audio>
-    <audio id="ogg-someband" src="ass/SOMEBAND.ogg" type="audio/ogg"></audio>
-    <audio id="ogg-stomp" src="ass/STOMP.ogg" type="audio/ogg"></audio>
+    <audio id="wav-tada" src="ass/TADA.WAV"></audio>
+    <audio id="wav-ding" src="ass/DING.WAV"></audio>
+    <audio id="wav-chimes" src="ass/CHIMES.WAV" onended="window.location.replace('dos.html')"></audio>
+    <audio id="ogg-almonds" src="ass/ALMONDS.ogg"></audio>
+    <audio id="ogg-canyon" src="ass/CANYON.ogg"></audio>
+    <audio id="ogg-dreamy" src="ass/DREAMY.ogg"></audio>
+    <audio id="ogg-metblast" src="ass/METBLAST.ogg"></audio>
+    <audio id="ogg-passport" src="ass/PASSPORT.ogg"></audio>
+    <audio id="ogg-seasons" src="ass/SEASONS.ogg"></audio>
+    <audio id="ogg-someband" src="ass/SOMEBAND.ogg"></audio>
+    <audio id="ogg-stomp" src="ass/STOMP.ogg"></audio>
     
     <script>
         window.onload = function() {
@@ -439,6 +439,22 @@
                     onclick="
                     this.style.backgroundColor = 'white'; this.style.color = 'black';
                     document.getElementById('drop-win').style.display = 'none';
+                    colorActive = 'black';
+                    var x = document.getElementsByClassName('title');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'black';
+                    }">Title Bar Black</a></div>
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                    onmousedown="
+                    var x = document.getElementsByClassName('item-drop-a');
+                    for (var i = 0; i < x.length; i++) {
+                        x[i].style.backgroundColor = 'white';
+                        x[i].style.color = 'black';
+                    }
+                    this.style.backgroundColor = colorActive; this.style.color = 'white';"
+                    onclick="
+                    this.style.backgroundColor = 'white'; this.style.color = 'black';
+                    document.getElementById('drop-win').style.display = 'none';
                     colorActive = 'maroon';
                     var x = document.getElementsByClassName('title');
                     for (var i = 0; i < x.length; i++) {
@@ -532,7 +548,7 @@
                 x[i].style.backgroundColor = 'white';
                 x[i].style.color = 'black';
             }">
-                <div class="item-drop"><a class="item-drop-a" draggable="false"
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
                     onmousedown="
                     var x = document.getElementsByClassName('item-drop-a');
                     for (var i = 0; i < x.length; i++) {
@@ -542,7 +558,7 @@
                     this.style.backgroundColor = colorActive; this.style.color = 'white';"
                     onclick="this.style.backgroundColor = 'white'; this.style.color = 'black';
                     document.getElementById('drop-help').style.display = 'none';" href="https://www.canva.com/design/DAGgpT2WDl0/a4VkorQ80l563TNElnX_3Q/view?utm_content=DAGgpT2WDl0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h27643c7a0b" target="_blank">Curriculum...</a></div>
-                <div class="item-drop"><a class="item-drop-a" draggable="false"
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
                     onmousedown="
                     var x = document.getElementsByClassName('item-drop-a');
                     for (var i = 0; i < x.length; i++) {
@@ -553,7 +569,7 @@
                     onclick="this.style.backgroundColor = 'white'; this.style.color = 'black';
                     document.getElementById('drop-help').style.display = 'none';" href="https://www.github.com/etothepowerofln" target="_blank">GitHub...</a></div>
                 <hr>
-                <div class="item-drop"><a class="item-drop-a" draggable="false"
+                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
                     onmousedown="
                     var x = document.getElementsByClassName('item-drop-a');
                     for (var i = 0; i < x.length; i++) {
@@ -572,35 +588,27 @@
                     <a draggable="false" onclick="
                     document.getElementById('f-games').style.display = 'block';
                     document.getElementById('games-icon').style.display = 'none';">
-                    <img src="ass/folder.png"/>
-                    <div class="text">GAMES</div>
-                    </a>
-                </div>
-                <div class="icon" id="extra-icon" style="display: inline-block;">
-                    <a draggable="false" onclick="
-                    document.getElementById('f-extra').style.display = 'block';
-                    document.getElementById('extra-icon').style.display = 'none';">
-                    <img src="ass/folder.png"/>
-                    <div class="text">EXTRA</div>
+                    <img src="ass/folder.png" alt="oops"/>
+                    <div class="text">LINKS</div>
                     </a>
                 </div>
                 <div class="icon" id="myapps-icon" style="display: inline-block;">
                     <a draggable="false" onclick="
                     document.getElementById('f-myapps').style.display = 'block';
                     document.getElementById('myapps-icon').style.display = 'none';">
-                    <img src="ass/folder.png"/>
+                    <img src="ass/folder.png" alt="oops"/>
                     <div class="text">MY_APPS</div>
                     </a>
                 </div>
             </div>
 
             <!--FOLDER GAMES-->
-            <div id="f-games" class="window-border " style="top: 56px; left: 4px; width: 740px; height: 310px; z-index: 100; display: none">
+            <div id="f-games" class="window-border " style="top: 56px; left: 4px; width: 640px; height: 250px; z-index: 100; display: none">
                 <div class="window">
                     <div id="title" class="title" onclick="
                     document.getElementById('f-myapps').style.zIndex = '200';
                     document.getElementById('f-games').style.zIndex = '100';">
-                        Freeware And Shareware Games
+                        Freeware or Shareware Programs
                         <div class="button" style="font-size: large;" id="btn-min-games" onclick="
                             document.getElementById('games-icon').style.display = 'inline-block';
                             document.getElementById('f-games').style.display = 'none';">
@@ -613,39 +621,31 @@
                             <a draggable="false" onclick="
                                 frame2.src='https\://play.webrcade.com'; document.getElementById('app-loader').style.display = 'block';
                                 document.getElementById('app-title').innerHTML = 'WebRcade';" target="frame2">
-                            <img src="ass/joy.png"/>
+                            <img src="ass/joy.png" alt="oops"/>
                             <div class="text">WEBRCADE</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="
-                                frame2.src='https\://jsnes.org'; document.getElementById('app-loader').style.display = 'block';
-                                document.getElementById('app-title').innerHTML = 'Nintendo Emulator';" target="frame2">
-                            <img src="ass/nes.png"/>
-                            <div class="text">NES</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="
-                                frame2.src='https\://xania.org/miracle/miracle.html'; document.getElementById('app-loader').style.display = 'block';
-                                document.getElementById('app-title').innerHTML = 'Master System Emulator';" target="frame2">
-                            <img src="ass/sms.png"/>
-                            <div class="text">SMS</div>
                             </a>
                         </div>
                         <div class="icon">
                             <a draggable="false" onclick="
                                 frame2.src='https\://d07riv.github.io/diabloweb'; document.getElementById('app-loader').style.display = 'block';
                                 document.getElementById('app-title').innerHTML = 'Diablo';" target="frame2">
-                            <img src="ass/diablo.png"/>
+                            <img src="ass/diablo.png" alt="oops"/>
                             <div class="text">DIABLO</div>
+                            </a>
+                        </div>
+                        <div class="icon">
+                            <a draggable="false" onclick="
+                                frame2.src='https\://doomonline1.vercel.app/'; document.getElementById('app-loader').style.display = 'block';
+                                document.getElementById('app-title').innerHTML = 'Quake';" target="frame2">
+                            <img src="ass/doom.png" alt="oops"/>
+                            <div class="text">DOOM</div>
                             </a>
                         </div>
                         <div class="icon">
                             <a draggable="false" onclick="
                                 frame2.src='https\://www.netquake.io'; document.getElementById('app-loader').style.display = 'block';
                                 document.getElementById('app-title').innerHTML = 'Quake';" target="frame2">
-                            <img src="ass/quake.png"/>
+                            <img src="ass/quake.png" alt="oops"/>
                             <div class="text">QUAKE</div>
                             </a>
                         </div>
@@ -653,7 +653,7 @@
                             <a draggable="false" onclick="
                                 frame2.src='https\://duckhuntjs.com'; document.getElementById('app-loader').style.display = 'block';
                                 document.getElementById('app-title').innerHTML = 'Duck Hunt';" target="frame2">
-                            <img src="ass/joy.png"/>
+                            <img src="ass/duckhunt.png" alt="oops"/>
                             <div class="text">DUCKHUNT</div>
                             </a>
                         </div>
@@ -661,30 +661,22 @@
                             <a draggable="false" onclick="
                                 frame2.src='https\://gamegur-us.github.io/circushtml5'; document.getElementById('app-loader').style.display = 'block';
                                 document.getElementById('app-title').innerHTML = 'Circus Charlie';" target="frame2">
-                            <img src="ass/joy.png"/>
+                            <img src="ass/charlie.png" alt="oops"/>
                             <div class="text">CIRCUS</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="
-                                frame2.src='https\://play.retrogames.onl/openbor/beats-of-rage-openbor.html'; document.getElementById('app-loader').style.display = 'block';
-                                document.getElementById('app-title').innerHTML = 'Beats of Rage';" target="frame2">
-                            <img src="ass/joy.png"/>
-                            <div class="text">BOR</div>
                             </a>
                         </div>
                         <div class="icon">
                             <a draggable="false" onclick="
                                 frame2.src='https\://beastinblack.com/game'; document.getElementById('app-loader').style.display = 'block';
                                 document.getElementById('app-title').innerHTML = 'One Night in Tokyo';" target="frame2">
-                            <img src="ass/joy.png"/>
-                            <div class="text">1NTOKYO</div>
+                            <img src="ass/fight.png" alt="oops"/>
+                            <div class="text">TOKYO</div>
                             </a>
                         </div>
                         <div class="icon">
                             <a draggable="false" onclick="
                                 frame2.src='https\://hexgl.bkcore.com/play'; document.getElementById('app-loader').style.display = 'block';" target="frame2">
-                            <img src="ass/joy.png"/>
+                            <img src="ass/hexgl.png" alt="oops"/>
                             <div class="text">HEXGL</div>
                             </a>
                         </div>
@@ -692,23 +684,15 @@
                             <a draggable="false" onclick="
                                 frame2.src='https\://www.adversator.com/game.html'; document.getElementById('app-loader').style.display = 'block';
                                 document.getElementById('app-title').innerHTML = 'Adversator - MOBA 3D';" target="frame2">
-                            <img src="ass/joy.png"/>
-                            <div class="text">MOBA3D</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="
-                                frame2.src='https\://www.wanderers.io'; document.getElementById('app-loader').style.display = 'block';
-                                document.getElementById('app-title').innerHTML = 'Wanderer';" target="frame2">
-                            <img src="ass/joy.png"/>
-                            <div class="text">WANDERER</div>
+                            <img src="ass/shield.png" alt="oops"/>
+                            <div class="text">MOBA</div>
                             </a>
                         </div>
                         <div class="icon">
                             <a draggable="false" onclick="
                                 frame2.src='https\://play.elevatorsaga.com'; document.getElementById('app-loader').style.display = 'block';
                                 document.getElementById('app-title').innerHTML = 'Elevator Saga';" target="frame2">
-                            <img src="ass/joy.png"/>
+                            <img src="ass/brackets.png" alt="oops"/>
                             <div class="text">ELEVATOR</div>
                             </a>
                         </div>
@@ -716,7 +700,7 @@
                             <a draggable="false" onclick="
                                 frame2.src='https\://skribbl.io'; document.getElementById('app-loader').style.display = 'block';
                                 document.getElementById('app-title').innerHTML = 'Skribbl.IO';" target="frame2">
-                            <img src="ass/joy.png"/>
+                            <img src="ass/pencil.png" alt="oops"/>
                             <div class="text">SKRIBBL</div>
                             </a>
                         </div>
@@ -724,7 +708,7 @@
                             <a draggable="false" onclick="
                                 frame2.src='https\://fritz.chessbase.com/en/fritz'; document.getElementById('app-loader').style.display = 'block';
                                 document.getElementById('app-title').innerHTML = 'Chess';" target="frame2">
-                            <img src="ass/joy.png"/>
+                            <img src="ass/chess.png" alt="oops"/>
                             <div class="text">CHESS</div>
                             </a>
                         </div>
@@ -732,140 +716,15 @@
                             <a draggable="false" onclick="              
                                 frame2.src='https\://conroy.org/roms/2048.html'; document.getElementById('app-loader').style.display = 'block';
                                 document.getElementById('app-title').innerHTML = '2048';" target="frame2">
-                            <img src="ass/joy.png"/>
+                            <img src="ass/2048.png" alt="oops"/>
                             <div class="text">2048</div>
                             </a>
                         </div>
                         <div class="icon">
                             <a draggable="false" onclick="
-                                frame2.src='https\://gba.ninja'; document.getElementById('app-loader').style.display = 'block';
-                                document.getElementById('app-title').innerHTML = 'GBA Emulator';" target="frame2">
-                            <img src="ass/gba.png"/>
-                            <div class="text">GBA</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="
-                                frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/PokemonZeroNegative.gba'; document.getElementById('app-loader').style.display = 'block';
-                                document.getElementById('app-title').innerHTML = 'GBA: Pokemon Zero Negative';" target="frame2">
-                            <img src="ass/gba.png"/>
-                            <div class="text">PKM0-</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="
-                                frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/PokemonFlarev1.02.gba'; document.getElementById('app-loader').style.display = 'block';
-                                document.getElementById('app-title').innerHTML = 'GBA: Pokemon Flare';" target="frame2">
-                            <img src="ass/gba.png"/>
-                            <div class="text">PKMFLARE</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="
-                                frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/minicraft.gba'; document.getElementById('app-loader').style.display = 'block';
-                                document.getElementById('app-title').innerHTML = 'GBA: MiniCraft';" target="frame2">
-                            <img src="ass/gba.png"/>
-                            <div class="text">MINICRFT</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="
-                                frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/ucity-advance-v1.0.1.gba'; document.getElementById('app-loader').style.display = 'block';
-                                document.getElementById('app-title').innerHTML = 'GBA: MicroCity';" target="frame2">
-                            <img src="ass/gba.png"/>
-                            <div class="text">UCITY</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="
-                                frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/thinkingwithboxes.gba'; document.getElementById('app-loader').style.display = 'block';
-                                document.getElementById('app-title').innerHTML = 'GBA: Thinkbox';" target="frame2">
-                            <img src="ass/gba.png"/>
-                            <div class="text">THINKBOX</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="
-                                frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/feline.gba'; document.getElementById('app-loader').style.display = 'block';
-                                document.getElementById('app-title').innerHTML = 'GBA: Feline';" target="frame2">
-                            <img src="ass/gba.png"/>
-                            <div class="text">FELINE</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="
-                                frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/ScrollsOfFire.gba'; document.getElementById('app-loader').style.display = 'block';
-                                document.getElementById('app-title').innerHTML = 'GBA: Scrolls of Fire';" target="frame2">
-                            <img src="ass/gba.png"/>
-                            <div class="text">SCRLFIRE</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="
-                                frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/CelesteClassicHomebrewv1.2.gba'; document.getElementById('app-loader').style.display = 'block';
-                                document.getElementById('app-title').innerHTML = 'GBA: Celeste';" target="frame2">
-                            <img src="ass/gba.png"/>
-                            <div class="text">CELESTEH</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="
-                                frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/USAsteroidMiningCompnyComplianceOfficerSimulator.gba'; document.getElementById('app-loader').style.display = 'block';
-                                document.getElementById('app-title').innerHTML = 'GBA: USAMC';" target="frame2">
-                            <img src="ass/gba.png"/>
-                            <div class="text">USAMC</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="
-                                frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/butano-fighter.gba'; document.getElementById('app-loader').style.display = 'block';
-                                document.getElementById('app-title').innerHTML = 'GBA: Butano Fighter';" target="frame2">
-                            <img src="ass/gba.png"/>
-                            <div class="text">BUTANO</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="
-                            frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/BlackSeaMSX.gba'; document.getElementById('app-loader').style.display = 'block';
-                            document.getElementById('app-title').innerHTML = 'GBA: Black Sea';" target="frame2">
-                            <img src="ass/gba.png"/>
-                            <div class="text">BLACKSEA</div>
-                            </a>
-                        </div>
-                        <div class="icon">
-                            <a draggable="false" onclick="
-                            frame2.src='https\://gba.ninja/?autorun=https://etothepowerofln.github.io/gba/fate_s_crossing.gba'; document.getElementById('app-loader').style.display = 'block';
-                            document.getElementById('app-title').innerHTML = 'GBA: Fates Crossing';" target="frame2">
-                            <img src="ass/gba.png"/>
-                            <div class="text">FATECRSS</div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bottomright handle"></div>
-                <div class="topright handle"></div>
-                <div class="topleft handle"></div>
-                <div class="bottomleft handle"></div>
-            </div>
-
-            <!--FOLDER EXTRA-->
-            <div id="f-extra" class="window-border " style="top: 300px; right: 100px; width: 280px; height: 180px; z-index: 100; display: none">
-                <div class="window">
-                    <div id="title" class="title">
-                        EXTRA
-                        <div class="button" style="font-size: large;" id="btn-min-extra" onclick="
-                            document.getElementById('extra-icon').style.display = 'inline-block';
-                            document.getElementById('f-extra').style.display = 'none';">
-                            &blacktriangledown;
-                        </div>
-                    </div>
-                    <!--ICONS-->
-                    <div class="icons" id="extra-icons">
-                        <div class="icon">
-                            <a draggable="false" onclick="
                                 frame2.src='https\://msxpen.com'; document.getElementById('app-loader').style.display = 'block';
                                 document.getElementById('app-title').innerHTML = 'MSX';" target="frame2">
-                            <img src="ass/write.png"/>
+                            <img src="ass/write.png" alt="oops"/>
                             <div class="text">PROGMSX</div>
                             </a>
                         </div>
@@ -873,7 +732,7 @@
                             <a draggable="false" onclick="
                             frame2.src='https\://8bitworkshop.com/v3.10.0/?platform=vcs&file=examples%2Fhello.a'; document.getElementById('app-loader').style.display = 'block';
                             document.getElementById('app-title').innerHTML = 'Programming 8-bit';" target="frame2">
-                            <img src="ass/write.png"/>
+                            <img src="ass/write.png" alt="oops"/>
                             <div class="text">PROG8BIT</div>
                             </a>
                         </div>
@@ -881,7 +740,7 @@
                             <a draggable="false" onclick="
                                 frame2.src='https\://app.classcalc.com/prod/embed/?linkId=XXZ1n2BX2AurnUkD8#/scientific/'; document.getElementById('app-loader').style.display = 'block';
                                 document.getElementById('app-title').innerHTML = 'Scientific Calculator';" target="frame2">
-                            <img src="ass/calc.png"/>
+                            <img src="ass/calc.png" alt="oops"/>
                             <div class="text">CALC</div>
                             </a>
                         </div>
@@ -889,7 +748,7 @@
                             <a draggable="false" onclick="
                                 frame2.src='https\://openlibrary.org/'; document.getElementById('app-loader').style.display = 'block';
                                 document.getElementById('app-title').innerHTML = 'Open Library';" target="frame2">
-                            <img src="ass/WINHL002.ICO"/>
+                            <img src="ass/WINHL002.ICO" alt="oops"/>
                             <div class="text">OLIBRARY</div>
                             </a>
                         </div>
@@ -897,7 +756,7 @@
                             <a draggable="false" onclick="
                                 frame2.src='https\://libreflix.org'; document.getElementById('app-loader').style.display = 'block';
                                 document.getElementById('app-title').innerHTML = 'LibreFlix';" target="frame2">
-                            <img src="ass/MPLAY001.ICO"/>
+                            <img src="ass/MPLAY001.ICO" alt="oops"/>
                             <div class="text">LIBRFLIX</div>
                             </a>
                         </div>
@@ -910,7 +769,7 @@
             </div>
 
             <!--FOLDER MY_APPS-->
-            <div id="f-myapps" class="window-border " style="bottom: 150px; left: 80px; width: 370px; height: 180px; z-index: 100; display: none">
+            <div id="f-myapps" class="window-border " style="bottom: 80px; left: 380px; width: 370px; height: 180px; z-index: 100; display: none">
                 <div class="window">
                     <div id="title" class="title" onclick="
                         document.getElementById('f-myapps').style.zIndex = '200';
@@ -928,7 +787,7 @@
                             <a draggable="false" onclick="
                             frame2.src='webapps/pizzaAreaCalc.html'; document.getElementById('app-loader').style.display = 'block';
                             document.getElementById('app-title').innerHTML = 'Pizza Calculator';" target="frame2">
-                            <img src="ass/VBRUN001.ICO"/>
+                            <img src="ass/pizza.png" alt="oops"/>
                             <div class="text">PIZZA</div>
                             </a>
                         </div>
@@ -936,7 +795,7 @@
                             <a draggable="false" onclick="
                             frame2.src='webapps/exprCalc.html'; document.getElementById('app-loader').style.display = 'block';
                             document.getElementById('app-title').innerHTML = 'Expression Calculator';" target="frame2">
-                            <img src="ass/VBRUN001.ICO"/>
+                            <img src="ass/VBRUN001.ICO" alt="oops"/>
                             <div class="text">EXPR</div>
                             </a>
                         </div>
@@ -944,7 +803,7 @@
                             <a draggable="false" onclick="
                             frame2.src='webapps/BASHCustomizer.html'; document.getElementById('app-loader').style.display = 'block';
                             document.getElementById('app-title').innerHTML = 'BASH Customizer';" target="frame2">
-                            <img src="ass/VBRUN001.ICO"/>
+                            <img src="ass/VBRUN001.ICO" alt="oops"/>
                             <div class="text">BASH</div>
                             </a>
                         </div>
@@ -952,7 +811,7 @@
                             <a draggable="false" onclick="
                             frame2.src='webapps/screenCalc.html'; document.getElementById('app-loader').style.display = 'block';
                             document.getElementById('app-title').innerHTML = 'Screen Calculator';" target="frame2">
-                            <img src="ass/VBRUN001.ICO"/>
+                            <img src="ass/VBRUN001.ICO" alt="oops"/>
                             <div class="text">SCREENS</div>
                             </a>
                         </div>
@@ -960,7 +819,7 @@
                             <a draggable="false" onclick="
                                 frame2.src='webapps/pool_of_radiance.html'; document.getElementById('app-loader').style.display = 'block'; 
                                 document.getElementById('app-title').innerHTML = 'Pool of Radiance Calculator';" target="frame2">
-                            <img src="ass/VBRUN001.ICO"/>
+                            <img src="ass/poolrad.png" alt="oops"/>
                             <div class="text">POOLRAD</div>
                             </a>
                         </div>
@@ -982,7 +841,7 @@
         <a draggable="false" onclick="
         document.getElementById('prog-manager').style.display = 'block';
         document.getElementById('prog-manager-icon').style.display = 'none';">
-        <img src="ass/progmanager.png"/>
+        <img src="ass/progmanager.png" alt="oops"/>
         <div class="text">Program<br>Manager</div>
         </a>
     </div>
@@ -993,7 +852,7 @@
             <div id="title" class="title">
                 Exit Finestra
             </div>
-            <div><p style="text-align: center;"><img src="ass/PROGM039.ICO"> This will end Finestra 3.1 section and go back to DOS. <img src="ass/PROGM010.ICO"></p></div>
+            <div><p style="text-align: center;"><img src="ass/PROGM039.ICO" alt="oops"> This will end Finestra 3.1 section and go back to DOS. <img src="ass/PROGM010.ICO" alt="oops"></p></div>
             <div>
                 <div class="button" style="font-size: large;" onclick="
                 document.querySelectorAll('audio').forEach(el => el.pause());
@@ -1011,7 +870,7 @@
         <div class="topleft handle"></div>
         <div class="bottomleft handle"></div>
     </div>
-    <div id="app-loader" class="window-border " style="top: 10%; left: 10%; width: 80%; height: 80%; z-index: 300; display: none">
+    <div id="app-loader" class="window-border " style="top: 5%; left: 5%; width: 90%; height: 90%; z-index: 300; display: none">
         <div class="window">
             <div class="title">
                 <label id="app-title" class="app-title">Luiz Filipi's Desktop</label> 
