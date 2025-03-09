@@ -38,10 +38,10 @@ display: block;
 }
 
 .window .app-title {
-    margin: 0% auto;
-    left: 0;
-    right: 0;
-    font-size: 24px;
+margin: 0% auto;
+left: 0;
+right: 0;
+font-size: 24px;
 }
 
 .window .button {
@@ -98,6 +98,12 @@ font-size: 20px;
 
 .menubar .menuitem a {
 color: black;
+}
+
+.folders {
+width: 100%;
+height: calc(100% - 50px);
+overflow: hidden;
 }
 
 .icons {

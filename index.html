@@ -115,7 +115,7 @@
 
     <div id="prog-manager" class="window-border" style="top: 10%; left: 20%; width: 900px; height: 600px; display: none">
         <div class="window" id="pg-window">
-            <div id="title" class="title" onmousedown="
+            <div class="title" onmousedown="
             var x = document.getElementsByClassName('menuitem');
             for (var i = 0; i < x.length; i++) {
                 x[i].style.backgroundColor = 'white';
@@ -548,7 +548,7 @@
                 x[i].style.backgroundColor = 'white';
                 x[i].style.color = 'black';
             }">
-                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                <div class="item-drop"><a class="item-drop-a" draggable="false"
                     onmousedown="
                     var x = document.getElementsByClassName('item-drop-a');
                     for (var i = 0; i < x.length; i++) {
@@ -558,7 +558,7 @@
                     this.style.backgroundColor = colorActive; this.style.color = 'white';"
                     onclick="this.style.backgroundColor = 'white'; this.style.color = 'black';
                     document.getElementById('drop-help').style.display = 'none';" href="https://www.canva.com/design/DAGgpT2WDl0/a4VkorQ80l563TNElnX_3Q/view?utm_content=DAGgpT2WDl0&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h27643c7a0b" target="_blank">Curriculum...</a></div>
-                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                <div class="item-drop"><a class="item-drop-a" draggable="false"
                     onmousedown="
                     var x = document.getElementsByClassName('item-drop-a');
                     for (var i = 0; i < x.length; i++) {
@@ -569,7 +569,7 @@
                     onclick="this.style.backgroundColor = 'white'; this.style.color = 'black';
                     document.getElementById('drop-help').style.display = 'none';" href="https://www.github.com/etothepowerofln" target="_blank">GitHub...</a></div>
                 <hr>
-                <div class="item-drop"><a class="item-drop-a" draggable="false" href="javascript:void(0)"
+                <div class="item-drop"><a class="item-drop-a" draggable="false"
                     onmousedown="
                     var x = document.getElementsByClassName('item-drop-a');
                     for (var i = 0; i < x.length; i++) {
@@ -582,6 +582,7 @@
                     document.getElementById('app-title').innerHTML = 'About';" 
                     target="frame2">About...</a></div>
             </div>
+        <div Class="window folders">
             <!--ICONS-->
             <div class="icons">
                 <div class="icon" id="games-icon" style="display: inline-block;">
@@ -605,7 +606,7 @@
             <!--FOLDER GAMES-->
             <div id="f-games" class="window-border " style="top: 56px; left: 4px; width: 640px; height: 250px; z-index: 100; display: none">
                 <div class="window">
-                    <div id="title" class="title" onclick="
+                    <div class="title" onclick="
                     document.getElementById('f-myapps').style.zIndex = '200';
                     document.getElementById('f-games').style.zIndex = '100';">
                         Freeware or Shareware Programs
@@ -636,7 +637,7 @@
                         <div class="icon">
                             <a draggable="false" onclick="
                                 frame2.src='https\://doomonline1.vercel.app/'; document.getElementById('app-loader').style.display = 'block';
-                                document.getElementById('app-title').innerHTML = 'Quake';" target="frame2">
+                                document.getElementById('app-title').innerHTML = 'Doom';" target="frame2">
                             <img src="ass/doom.png" alt="oops"/>
                             <div class="text">DOOM</div>
                             </a>
@@ -675,7 +676,8 @@
                         </div>
                         <div class="icon">
                             <a draggable="false" onclick="
-                                frame2.src='https\://hexgl.bkcore.com/play'; document.getElementById('app-loader').style.display = 'block';" target="frame2">
+                                frame2.src='https\://hexgl.bkcore.com/play'; document.getElementById('app-loader').style.display = 'block';
+                                document.getElementById('app-title').innerHTML = 'HexGL';" target="frame2">
                             <img src="ass/hexgl.png" alt="oops"/>
                             <div class="text">HEXGL</div>
                             </a>
@@ -723,17 +725,17 @@
                         <div class="icon">
                             <a draggable="false" onclick="
                                 frame2.src='https\://msxpen.com'; document.getElementById('app-loader').style.display = 'block';
-                                document.getElementById('app-title').innerHTML = 'MSX';" target="frame2">
+                                document.getElementById('app-title').innerHTML = 'Programming MSX';" target="frame2">
                             <img src="ass/write.png" alt="oops"/>
-                            <div class="text">PROGMSX</div>
+                            <div class="text">MSXDEV</div>
                             </a>
                         </div>
                         <div class="icon">
                             <a draggable="false" onclick="
                             frame2.src='https\://8bitworkshop.com/v3.10.0/?platform=vcs&file=examples%2Fhello.a'; document.getElementById('app-loader').style.display = 'block';
-                            document.getElementById('app-title').innerHTML = 'Programming 8-bit';" target="frame2">
+                            document.getElementById('app-title').innerHTML = 'Programming Retro Machines';" target="frame2">
                             <img src="ass/write.png" alt="oops"/>
-                            <div class="text">PROG8BIT</div>
+                            <div class="text">RETRODEV</div>
                             </a>
                         </div>
                         <div class="icon">
@@ -749,15 +751,15 @@
                                 frame2.src='https\://openlibrary.org/'; document.getElementById('app-loader').style.display = 'block';
                                 document.getElementById('app-title').innerHTML = 'Open Library';" target="frame2">
                             <img src="ass/WINHL002.ICO" alt="oops"/>
-                            <div class="text">OLIBRARY</div>
+                            <div class="text">BOOKS</div>
                             </a>
                         </div>
                         <div class="icon">
                             <a draggable="false" onclick="
-                                frame2.src='https\://libreflix.org'; document.getElementById('app-loader').style.display = 'block';
-                                document.getElementById('app-title').innerHTML = 'LibreFlix';" target="frame2">
+                                frame2.src='https\://retroflix.org/'; document.getElementById('app-loader').style.display = 'block';
+                                document.getElementById('app-title').innerHTML = 'RetroFlix';" target="frame2">
                             <img src="ass/MPLAY001.ICO" alt="oops"/>
-                            <div class="text">LIBRFLIX</div>
+                            <div class="text">MOVIES</div>
                             </a>
                         </div>
                     </div>
@@ -771,7 +773,7 @@
             <!--FOLDER MY_APPS-->
             <div id="f-myapps" class="window-border " style="bottom: 80px; left: 380px; width: 370px; height: 180px; z-index: 100; display: none">
                 <div class="window">
-                    <div id="title" class="title" onclick="
+                    <div class="title" onclick="
                         document.getElementById('f-myapps').style.zIndex = '200';
                         document.getElementById('f-games').style.zIndex = '100';">
                         MY_APPS
@@ -830,8 +832,10 @@
                 <div class="topleft handle"></div>
                 <div class="bottomleft handle"></div>
             </div>
+        </div>
 
         </div>
+    
         <div class="bottomright handle"></div>
         <div class="topright handle"></div>
         <div class="topleft handle"></div>
@@ -849,7 +853,7 @@
     <!--APPS-->
     <div id="exit-window" class="window-border " style="position: absolute; top: 35%; left: 35%; width: 480px; height: 130px; z-index: 99999; display: none">
         <div class="window">
-            <div id="title" class="title">
+            <div class="title">
                 Exit Finestra
             </div>
             <div><p style="text-align: center;"><img src="ass/PROGM039.ICO" alt="oops"> This will end Finestra 3.1 section and go back to DOS. <img src="ass/PROGM010.ICO" alt="oops"></p></div>
@@ -879,7 +883,7 @@
                     &blacktriangledown;
                 </div>
             </div>
-            <iframe id="frame2" src="loading.html" security="restricted" style="top: 26px; width: calc(100% - 1px); height: calc(100% - 27px); position: absolute;"></iframe>
+            <iframe id="frame2" src="loading.html" security="restricted" allowfullscreen style="top: 26px; width: calc(100% - 1px); height: calc(100% - 27px); position: absolute;"></iframe>
         </div>
         <div class="bottomright handle"></div>
         <div class="topright handle"></div>

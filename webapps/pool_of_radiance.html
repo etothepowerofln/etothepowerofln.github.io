@@ -2,10 +2,16 @@
 <html lang="">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <style>
+      * {
+        margin: 10;
+      }
+    </style>
   </head>
   <body>
-    <header style="text-align: center; color: brown;"><h1>Pool of Radiance Calculator</h1></header>
+    <header style="text-align: center; color: brown;">
+      <h1><img src="../ass/poolrad.png" alt="oops"/> Pool of Radiance Calculator <img src="../ass/poolrad.png" alt="oops"/></h1>
+    </header>
     <main>
       <hr>
       <input name="class1" type="radio" id="c" checked>Cleric</input>
@@ -17,7 +23,7 @@
         Elf, up to level 7; Gnome, up to level 6; Half-elf, up to level 8; Halflings, up to level 6.</label>
       <br>
       <input id="exp1" size="6" value="0">exp</input>
-      <input type="button" size="5" value="Calculate exp ->" onclick="
+      <input type="button" size="5" value="Calculate level ->" onclick="
       var e = parseInt(document.getElementById('exp1').value)
       if (document.getElementById('c').checked) {
         if (e > 55000) {document.getElementById('lbl1').innerHTML = 
