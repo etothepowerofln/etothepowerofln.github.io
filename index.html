@@ -587,6 +587,7 @@
                     document.getElementById('app-title').innerHTML = 'About';" 
                     target="frame2">About...</a></div>
             </div>
+
         <div Class="window folders">
             <!--ICONS-->
             <div class="icons">
@@ -598,12 +599,20 @@
                     <div class="text">LINKS</div>
                     </a>
                 </div>
-                <div class="icon" id="myapps-icon" style="display: inline-block;">
+                <div class="icon" id="webapps-icon" style="display: inline-block;">
                     <a draggable="false" onclick="
-                    document.getElementById('f-myapps').style.display = 'block';
-                    document.getElementById('myapps-icon').style.display = 'none';">
+                    document.getElementById('f-webapps').style.display = 'block';
+                    document.getElementById('webapps-icon').style.display = 'none';">
                     <img src="ass/folder.png" alt="oops"/>
-                    <div class="text">MY_APPS</div>
+                    <div class="text">WEBAPPS</div>
+                    </a>
+                </div>
+                <div class="icon" id="deskapps-icon" style="display: inline-block;">
+                    <a draggable="false" onclick="
+                    document.getElementById('f-deskapps').style.display = 'block';
+                    document.getElementById('deskapps-icon').style.display = 'none';">
+                    <img src="ass/folder.png" alt="oops"/>
+                    <div class="text">DESKAPPS</div>
                     </a>
                 </div>
             </div>
@@ -612,7 +621,7 @@
             <div id="f-games" class="window-border " style="top: 56px; left: 4px; width: 640px; height: 250px; z-index: 100; display: none">
                 <div class="window">
                     <div class="title" onclick="
-                    document.getElementById('f-myapps').style.zIndex = '200';
+                    document.getElementById('f-webapps').style.zIndex = '200';
                     document.getElementById('f-games').style.zIndex = '100';">
                         Freeware or Shareware Programs
                         <div class="button" style="font-size: large;" id="btn-min-games" onclick="
@@ -775,21 +784,21 @@
                 <div class="bottomleft handle"></div>
             </div>
 
-            <!--FOLDER MY_APPS-->
-            <div id="f-myapps" class="window-border " style="bottom: 80px; left: 380px; width: 370px; height: 180px; z-index: 100; display: none">
+            <!--FOLDER WEBAPPS-->
+            <div id="f-webapps" class="window-border " style="bottom: 80px; left: 380px; width: 370px; height: 180px; z-index: 100; display: none">
                 <div class="window">
                     <div class="title" onclick="
-                        document.getElementById('f-myapps').style.zIndex = '200';
+                        document.getElementById('f-webapps').style.zIndex = '200';
                         document.getElementById('f-games').style.zIndex = '100';">
-                        MY_APPS
-                        <div class="button" style="font-size: large;" id="btn-min-myapps" onclick="
-                            document.getElementById('myapps-icon').style.display = 'inline-block';
-                            document.getElementById('f-myapps').style.display = 'none';">
+                        WEBAPPS
+                        <div class="button" style="font-size: large;" id="btn-min-webapps" onclick="
+                            document.getElementById('webapps-icon').style.display = 'inline-block';
+                            document.getElementById('f-webapps').style.display = 'none';">
                             &blacktriangledown;
                         </div>
                     </div>
                     <!--ICONS-->
-                    <div class="icons" id="myapps-icons">
+                    <div class="icons" id="webapps-icons">
                         <div class="icon" id="pizza-icon" style="display: inline-block;">
                             <a draggable="false" onclick="
                             frame2.src='webapps/pizzaAreaCalc.html'; document.getElementById('app-loader').style.display = 'block';
@@ -828,6 +837,50 @@
                                 document.getElementById('app-title').innerHTML = 'Pool of Radiance Calculator';" target="frame2">
                             <img src="ass/poolrad.png" alt="oops"/>
                             <div class="text">POOLRAD</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottomright handle"></div>
+                <div class="topright handle"></div>
+                <div class="topleft handle"></div>
+                <div class="bottomleft handle"></div>
+            </div>
+
+            <!--FOLDER DESKAPPS-->
+            <div id="f-deskapps" class="window-border " style="bottom: 75px; left: 480px; width: 370px; height: 120px; z-index: 100; display: none">
+                <div class="window">
+                    <div class="title" onclick="
+                        document.getElementById('f-deskapps').style.zIndex = '200';
+                        document.getElementById('f-games').style.zIndex = '100';">
+                        DESKAPPS
+                        <div class="button" style="font-size: large;" id="btn-min-deskapps" onclick="
+                            document.getElementById('deskapps-icon').style.display = 'inline-block';
+                            document.getElementById('f-deskapps').style.display = 'none';">
+                            &blacktriangledown;
+                        </div>
+                    </div>
+                    <!--ICONS-->
+                    <div class="icons" id="deskapps-icons">
+                        <div class="icon" id="gogshorts-icon" style="display: inline-block;">
+                            <a draggable="false" 
+                            href="https://github.com/etothepowerofln/GOG_Shorts/releases" target="_blank">
+                            <img src="ass/gogshorts32.jpg" alt="oops"/>
+                            <div class="text">GOGSHORT</div>
+                            </a>
+                        </div>
+                        <div class="icon" id="batch-icon" style="display: inline-block;">
+                            <a draggable="false" 
+                            href="https://github.com/etothepowerofln/BATCH" target="_blank">
+                            <img src="ass/PROGM022.ICO" alt="oops"/>
+                            <div class="text">BAT_REP</div>
+                            </a>
+                        </div>
+                        <div class="icon" id="bash-icon" style="display: inline-block;">
+                            <a draggable="false" 
+                            href="https://github.com/etothepowerofln/BASH" target="_blank">
+                            <img src="ass/PROGM022.ICO" alt="oops"/>
+                            <div class="text">BASH_REP</div>
                             </a>
                         </div>
                     </div>
